@@ -14,14 +14,16 @@ import { createVuetify } from 'vuetify'
 const lightTheme = {
   dark: false,
   colors: {
-    primary: '5D24FF',
-    'on-primary': 'FFFFFF',
-    error: 'BA1A1A',
-    'on-error': 'FFFFFF',
-    success: '009217',
-    background: '5D24FF',
-    surface: 'FDF8FF',
-    'on-background': 'FFFFFF'
+    primary: '#5D24FF',
+    'on-primary': '#FFFFFF',
+    error: '#BA1A1A',
+    'on-error': '#FFFFFF',
+    success: '#009217',
+    background: '#5D24FF',
+    'on-background': '#FFFFFF',
+    surface: '#FDF8FF',
+    'on-surface': '#5D24FF'
+
     
   }
 }
@@ -29,15 +31,15 @@ const lightTheme = {
 const darkTheme = {
   dark: true,
   colors: {
-    primary: '5D24FF',
-    'on-primary': 'FFFFFF',
-    error: 'BA1A1A',
-    'on-error': 'FFFFFF',
-    success: '009217',
-    background: '5D24FF',
-    surface: '121212',
-    'on-background': 'FFFFFF'
-
+    primary: '#5D24FF',
+    'on-primary': '#FFFFFF',
+    error: '#BA1A1A',
+    'on-error': '#FFFFFF',
+    success: '#009217',
+    background: '#161618',
+    'on-background': '#FFFFFF',
+    surface: '#5D24FF',
+    'on-surface': '#FFFFFF'
   }
 
 }

@@ -17,4 +17,5 @@ const app = createApp(App)
 
 registerPlugins(app)
 
+// app.use(router)
 app.mount('#app')

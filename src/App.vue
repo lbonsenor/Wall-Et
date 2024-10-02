@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <SideBar/>
+    <TopBar/>
     <v-main>
       <HelloWorld />
     </v-main>
