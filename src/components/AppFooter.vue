@@ -70,7 +70,7 @@
 
 <style scoped lang="sass">
   .social-link :deep(.v-icon)
-    color: rgba(var(--v-theme-on-background), var(--v-disabled-opacity))
+    color: rgba(var(--v-theme-primary), var(--v-disabled-opacity))
     text-decoration: none
     transition: .2s ease-in-out
 

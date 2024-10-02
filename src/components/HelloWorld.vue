@@ -22,7 +22,7 @@
         <v-col cols="12">
           <v-card
             class="py-4"
-            color="surface-variant"
+            color="surface"
             image="https://cdn.vuetifyjs.com/docs/images/one/create/feature.png"
             prepend-icon="mdi-rocket-launch-outline"
             rounded="lg"
@@ -56,7 +56,7 @@
           <v-card
             append-icon="mdi-open-in-new"
             class="py-4"
-            color="surface-variant"
+            color="surface"
             href="https://vuetifyjs.com/"
             prepend-icon="mdi-text-box-outline"
             rel="noopener noreferrer"
@@ -80,7 +80,7 @@
           <v-card
             append-icon="mdi-open-in-new"
             class="py-4"
-            color="surface-variant"
+            color="surface"
             href="https://vuetifyjs.com/introduction/why-vuetify/#feature-guides"
             prepend-icon="mdi-star-circle-outline"
             rel="noopener noreferrer"
@@ -104,7 +104,7 @@
           <v-card
             append-icon="mdi-open-in-new"
             class="py-4"
-            color="surface-variant"
+            color="surface"
             href="https://vuetifyjs.com/components/all"
             prepend-icon="mdi-widgets-outline"
             rel="noopener noreferrer"
@@ -128,7 +128,7 @@
           <v-card
             append-icon="mdi-open-in-new"
             class="py-4"
-            color="surface-variant"
+            color="surface"
             href="https://discord.vuetifyjs.com"
             prepend-icon="mdi-account-group-outline"
             rel="noopener noreferrer"
