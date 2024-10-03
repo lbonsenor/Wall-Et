@@ -22,9 +22,11 @@ const lightTheme = {
     background: '#5D24FF',
     'on-background': '#FFFFFF',
     surface: '#FDF8FF',
-    'on-surface': '#5D24FF'
+    'on-surface': '#5D24FF',
+    button: '#5D24FF',
+    'on-button': '#FFFFFF',
+    title: '#000000',
 
-    
   }
 }
 
@@ -39,7 +41,10 @@ const darkTheme = {
     background: '#161618',
     'on-background': '#FFFFFF',
     surface: '#5D24FF',
-    'on-surface': '#FFFFFF'
+    'on-surface': '#FFFFFF',
+    button: '#FFFFFF',
+    'on-button': '#5D24FF',
+    title: '#FFFFFF',
   }
 
 }

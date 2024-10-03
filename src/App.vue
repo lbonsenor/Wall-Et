@@ -3,6 +3,7 @@
     <SideBar/>
     <TopBar/>
     <v-main>
+      <BalanceBox/>
       <HelloWorld />
     </v-main>
 
@@ -11,6 +12,8 @@
 </template>
 
 <script setup>
+
+
   //
 </script>
 
