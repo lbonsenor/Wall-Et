@@ -8,7 +8,7 @@
         <BalanceBox />
         <CVU></CVU>
       </div>
-      <activity-list :activities="activities" :display-count="3" />
+      <activity-list :activities="activities" :display-count="7" />
       <HelloWorld />
     </v-main>
 
@@ -54,6 +54,47 @@ export default {
           out: false
         },
         {
+          date: '2024-02-28',
+          title: 'Farmacity',
+          transaction_type: 'Pago online',
+          payment_type: 'Mastercard prepago',
+          amount: '$25.176,70',
+          time: '11:45',
+          out: true
+        },
+        {
+          date: '2024-02-28',
+          title: 'Farmacity',
+          transaction_type: 'Pago online',
+          payment_type: 'Mastercard prepago',
+          amount: '$25.176,70',
+          time: '11:45',
+          out: true
+        },{
+          date: '2024-02-28',
+          title: 'Farmacity',
+          transaction_type: 'Pago online',
+          payment_type: 'Mastercard prepago',
+          amount: '$25.176,70',
+          time: '11:45',
+          out: true
+        },{
+          date: '2024-02-28',
+          title: 'Farmacity',
+          transaction_type: 'Pago online',
+          payment_type: 'Mastercard prepago',
+          amount: '$25.176,70',
+          time: '11:45',
+          out: true
+        },{
+          date: '2024-02-28',
+          title: 'Farmacity',
+          transaction_type: 'Pago online',
+          payment_type: 'Mastercard prepago',
+          amount: '$25.176,70',
+          time: '11:45',
+          out: true
+        },{
           date: '2024-02-28',
           title: 'Farmacity',
           transaction_type: 'Pago online',
