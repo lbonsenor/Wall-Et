@@ -1,14 +1,14 @@
 <template>
-  <div class="activity-list">
-    <div class="activity-container">
-      <template v-for="(activity, index) in displayedActivities" :key="index">
-        <div v-if="isNewDate(index)" class="date-header">
-          {{ formatDate(activity.date) }}
-        </div>
-        <activity-list-card v-bind="activity" />
-        <!-- <v-divide v-if="isLastItemInDateGroup(index)" color="text_caption" /> -->
-      </template>
-    </div>
+  <div class="activity-container pt-5">
+    <v-text class="pa-5" style="font-weight: 500; color:rgb(var(--v-theme-title))">Actividades Recientes</v-text>
+
+    <template v-for="(activity, index) in displayedActivities" :key="index">
+      <div v-if="isNewDate(index)" class="date-header">
+        {{ formatDate(activity.date) }}
+      </div>
+      <activity-list-card v-bind="activity" />
+      <!-- <v-divide v-if="isLastItemInDateGroup(index)" color="text_caption" /> -->
+    </template>
   </div>
 </template>
 
@@ -45,27 +45,21 @@ export default {
       if (index === 0) return true
       return this.displayedActivities[index].date !== this.displayedActivities[index - 1].date
     },
-    // isLastItemInDateGroup(index) {
-    //   const currentDate = this.displayedActivities[index].date;
-    //   const nextItem = this.displayedActivities[index + 1];
-
-    //   return nextItem.date !== currentDate;
-    // },
   }
 }
 </script>
 
 <style scoped>
 .activity-list {
-  max-width: 500px;
-  margin: 12px 0;
+  
 }
 
 .activity-container {
   background-color: rgb(var(--v-theme-surface));
   border-radius: 20px;
   overflow: hidden;
-  padding: 12px 0;
+  max-width: 500px;
+  margin: 12px 0;
 }
 
 .date-header {
