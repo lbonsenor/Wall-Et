@@ -1,17 +1,16 @@
 <template>
-  <v-navigation-drawer permanent color="surface" expand-on-hover rail style="height: 92vh; margin-top: 4vh;" class="rounded-e-xl py-6 px-2">
-    <v-list mandatory class="justify-center flex-column fill-height d-flex" activated="0">
+  <v-navigation-drawer permanent color="surface" expand-on-hover rail style="height: 92vh; margin-top: 4vh;" class="rounded-e-xl">
+    <v-list mandatory class="justify-center flex-column fill-height d-flex ga-4 px-2" >
       <v-list-item 
         v-for="(item, i) in items" 
-        nav rounded="pill"
+        nav
+        rounded="pill"
         :key="i"
         :value="item.value"
         :title="item.title"
         :prepend-icon="item.icon"
-        color="on-surface"
-        base-color="on-surface"
-        variant="text"
         active-class="active"
+        color="on-surface"
         >
       </v-list-item>
     </v-list>
@@ -44,7 +43,7 @@
   
 </script>
 
-<style >
+<style>
   .active{
     background-color: rgb(var(--v-theme-on-surface))!important;
     color: rgb(var(--v-theme-surface))!important;

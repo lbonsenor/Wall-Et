@@ -1,36 +1,35 @@
 <template>
-    <v-card class="mx-auto px-5 py-4 rounded-xl" 
+    <v-card class="pa-5 rounded-xl" 
             color="surface"
-            min-width="280"
-            max-width="50vw">
+            min-width="302">
         <v-text style="font-weight: 500; color:rgb(var(--v-theme-title))">Dinero Disponible</v-text>
-        <div class="d-flex container">
+        <div class="d-flex align-center">
             <v-text class="me-auto text-no-wrap balance">
                 {{ isBalanceShown ? formatter.format(balance) : "******" }}
             </v-text>
-            <v-btn color="button" variant="flat" size="x-small" @click="isBalanceShown = !isBalanceShown" icon>
+            
+            <v-btn color="button" class="ml-2" variant="tonal" size="x-small" @click="isBalanceShown = !isBalanceShown" icon>
                 <v-icon>{{ isBalanceShown ? "mdi-eye-off-outline" : "mdi-eye-outline" }}</v-icon>
             </v-btn>
         </div>
-        <div class="d-flex py-2 mt-2 ga-3">
+        <v-row class="pa-3 mt-2 ga-3">
             <v-btn class="v-btn__content text-none" 
                 prepend-icon="mdi-tray-arrow-up"
-                color="button" rounded="xl" variant="flat">Transferir</v-btn>
+                color="button" rounded="pill" variant="flat" text="Transferir"/>
             <v-btn class="v-btn__content text-none"
                 prepend-icon="mdi-tray-arrow-down"
-                color="button" rounded="xl" variant="flat">Ingresar</v-btn>
-        </div>
+                color="button" rounded="pill" variant="flat" text="Ingresar"/>
+        </v-row>
     </v-card>
 </template>
 
 <script>
-// import { computed } from 'vue';
     export default{
         data() {
             return {
                 isBalanceShown: false,
                 formatter: new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}),
-                balance: 1234567890123
+                balance: 1234562222.22
             };
         },
     };
@@ -38,18 +37,18 @@
 </script>
 
 <style scoped>
-    .container{
-        display: flex;
-        align-items: center;
-    }
     .v-btn__content {
         letter-spacing: 0px;
-        font-size: small;
+        min-width: 125px;
     }
     .balance{
         font-size: x-large; 
-        font-weight: bold;
-        width: 80%; 
-        overflow: hidden;
+        font-weight: 600;
+        overflow: scroll;
+        font-family: "Roboto Mono", monospace;
+    }
+    .balance::-webkit-scrollbar{
+        width: 0px;
+        background: transparent;
     }
 </style>
