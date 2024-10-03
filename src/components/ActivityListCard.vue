@@ -1,12 +1,12 @@
 <template>
-    <v-card class="pa-3 px-8" max-width="500" color="surface" flat>
+    <v-card class="pa-3 px-4" min-width="350" max-width="500" color="surface" flat>
         <v-row align="center" style="color:rgb(var(--v-theme-title))" no-gutters>
             <v-col cols="2">
                 <v-avatar size="65">
                     <v-img src="@/assets/pedidos_ya.png"></v-img>
                 </v-avatar>
             </v-col>
-            <v-col cols="7">
+            <v-col cols="6">
                 <div class="ml-5">
                     <v-card-text class="font-weight-bold pa-0">{{ title }}</v-card-text>
                     <v-card-text class="text-caption pa-0 mt-0.5" style="color:rgb(var(--v-theme-text_caption))">{{ transaction_type }}</v-card-text>
@@ -16,7 +16,7 @@
                     </v-card-text>
                 </div>
             </v-col>
-            <v-col cols="3" class="text-right">
+            <v-col cols="4" class="text-right">
                 <v-card-text class="font-weight-bold pa-0" :class="{ '': out, 'text-green': !out }">
                     {{ out ? '-' + amount : '+' + amount }}
                 </v-card-text>

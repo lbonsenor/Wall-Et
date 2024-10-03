@@ -62,7 +62,7 @@
   
   .date-header {
     text-align: left;
-    padding: 30px 40px 10px ;
+    padding: 20px 20px 10px ;
     font-size: 14px;
     font-weight: 600;
     color: rgb(var(--v-theme-text_caption));
