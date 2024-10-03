@@ -1,6 +1,6 @@
 <template>
   <TopBar/>
-  <v-app class="pa-5">
+  <v-app class="px-5">
     <SideBar/>
     <v-main>
       <RouterView/>

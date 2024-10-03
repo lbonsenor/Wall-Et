@@ -3,7 +3,7 @@
     height="50px"
     flat
     > -->
-        <v-toolbar density="compact" class="fixed-bar pa-4" color="primary">
+        <v-toolbar density="compact" class="fixed-bar pt-4 pr-4" color="primary">
             <!-- <v-toolbar-title>Title</v-toolbar-title> -->
             <v-spacer></v-spacer>
             <v-btn icon>
