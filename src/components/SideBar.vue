@@ -33,7 +33,7 @@
     data: () => ({
       items: [
         {title: 'Inicio', value:"home", icon:"mdi-home-outline", route: '/'},
-        {title: 'Transferir Dinero', value:"transfer", icon:"mdi-invoice-send-outline", route: '/transferir'},
+        {title: 'Transferir Dinero', value:"transfer", icon:"mdi-send-outline", route: '/transferir'},
         {title: 'Actividades', value:"activities", icon:"mdi-receipt-text-clock-outline", route: '/actividades'},
         {title: 'Mis Tarjetas', value:"cards", icon:"mdi-credit-card-outline", route:'/mis-tarjetas'},
         {title: 'Cobrar', value:"charge", icon:"mdi-piggy-bank-outline", route: '/cobrar'},
@@ -45,7 +45,7 @@
 
 <style>
   .active{
-    background-color: rgb(var(--v-theme-on-surface))!important;
-    color: rgb(var(--v-theme-surface))!important;
+    background-color: rgb(var(--v-theme-button))!important;
+    color: rgb(var(--v-theme-on-button))!important;
   }
 </style>

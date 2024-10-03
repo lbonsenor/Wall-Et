@@ -3,18 +3,16 @@
     height="50px"
     flat
     > -->
-        <v-toolbar density="compact" class="fixed-bar" color="transparent">
+        <v-toolbar density="compact" class="fixed-bar" color="primary">
             <!-- <v-toolbar-title>Title</v-toolbar-title> -->
             <v-spacer></v-spacer>
             <v-btn icon>
                 <v-icon @click="toggleTheme">{{ themeIcon }}</v-icon>
             </v-btn>
-            <v-btn icon>
+            <v-btn icon class="mr-3">
                 <v-icon>mdi-bell</v-icon>
             </v-btn>
-            <v-btn icon>
-                <v-icon>mdi-account</v-icon>
-            </v-btn>
+            <v-avatar color="info" icon="mdi-account" ></v-avatar>
         </v-toolbar>
     <!-- </v-card> -->
 </template>
@@ -38,8 +36,8 @@ function toggleTheme () {
 <style scoped>
     .fixed-bar {
     position: sticky;
-    position: -webkit-sticky; /* for Safari */
-    top: 0.3em;
+    top: 0;
     z-index: 10;
+    margin-bottom: 12px;
     }
 </style>

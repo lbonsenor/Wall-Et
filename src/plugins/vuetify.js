@@ -26,6 +26,7 @@ const lightTheme = {
     button: '#5D24FF',
     'on-button': '#FFFFFF',
     title: '#000000',
+    text_caption: '#5A5A5A',
 
   }
 }
@@ -33,18 +34,20 @@ const lightTheme = {
 const darkTheme = {
   dark: true,
   colors: {
-    primary: '#5D24FF',
+    primary: '#101010',
     'on-primary': '#FFFFFF',
     error: '#BA1A1A',
     'on-error': '#FFFFFF',
-    success: '#009217',
-    background: '#161618',
+    success: '#34E350',
+    background: '#101010',
     'on-background': '#FFFFFF',
-    surface: '#5D24FF',
+    surface: '#1F1F1F',
     'on-surface': '#FFFFFF',
-    button: '#FFFFFF',
-    'on-button': '#5D24FF',
+    button: '#5D24FF',
+    'on-button': '#FFFFFF',
     title: '#FFFFFF',
+    text_caption: '#C8C8CF',
+
   }
 
 }
