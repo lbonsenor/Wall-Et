@@ -7,9 +7,19 @@
             <h2 class="logo text-center">WALL·Et</h2>
         </v-list-item>
     </template>
+
     <v-list mandatory class="justify-center fill-height flex-column d-flex ga-4 px-2">
-      <v-list-item v-for="(item, i) in items" nav rounded="pill" :key="i" :value="item.value" :title="item.title"
-        :prepend-icon="item.icon" active-class="active" color="on-surface" @click="navigateTo(item.route)">
+      <v-list-item v-for="(item, i) in items" 
+        nav rounded="pill" 
+        :key="i" 
+        :itemid="i" 
+        :value="item.value" 
+        :title="item.title"
+        :prepend-icon="item.icon"
+        :active="isCurrentRoute(item.route)"
+        active-class="active" 
+        color="on-surface" 
+        @click="navigateTo(item.route)">
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
@@ -31,6 +41,9 @@ export default {
   methods: {
     navigateTo(route) {
       this.$router.push(route);
+    },
+    isCurrentRoute(route){
+      return this.$route.path == route
     }
   }
 }
