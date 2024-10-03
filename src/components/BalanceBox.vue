@@ -14,10 +14,10 @@
         </div>
         <v-row class="pa-3 mt-2 ga-3">
             <v-btn class="v-btn__content text-none" 
-                prepend-icon="mdi-tray-arrow-up"
+                prepend-icon="mdi-send-outline"
                 color="button" rounded="pill" variant="flat" text="Transferir"/>
             <v-btn class="v-btn__content text-none"
-                prepend-icon="mdi-tray-arrow-down"
+                prepend-icon="mdi-cash-multiple"
                 color="button" rounded="pill" variant="flat" text="Ingresar"/>
         </v-row>
     </v-card>

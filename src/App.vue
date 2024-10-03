@@ -8,7 +8,7 @@
         <BalanceBox />
         <CVU></CVU>
       </div>
-      <activity-list :activities="activities" :display-count="7" />
+      <activity-list :activities="activities" :display-count="5" />
       <HelloWorld />
     </v-main>
 
