@@ -1,0 +1,10 @@
+2024-10-03|Pedidos Ya|Pago online|Dinero disponible|$17.500|17:15|true
+2024-10-03|Transferencia recibida|Transferencia|Cuenta bancaria|$50.000|14:30|false
+2024-10-03|Compra supermercado|Compra con tarjeta|Tarjeta de crédito|$35.200|11:45|true
+2024-10-02|Depósito en efectivo|Depósito|Cuenta de ahorro|$100.000|09:30|false
+2024-10-02|Pago de servicios|Pago de factura|Cuenta corriente|$22.800|16:00|true
+2024-10-02|Retiro cajero automático|Retiro|Tarjeta de débito|$15.000|19:45|true
+2024-10-01|Devolución compra online|Reembolso|Tarjeta de crédito|$8.500|13:20|false
+2024-10-01|Pago de suscripción|Débito automático|Cuenta corriente|$5.990|00:01|true
+2024-10-01|Transferencia enviada|Transferencia|Cuenta bancaria|$75.000|10:15|true
+2024-09-30|Ingreso por venta|Depósito|Cuenta de empresa|$230.000|18:30|false
