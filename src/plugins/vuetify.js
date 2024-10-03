@@ -27,6 +27,8 @@ const lightTheme = {
     'on-button': '#FFFFFF',
     title: '#000000',
     text_caption: '#5A5A5A',
+    secondary: '#FFFFFF',
+    'on-secondary': '#5D24FF',
 
   }
 }
@@ -47,6 +49,8 @@ const darkTheme = {
     'on-button': '#FFFFFF',
     title: '#FFFFFF',
     text_caption: '#C8C8CF',
+    secondary: '#5D24FF',
+    'on-secondary': '#FFFFFF',
 
   }
 
