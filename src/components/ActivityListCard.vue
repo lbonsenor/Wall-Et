@@ -1,13 +1,13 @@
 <template>
     <v-card class="pa-3 px-4" min-width="350" max-width="500" color="surface" flat>
         <v-row align="center" style="color:rgb(var(--v-theme-title))" no-gutters>
-            <v-col cols="2">
+            <v-col cols="2" class="me-auto">
                 <v-avatar size="65">
                     <v-img src="@/assets/pedidos_ya.png"></v-img>
                 </v-avatar>
             </v-col>
-            <v-col cols="6">
-                <div class="ml-5">
+            <v-col cols="6" class="me-auto text-no-wrap scrollable">
+                <div class="mx-2">
                     <v-card-text class="font-weight-bold pa-0">{{ title }}</v-card-text>
                     <v-card-text class="text-caption pa-0 mt-0.5 text-sm-caption" style="color:rgb(var(--v-theme-text_caption))">{{ transaction_type }}</v-card-text>
                     <v-card-text class="d-flex align-center text-caption pa-0 mt-0.5" style="color:rgb(var(--v-theme-text_caption))">
@@ -16,7 +16,7 @@
                     </v-card-text>
                 </div>
             </v-col>
-            <v-col cols="4" class="text-right">
+            <v-col cols="4" class="text-right ma-auto text-no-wrap">
                 <v-card-text class="font-weight-bold pa-0" :class="{ 'text-success': !out }">
                     {{ out ? '-' + amount : '+' + amount }}
                 </v-card-text>
@@ -77,4 +77,19 @@ export default {
   .v-card {
     margin-bottom: 8px;
   }
+  .scrollable {
+    overflow: scroll;
+    overflow-y: hidden;
+  }
+  .scrollable::-webkit-scrollbar{
+        width: 0px;
+        background: transparent;
+    }
+
+  /* .balance{
+        font-size: x-large; 
+        font-weight: 600;
+        font-family: "Roboto Mono", monospace;
+    } */
+    
   </style>

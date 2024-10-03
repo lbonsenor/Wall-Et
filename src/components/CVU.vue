@@ -7,9 +7,9 @@
             </div>
             <v-tooltip open-on-click :open-on-hover="false" v-model="AliasCopied" close-delay="1000" text="Copiado!">
                 <template v-slot:activator="{ on, props }">
-                    <v-btn v-bind="props" v-on="on" icon="mdi-content-copy" color="on-primary" @click="copy(alias)"></v-btn>
+                    <v-btn v-bind="props" v-on="on" icon="mdi-content-copy" color="secondary" @click="copy(alias)"></v-btn>
                 </template>
-            </v-tooltip>
+            </v-tooltip> 
         </v-row>
         <v-divider class="mt-4 mb-4" thickness="1" color="white"></v-divider>
         <v-row no-gutters justify="space-between" class="d-flex">
@@ -19,7 +19,7 @@
             </div>
             <v-tooltip open-on-click :open-on-hover="false" v-model="CVUCopied" close-delay="1000" text="Copiado!">
                 <template v-slot:activator="{ on, props }">
-                    <v-btn v-bind="props" v-on="on" icon="mdi-content-copy" color="on-primary" @click="copy(cvu)"></v-btn>
+                    <v-btn v-bind="props" v-on="on" icon="mdi-content-copy" color="secondary" @click="copy(cvu)"></v-btn>
                 </template>
             </v-tooltip>
         </v-row>

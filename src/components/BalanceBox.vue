@@ -15,7 +15,9 @@
         <v-row class="pa-3 mt-2 ga-3">
             <v-btn class="v-btn__content text-none" 
                 prepend-icon="mdi-send-outline"
-                color="button" rounded="pill" variant="flat" text="Transferir"/>
+                color="button" rounded="pill" variant="flat" text="Transferir"
+                @click="navigateToTransferir"
+                />
             <v-btn class="v-btn__content text-none"
                 prepend-icon="mdi-cash-multiple"
                 color="button" rounded="pill" variant="flat" text="Ingresar"/>
@@ -32,6 +34,11 @@
                 balance: 1234562222.22
             };
         },
+        methods: {
+            navigateToTransferir() {
+                this.$router.push({ path: '/transferir' });
+            }
+        }
     };
 
 </script>

@@ -1,16 +1,31 @@
-// import { createRouter, createMemoryHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
-// import HomeView from '@/views/Home.vue'
-// import TransferView from '@/views/Transfer.vue'
+import Home from '@/views/Home.vue'
+import Transfer from '@/views/Transfer.vue'
+import { createWebHashHistory } from 'vue-router'
 
-// const routes = [
-//     { path: '/', component: HomeView }, 
-//     { path: '/transferir', component: TransferView },
-// ]
 
-// const router = createRouter({
-//     history: createMemoryHistory(),
-//     routes,
-// })
+const routes = [
+    { 
+        path: '/', 
+        name: 'home',
+        component: Home 
+    }, 
+    { 
+        path: '/transferir',
+        name: 'transferir',
+        component: Transfer 
+    },
+]
 
-// e
+const router = createRouter({
+    history: createWebHistory(),
+    routes,
+})
+
+router.beforeEach((to, from, next) => {
+    console.log('Navigating to:', to.path);
+    next();
+  });
+  
+export default router; 
