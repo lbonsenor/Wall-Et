@@ -1,7 +1,7 @@
 <template>
+  <TopBar/>
   <v-app class="pa-5">
-    <TopBar />
-    <SideBar />
+    <SideBar/>
     <v-main>
       <RouterView/>
     </v-main>
