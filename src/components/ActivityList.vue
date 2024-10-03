@@ -51,7 +51,7 @@
   <style scoped>
   .activity-list {
     max-width: 500px;
-    margin: 0 auto;
+    margin: 12px 0;
   }
   
   .activity-container {
