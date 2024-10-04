@@ -1,6 +1,7 @@
 <template>
     <v-main>
-        <h2 style="color:white">Mis Tarjetas</h2>
+        <h2>Mis Tarjetas</h2>
+        <CardItem></CardItem>
     </v-main>
 </template>
 
