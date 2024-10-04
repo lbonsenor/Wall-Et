@@ -18,7 +18,7 @@
                 <v-form @submit.prevent="updateProfile" class="mb-4">
                     <v-text-field
                         v-model="email"
-                        label="E-mail"
+                        label="Email"
                         prepend-inner-icon="mdi-email-outline"
                         variant="outlined"
                     />
@@ -46,7 +46,7 @@
                     <span class="text-decoration-underline">Cambiar contraseña</span>
                 </v-btn>
 
-                <v-btn color="error" variant="text" prepend-icon="mdi-delete-outline" block class="justify-start">
+                <v-btn variant="text" prepend-icon="mdi-delete-outline" block class="justify-start">
                     <span class="text-decoration-underline">Eliminar cuenta</span>
                 </v-btn>
             </v-col>
