@@ -19,7 +19,8 @@ const lightTheme = {
     error: '#BA1A1A',
     'on-error': '#FFFFFF',
     success: '#009217',
-    background: '#5D24FF',
+    // background: '#5D24FF',
+    // background: transparent,
     'on-background': '#FFFFFF',
     surface: '#FDF8FF',
     'on-surface': '#5D24FF',
@@ -29,7 +30,8 @@ const lightTheme = {
     text_caption: '#5A5A5A',
     secondary: '#FFFFFF',
     'on-secondary': '#5D24FF',
-
+    // transparent: transparent, 
+    // 'on-transparent': "#FFFFFF"
   }
 }
 
@@ -42,7 +44,8 @@ const darkTheme = {
     error: '#BA1A1A',
     'on-error': '#FFFFFF',
     success: '#34E350',
-    background: '#101010',
+    // background: '#101010',
+    // background: transparent,
     'on-background': '#FFFFFF',
     surface: '#1F1F1F',
     'on-surface': '#FFFFFF',
@@ -52,6 +55,8 @@ const darkTheme = {
     text_caption: '#C8C8CF',
     secondary: '#5D24FF',
     'on-secondary': '#FFFFFF',
+    // transparent: transparent, 
+    // 'on-transparent': "#FFFFFF"
   }
 
 }

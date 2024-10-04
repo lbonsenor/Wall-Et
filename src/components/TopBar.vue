@@ -3,13 +3,13 @@
     height="50px"
     flat
     > -->
-        <v-toolbar density="compact" class="fixed-bar pt-4 pr-4" color="background">
+        <v-toolbar density="compact" class="fixed-bar pt-4 pr-4" color="transparent">
             <!-- <v-toolbar-title>Title</v-toolbar-title> -->
             <v-spacer></v-spacer>
             <v-btn icon>
-                <v-icon @click="toggleTheme">{{ themeIcon }}</v-icon>
+                <v-icon color="white" @click="toggleTheme">{{ themeIcon }}</v-icon>
             </v-btn>
-            <v-btn icon class="mr-3">
+            <v-btn color="white" icon class="mr-3">
                 <v-icon>mdi-bell</v-icon>
             </v-btn>
             <v-avatar color="info" icon="mdi-account" ></v-avatar>

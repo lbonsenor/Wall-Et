@@ -1,8 +1,8 @@
 <template>
   <TopBar/>
-  <v-app class="px-15">
-    <SideBar/>
-    <v-main>
+  <v-app class="transparent">
+    <SideBar />
+    <v-main class="mx-5">
       <RouterView/>
     </v-main>
     <!-- <AppFooter /> -->
@@ -29,9 +29,40 @@ h1 {
   font-weight: normal;
   padding: 1%;
 }
+.transparent {
+  background-color: transparent!important;
+}
 
 body {
   font-family: "Inter", sans-serif;
-  background-color: rgb(var(--v-theme-background));
+  background: linear-gradient(339deg,#f74277,#704983,#1f0261,#5d24ff);
+  background-size: 240% 240%;
+  animation: gradient-animation 16s ease infinite;
 }
+
+/* html, body {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(339deg,#f74277,#704983,#1f0261,#5d24ff);
+  background-size: 240% 240%;
+  animation: gradient-animation 16s ease infinite;
+} */
+
+.bg-gradient {
+  background: linear-gradient(339deg,#f74277,#704983,#1f0261,#5d24ff);
+  background-size: 240% 240%;
+  animation: gradient-animation 16s ease infinite;
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
 </style>
