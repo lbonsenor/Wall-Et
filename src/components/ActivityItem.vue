@@ -7,7 +7,7 @@
                 </v-avatar>
             </v-col>
             <v-col cols="6" class="me-auto text-no-wrap scrollable">
-                <div class="mx-2">
+                <div class="px-3">
                     <v-card-text class="font-weight-bold pa-0">{{ title }}</v-card-text>
                     <v-card-text class="text-caption pa-0 mt-0.5 text-sm-caption" style="color:rgb(var(--v-theme-text_caption))">{{ transaction_type }}</v-card-text>
                     <v-card-text class="d-flex align-center text-caption pa-0 mt-0.5" style="color:rgb(var(--v-theme-text_caption))">

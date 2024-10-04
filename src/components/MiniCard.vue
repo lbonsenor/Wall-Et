@@ -1,14 +1,15 @@
 <template>
     <v-card
     :color="cardColor"
-    class="mx-auto my-auto align-center"
+    class="mx-auto my-auto align-center mt-4 pa-2"
     rounded="xl"
+    flat
     >
     <template v-slot:prepend>
         <v-icon icon="mdi-credit-card" class="mr-2"></v-icon>
-        <v-card-title class="custom-subtitle"> {{ " **** **** **** " + last_digits }}</v-card-title>
+        <v-card-title class="custom-subtitle mr-2"> {{ " " + type + "  " }} </v-card-title>
+        <v-card-title class="custom-subtitle"> {{ "  **** **** **** " + last_digits }}</v-card-title>
     </template>
-    
     </v-card>
 </template>
     <!-- @click="navigateToCards" -->
@@ -22,6 +23,10 @@
                 type: String,
                 required: true
             }, 
+            type: {
+                type: String, 
+                required: false
+            },
             last_digits: {
                 type: String, 
                 required: true
@@ -52,6 +57,9 @@
     font-weight: normal; 
     /* color: rgb(var(--v-theme-title)); */
     font-family: 'Roboto Mono', monospace;
-    font-size: medium;
+    font-size: small;
+    white-space: nowrap;
+    display: flex;
+    justify-content: flex-end;
 }
 </style>

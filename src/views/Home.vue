@@ -6,7 +6,7 @@
   </div>
   <div class="d-flex">
     <activity-list :activities="activities" :display-count="4" />
-    <MiniCard :company="Mastercard" :last_digits="1230"></MiniCard>
+    <CardList :cards="cards" :display-count="5"/>
   </div>
     
 </template>
@@ -16,6 +16,7 @@ import BalanceBox from '@/components/BalanceBox.vue';
 import CVU from '@/components/CVU.vue';
 import ActivityList from '@/components/ActivityList.vue';
 import MiniCard from '@/components/MiniCard.vue';
+import CardList from '@/components/CardList.vue';
 
 export default {
   name: 'Home',
@@ -29,6 +30,24 @@ export default {
   },
   data() {
     return {
+      cards: [
+        {
+          company: 'Mastercard',
+          type: 'Crédito',
+          last_digits: '1234'
+        },
+        {
+          company: 'Mastercard',
+          type: 'Crédito',
+          last_digits: '1234'
+        },
+        {
+          company: 'Mastercard',
+          type: 'Crédito',
+          last_digits: '1234'
+        },
+        
+      ],
       activities: [
         {
           date: '2024-09-10',
