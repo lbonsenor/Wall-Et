@@ -103,6 +103,6 @@
         right: 0;   
         background-color: white;
         border: 2px solid var(--v-primary-base);
-        transform: translate(25%, 25%);
+        transform: translate(20%, 20%);
     }
 </style>
