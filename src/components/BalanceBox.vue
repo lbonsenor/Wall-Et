@@ -31,9 +31,14 @@
             return {
                 isBalanceShown: false,
                 formatter: new Intl.NumberFormat('es-AR', {style: 'currency', currency: 'ARS'}),
-                balance: 1234562222.22
             };
         },
+        props:{
+            balance: {
+                type: Number,
+                default: 0
+            }
+        },  
         methods: {
             navigateToTransferir() {
                 this.$router.push({ path: '/transferir' });

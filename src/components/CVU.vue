@@ -30,11 +30,19 @@
     export default{
         data() {
             return {
-                alias: "lau.bonsenor",
-                cvu: "00000000123145687945123",
                 AliasCopied: false,
                 CVUCopied: false,
             };
+        },
+        props: {
+            alias: {
+                type: String,
+                required: true
+            },
+            cvu: {
+                type: String,
+                required: true
+            }
         },
         methods:{
             async copy(text){
