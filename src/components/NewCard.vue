@@ -1,32 +1,10 @@
-<!-- <template>
-    <v-card class="mt-2 new-card d-flex align-center justify-center" height="30vh" min-width="40vh" max-width="60vh">
-        <v-btn variant="tonal" color="secondary" icon>
-            <v-icon icon="mdi-plus"></v-icon>
-        </v-btn>
-    </v-card>
-</template>
-
-<style scoped>
-.new-card {
-    background-color: transparent;
-    border-color: rgb(var(--v-theme-secondary));
-    border-width: 3px;
-    border-style: dashed; /*add more separation between the dashes */
-    
-}
-
-.icon {
-    color: rgb(var(--v-theme-secondary));
-}
-</style> -->
-
 <template>
     <v-card class="mt-2 new-card d-flex flex-column justify-center" height="30vh" min-width="40vh" max-width="60vh">
       <div class="card-content d-flex flex-column align-center">
-        <v-btn class="add-btn mb-3" variant="tonal" color="secondary" icon>
+        <v-btn class="add-btn mb-3" variant="tonal" color="white" icon>
           <v-icon icon="mdi-plus" size="large"></v-icon>
         </v-btn>
-        <div class="text-center text-secondary">Agregar tarjeta</div>
+        <p class="text-center add">Agregar tarjeta</p>
       </div>
     </v-card>
   </template>
@@ -34,7 +12,8 @@
   <style scoped>
   .new-card {
     background-color: transparent;
-    border: 3px dashed rgba(var(--v-theme-secondary), 0.5);
+    border: 3px dashed white;
+    opacity: 0.5;    
     border-radius: 16px;
     position: relative;
     overflow: hidden;
@@ -58,32 +37,27 @@
   }
   
   .new-card:hover {
-    border-color: rgb(var(--v-theme-secondary));
+    border-color: white;
+    opacity: 1;
     transform: scale(1.02);
   }
-  
-  .card-content {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-  }
-  
+
   .add-btn {
-    background-color: rgba(var(--v-theme-secondary), 0.1) !important;
+    background-color: (white, 0.1);
     transition: all 0.3s ease;
   }
   
   .add-btn:hover {
-    background-color: rgba(var(--v-theme-secondary), 0.2) !important;
+    background-color: (white, 0.4);
     transform: scale(1.1);
   }
   
   .add-btn .v-icon {
-    color: rgb(var(--v-theme-secondary));
+    color: white;
   }
   
-  .text-secondary {
-    color: rgb(var(--v-theme-secondary));
+  .add {
+    color: white;
     font-weight: 500;
     opacity: 0.8;
     transition: opacity 0.3s ease;
