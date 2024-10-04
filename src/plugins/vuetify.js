@@ -30,7 +30,8 @@ const lightTheme = {
     secondary: '#FFFFFF',
     'on-secondary': '#5D24FF',
     card: '#3b556e',
-    'on-card': "#FFFFFF"
+    'on-card': "#FFFFFF",
+    button_hover: '#713EFF'
 
   }
 }
@@ -55,7 +56,9 @@ const darkTheme = {
     secondary: '#5D24FF',
     'on-secondary': '#FFFFFF',
     card: '#3b556e',
-    'on-card': "#FFFFFF"
+    'on-card': "#FFFFFF",
+    button_hover: '#713EFF'
+
   }
 
 }

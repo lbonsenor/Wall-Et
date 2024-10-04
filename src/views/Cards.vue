@@ -1,24 +1,42 @@
 <template>
     <v-main>
-        <h2>Mis Tarjetas</h2>
-        <CardItem
-            card_brand="hi"
-            card_type="Débito"
-            card_number="1234 5678 9012 2345"
-            card_owner="Lautaro Bonsenor"
-            card_expiry_date="05/26"
-            card_cvv="123"
-        ></CardItem>
+        <h1>Mis Tarjetas</h1>
+        <CardsList :cardItems="cards" />
     </v-main>
 </template>
 
 <script>
-import CardItem from '@/components/CardItem.vue';
+import CardsList from '@/components/CardsList.vue';
 
 export default {
     name: 'Cards',
     components: {
-        CardItem
+        CardsList
+    },
+    data() {
+        return { 
+            cards: [
+                {card_brand:'hi',
+                card_type:'Debito',
+                card_number:'1234 4567 7890 0000',
+                card_owner:'Camila Lee',
+                card_expiry_date:'04/30',
+                card_cvv:'123'},
+                {card_brand:'hi',
+                card_type:'Debito',
+                card_number:'1234 4567 7890 0000',
+                card_owner:'Camila Lee',
+                card_expiry_date:'04/30',
+                card_cvv:'123'},
+                {card_brand:'hi',
+                card_type:'Debito',
+                card_number:'1234 4567 7890 0000',
+                card_owner:'Camila Lee',
+                card_expiry_date:'04/30',
+                card_cvv:'123'},
+
+            ]
+        }
     }
 };
 </script>
