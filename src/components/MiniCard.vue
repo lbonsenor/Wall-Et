@@ -29,21 +29,17 @@
         },
         data() {  
             return {               
-                cardColor: 'red-lighten-1',
+                colors: ["red-lighten-1", "pink-lighten-1", "purple-lighten-1", "deep-purple-darken-1", "indigo-lighten-1", "green-darken-1"],
+                cardColor: '',
             }
         },      
         methods: {
             navigateToCards() {
                 this.$router.push('/mis-tarjetas')
             },
-            selectRandomColor() {
-                const colors = ["red-lighten-1", "pink-lighten-1", "purple-lighten-1", "deep-purple-darken-1", "indigo-lighten-1", "green-darken-1"];
-                const random_num = Math.floor(Math.random() * colors.length);
-                return colors[0];
-            }
         },
         mounted() {
-            this.cardColor = this.selectRandomColor();
+            this.cardColor = this.colors[Math.floor(Math.random() * 6)];
         }
 
     }
