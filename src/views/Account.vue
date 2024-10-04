@@ -13,8 +13,6 @@
                         <h2>{{name}}</h2>
                         <p>{{username}}</p>
                     </div>
-
-                    <v-btn icon="mdi-pencil" variant="text" color="primary"/>
                 </div>
                 
                 <v-form @submit.prevent="updateProfile" class="mb-4">
@@ -23,7 +21,7 @@
                         label="E-mail"
                         prepend-inner-icon="mdi-email-outline"
                         variant="outlined"
-                    />      
+                    />
             
                     <v-text-field
                         v-model="phone"
@@ -44,12 +42,12 @@
                     </v-btn>
                 </v-form>
             
-                <v-btn color="white" variant="text" prepend-icon="mdi-lock-outline" block class="justify-start">
-                    Cambiar contraseña
+                <v-btn variant="text" prepend-icon="mdi-lock-outline" block class="justify-start">
+                    <span class="text-decoration-underline">Cambiar contraseña</span>
                 </v-btn>
 
                 <v-btn color="error" variant="text" prepend-icon="mdi-delete-outline" block class="justify-start">
-                    Eliminar cuenta
+                    <span class="text-decoration-underline">Eliminar cuenta</span>
                 </v-btn>
             </v-col>
         </v-row>
