@@ -37,7 +37,7 @@
                         variant="outlined"
                     />
             
-                    <v-btn color="primary" block rounded="pill" type="submit">
+                    <v-btn color="primary" block rounded="pill" type="submit" class="white-border">
                         Actualizar
                     </v-btn>
                 </v-form>
@@ -80,5 +80,8 @@
 <style scoped>
     .v-btn {
         text-transform: none;
+    }
+    .white-border {
+        border: 1px solid white;
     }
 </style>
