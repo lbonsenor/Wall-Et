@@ -5,17 +5,22 @@
                 <h1>Mi Cuenta</h1>
 
                 <div class="d-flex align-center mb-6">
-                    <div class="avatar-container">
-                        <v-avatar size="80" class="mr-4">
+                    <div class="avatar-container mr-4">
+                        <v-avatar size="80">
                             <v-img :src="avatar" alt="Profile picture"/>
                         </v-avatar>
-
+                        
                         <v-btn icon size="x-small" color="primary" class="change-avatar-btn" @click="changeAvatar">
                             <v-icon size="small">mdi-camera</v-icon>
                         </v-btn>
                     </div>
+
+                    <div>
+                        <h2>{{ name }}</h2>
+                        <p>{{ username }}</p>
+                    </div>
                 </div>
-                
+
                 <v-form @submit.prevent="updateProfile" class="mb-4">
                     <v-text-field
                         v-model="name"
