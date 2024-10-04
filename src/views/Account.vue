@@ -10,7 +10,7 @@
                             <v-img :src="avatar" alt="Profile picture"/>
                         </v-avatar>
                         
-                        <v-btn icon size="x-small" color="primary" class="change-avatar-btn" @click="changeAvatar">
+                        <v-btn icon size="30" color="primary" class="change-avatar-btn" @click="changeAvatar">
                             <v-icon size="small">mdi-camera</v-icon>
                         </v-btn>
                     </div>
