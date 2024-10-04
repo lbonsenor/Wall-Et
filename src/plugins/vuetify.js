@@ -29,6 +29,8 @@ const lightTheme = {
     text_caption: '#5A5A5A',
     secondary: '#FFFFFF',
     'on-secondary': '#5D24FF',
+    card: '#3b556e',
+    'on-card': "#FFFFFF"
 
   }
 }
@@ -52,6 +54,8 @@ const darkTheme = {
     text_caption: '#C8C8CF',
     secondary: '#5D24FF',
     'on-secondary': '#FFFFFF',
+    card: '#3b556e',
+    'on-card': "#FFFFFF"
   }
 
 }

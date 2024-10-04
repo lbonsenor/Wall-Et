@@ -89,7 +89,7 @@ export default {
   /* .balance{
         font-size: x-large; 
         font-weight: 600;
-        font-family: "Roboto Mono", monospace;
+        font-family: "Fira Mono", monospace;
     } */
     
   </style>

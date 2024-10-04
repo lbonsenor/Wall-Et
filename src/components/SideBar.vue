@@ -62,7 +62,7 @@ export default {
   margin-bottom: 12px;
   }
   .logo{
-    font-family: "Roboto Mono";
+    font-family: "Fira Mono";
   }
 
 </style>

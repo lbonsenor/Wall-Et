@@ -60,6 +60,6 @@
         flex-direction: column;
     }
     .number{
-        font-family: "Roboto Mono", monospace;
+        font-family: "Fira Mono", monospace;
     }
 </style>

@@ -8,7 +8,7 @@
     <template v-slot:prepend>
         <v-icon icon="mdi-credit-card" class="mr-2"></v-icon>
         <v-card-title class="custom-subtitle mr-2"> {{ " " + type + "  " }} </v-card-title>
-        <v-card-title class="custom-subtitle"> {{ "  **** **** **** " + last_digits }}</v-card-title>
+        <v-card-title class="custom-subtitle"> {{ "  ···· ···· ···· " + last_digits }}</v-card-title>
     </template>
     </v-card>
 </template>
@@ -56,7 +56,7 @@
     text-overflow: ellipsis;
     font-weight: normal; 
     /* color: rgb(var(--v-theme-title)); */
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Fira Mono', monospace;
     font-size: small;
     white-space: nowrap;
     display: flex;
