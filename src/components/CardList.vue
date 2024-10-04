@@ -1,8 +1,5 @@
 <template>
     <div class="card-list">
-        <!-- <template v-slot:append>
-            <v-button>Ver mas</v-button>
-        </template> -->
         <div class="d-flex justify-space-between mb-4">
             <h1 class="title">Mis Tarjetas</h1>
             <v-btn class="link" @click="navigateToCards" elevation="0" variant="text" density="compact">Ver más ></v-btn>
@@ -55,6 +52,7 @@ export default {
     /* min-height: calc(fit-content + 10px); */
     height: fit-content+10vh;
     max-height: 80vh;
+    min-width: fit-content;
 }
 
 .title { 
