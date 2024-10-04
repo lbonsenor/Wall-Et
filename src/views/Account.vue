@@ -14,14 +14,23 @@
                             <v-icon size="small">mdi-camera</v-icon>
                         </v-btn>
                     </div>
-                    
-                    <div>
-                        <h2>{{name}}</h2>
-                        <p>{{username}}</p>
-                    </div>
                 </div>
                 
                 <v-form @submit.prevent="updateProfile" class="mb-4">
+                    <v-text-field
+                        v-model="name"
+                        label="Nombre"
+                        prepend-inner-icon="mdi-account-outline"
+                        variant="outlined"
+                    />
+
+                    <v-text-field
+                        v-model="username"
+                        label="Usuario"
+                        prepend-inner-icon="mdi-at"
+                        variant="outlined"
+                    />
+
                     <v-text-field
                         v-model="email"
                         label="Email"
