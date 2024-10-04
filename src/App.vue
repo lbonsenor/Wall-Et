@@ -1,6 +1,6 @@
 <template>
   <TopBar/>
-  <v-app class="transparent">
+  <v-app class="bg-transparent">
     <SideBar />
     <v-main class="mx-5">
       <RouterView/>
@@ -26,32 +26,18 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 h1 {
-  font-weight: normal;
+  font-weight: 600;
   padding: 1%;
-}
-.transparent {
-  background-color: transparent!important;
 }
 
 body {
   font-family: "Inter", sans-serif;
-  background: linear-gradient(339deg,#f74277,#704983,#1f0261,#5d24ff);
+  color: white;
+  background: linear-gradient(339deg,rgb(var(--v-theme-grad1)),rgb(var(--v-theme-grad2)),rgb(var(--v-theme-grad3)),rgb(var(--v-theme-grad4)));
   background-size: 240% 240%;
   animation: gradient-animation 16s ease infinite;
 }
 
-/* html, body {
-  font-family: "Inter", sans-serif;
-  background: linear-gradient(339deg,#f74277,#704983,#1f0261,#5d24ff);
-  background-size: 240% 240%;
-  animation: gradient-animation 16s ease infinite;
-} */
-
-.bg-gradient {
-  background: linear-gradient(339deg,#f74277,#704983,#1f0261,#5d24ff);
-  background-size: 240% 240%;
-  animation: gradient-animation 16s ease infinite;
-}
 @keyframes gradient-animation {
   0% {
     background-position: 0% 50%;
