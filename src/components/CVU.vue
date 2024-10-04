@@ -5,9 +5,9 @@
                 <h3>Alias</h3>
                 <v-text>{{ alias }}</v-text>
             </div>
-            <v-tooltip open-on-click :open-on-hover="false" v-model="AliasCopied" close-delay="1000" text="Copiado!">
+            <v-tooltip open-on-click :open-on-hover="false" v-model="AliasCopied" text="Copiado!">
                 <template v-slot:activator="{ on, props }">
-                    <v-btn v-bind="props" v-on="on" icon="mdi-content-copy" color="secondary" @click="copy(alias)"></v-btn>
+                    <v-btn v-bind="props" v-on="on" icon="mdi-content-copy" color="secondary" @click="copy(alias)"/>
                 </template>
             </v-tooltip> 
         </v-row>
@@ -17,9 +17,9 @@
                 <h3>CVU</h3>
                 <v-text class="number">{{ cvu }}</v-text>
             </div>
-            <v-tooltip open-on-click :open-on-hover="false" v-model="CVUCopied" close-delay="1000" text="Copiado!">
+            <v-tooltip open-on-click :open-on-hover="false" v-model="CVUCopied" text="Copiado!">
                 <template v-slot:activator="{ on, props }">
-                    <v-btn v-bind="props" v-on="on" icon="mdi-content-copy" color="secondary" @click="copy(cvu)"></v-btn>
+                    <v-btn v-bind="props" v-on="on" icon="mdi-content-copy" color="secondary" @click="copy(cvu)"/>
                 </template>
             </v-tooltip>
         </v-row>
