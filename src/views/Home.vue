@@ -6,7 +6,7 @@
   </div>
   <div class="d-flex">
     <activity-list :activities="activities" :display-count="4" />
-    <MiniCard :company="Mastercard" :last_digits="1234"></MiniCard>
+    <MiniCard :company="Mastercard" :last_digits="1230"></MiniCard>
   </div>
     
 </template>

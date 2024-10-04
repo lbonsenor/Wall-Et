@@ -49,7 +49,7 @@
 .custom-subtitle {
     overflow: hidden;
     text-overflow: ellipsis;
-    font-weight: bold; 
+    font-weight: normal; 
     /* color: rgb(var(--v-theme-title)); */
     font-family: 'Roboto Mono', monospace;
     font-size: medium;
