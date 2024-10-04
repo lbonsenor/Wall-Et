@@ -12,7 +12,7 @@
   </template>
   
   <script>
-  import ActivityListCard from './ActivityListCard.vue'
+  import ActivityListCard from './ActivityItem.vue'
   
   export default {
     name: 'ActivityList',

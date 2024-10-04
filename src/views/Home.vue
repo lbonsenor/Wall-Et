@@ -4,13 +4,18 @@
     <BalanceBox />
     <CVU/>
   </div>
+  <div class="d-flex">
     <activity-list :activities="activities" :display-count="4" />
+    <MiniCard :company="Mastercard" :last_digits="1234"></MiniCard>
+  </div>
+    
 </template>
 
 <script>
 import BalanceBox from '@/components/BalanceBox.vue';
 import CVU from '@/components/CVU.vue';
 import ActivityList from '@/components/ActivityList.vue';
+import MiniCard from '@/components/MiniCard.vue';
 
 export default {
   name: 'Home',
