@@ -53,15 +53,17 @@
         </v-row>
     </v-container>    
 </template>
-  
+
 <script>
+    import avatar from '@/assets/wallet-white.png';
+
     export default {
         name: 'Account',
         data() {
             return {
                 name: 'Lautaro Bonseñor',
                 username: 'lau_bonsenor',
-                avatar: '@/assets/wallet-white.png',
+                avatar: avatar,
                 email: 'lbonsenor@itba.edu.ar',
                 phone: '+54 911 6447 3647',
                 dni: '44358712',
