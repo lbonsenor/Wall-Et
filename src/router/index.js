@@ -3,6 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import Transfer from '@/views/Transfer.vue'
 import { createWebHashHistory } from 'vue-router'
+import Cards from '@/views/Cards.vue'
+import Activities from '@/views/Activities.vue'
 
 
 const routes = [
@@ -15,6 +17,15 @@ const routes = [
         path: '/transferir',
         name: 'transferir',
         component: Transfer 
+    },
+    { 
+        path: '/mis-tarjetas',
+        name: 'cards',
+        component: Cards 
+    },{ 
+        path: '/actividades',
+        name: 'activities',
+        component: Activities 
     },
 ]
 

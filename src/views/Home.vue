@@ -4,13 +4,18 @@
     <BalanceBox />
     <CVU/>
   </div>
+  <div class="d-flex">
     <activity-list :activities="activities" :display-count="4" />
+    <CardList class="ml-10" :cards="cards" :display-count="5"/>
+  </div>
+    
 </template>
 
 <script>
 import BalanceBox from '@/components/BalanceBox.vue';
 import CVU from '@/components/CVU.vue';
 import ActivityList from '@/components/ActivityList.vue';
+import CardList from '@/components/CardList.vue';
 
 export default {
   name: 'Home',
@@ -24,6 +29,24 @@ export default {
   },
   data() {
     return {
+      cards: [
+        {
+          company: 'Mastercard',
+          type: 'Crédito',
+          last_digits: '1234'
+        },
+        {
+          company: 'Mastercard',
+          type: 'Crédito',
+          last_digits: '1234'
+        },
+        {
+          company: 'Mastercard',
+          type: 'Crédito',
+          last_digits: '1234'
+        },
+        
+      ],
       activities: [
         {
           date: '2024-09-10',

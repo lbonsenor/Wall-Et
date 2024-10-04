@@ -30,7 +30,7 @@
         data() {
             return {
                 isBalanceShown: false,
-                formatter: new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}),
+                formatter: new Intl.NumberFormat('es-AR', {style: 'currency', currency: 'ARS'}),
                 balance: 1234562222.22
             };
         },
@@ -52,7 +52,7 @@
         font-size: x-large; 
         font-weight: 600;
         overflow: scroll;
-        font-family: "Roboto Mono", monospace;
+        /* font-family: "Roboto Mono", monospace; */
     }
     .balance::-webkit-scrollbar{
         width: 0px;
