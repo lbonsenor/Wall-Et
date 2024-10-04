@@ -6,7 +6,7 @@
   </div>
   <div class="d-flex">
     <activity-list :activities="activities" :display-count="4" />
-    <CardList :cards="cards" :display-count="5"/>
+    <CardList class="ml-10" :cards="cards" :display-count="5"/>
   </div>
     
 </template>
@@ -15,7 +15,6 @@
 import BalanceBox from '@/components/BalanceBox.vue';
 import CVU from '@/components/CVU.vue';
 import ActivityList from '@/components/ActivityList.vue';
-import MiniCard from '@/components/MiniCard.vue';
 import CardList from '@/components/CardList.vue';
 
 export default {

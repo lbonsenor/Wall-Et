@@ -36,7 +36,8 @@ const lightTheme = {
 const darkTheme = {
   dark: true,
   colors: {
-    primary: '#101010',
+    // 101010
+    primary: '#5D24FF',
     'on-primary': '#FFFFFF',
     error: '#BA1A1A',
     'on-error': '#FFFFFF',
@@ -51,7 +52,6 @@ const darkTheme = {
     text_caption: '#C8C8CF',
     secondary: '#5D24FF',
     'on-secondary': '#FFFFFF',
-
   }
 
 }
