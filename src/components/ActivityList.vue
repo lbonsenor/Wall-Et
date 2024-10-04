@@ -5,19 +5,19 @@
           <div v-if="isNewDate(index)" class="date-header">
             {{ formatDate(activity.date) }}
           </div>
-          <activity-list-card v-bind="activity" />
+          <ActivityItem v-bind="activity" />
         </template>
       </div>
     </div>
   </template>
   
   <script>
-  import ActivityListCard from './ActivityItem.vue'
+  import ActivityItem from './ActivityItem.vue'
   
   export default {
     name: 'ActivityList',
     components: {
-      ActivityListCard
+      ActivityItem
     },
     props: {
       activities: {

@@ -43,7 +43,7 @@ export default {
   
   <script>
   export default {
-    name: 'ActivityListCard',
+    name: 'ActivityItem',
     props: {
       title: {
         type: String,
