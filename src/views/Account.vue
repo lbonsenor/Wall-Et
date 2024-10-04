@@ -5,9 +5,15 @@
                 <h1>Mi Cuenta</h1>
 
                 <div class="d-flex align-center mb-6">
-                    <v-avatar size="80" class="mr-4">
-                        <v-img :src="avatar" alt="Profile picture"/>
-                    </v-avatar>
+                    <div class="avatar-container">
+                        <v-avatar size="80" class="mr-4">
+                            <v-img :src="avatar" alt="Profile picture"/>
+                        </v-avatar>
+
+                        <v-btn icon size="x-small" color="primary" class="change-avatar-btn" @click="changeAvatar">
+                            <v-icon size="small">mdi-camera</v-icon>
+                        </v-btn>
+                    </div>
                     
                     <div>
                         <h2>{{name}}</h2>
@@ -73,6 +79,9 @@
             updateProfile() {
                 console.log('Profile updated');
             },
+            changeAvatar() {
+                console.log('Avatar changed');
+            },
         },
     };
 </script>
@@ -83,5 +92,17 @@
     }
     .white-border {
         border: 1px solid white;
+    }
+    .avatar-container {
+        position: relative;
+        margin-right: 1rem;
+    }
+    .change-avatar-btn {
+        position: absolute;
+        bottom: 0;
+        right: 0;   
+        background-color: white;
+        border: 2px solid var(--v-primary-base);
+        transform: translate(25%, 25%);
     }
 </style>
