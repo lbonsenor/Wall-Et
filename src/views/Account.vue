@@ -23,6 +23,7 @@
                         Actualizar
                     </v-btn>
                 </v-form>
+
                 <div>
                     <div class="d-flex align-center mb-6">
                         <div class="avatar-container mr-4">
@@ -30,9 +31,11 @@
                                 <v-img :src="avatar" alt="Profile picture" />
                             </v-avatar>
 
-                            <v-btn icon size="30" color="primary" class="change-avatar-btn" @click="changeAvatar">
+                            <v-btn icon size="30" color="primary" class="change-avatar-btn" @click="triggerFileInput">
                                 <v-icon size="small">mdi-camera</v-icon>
                             </v-btn>
+
+                            <input type="file" ref="fileInput" accept="image/*" style="display: none" @change="onFileSelected">
                         </div>
 
                         <div>
@@ -57,11 +60,12 @@
             <!-- </v-col> -->
         </v-row>
 
+        <!-- Quizás debería ser otro componente -->
         <v-dialog v-model="showDeleteConfirmation" max-width="400">
             <v-card>
                 <v-card-title class="headline">Confirmar eliminación de cuenta</v-card-title>
                 <v-card-text class="pt-2">¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.</v-card-text>
-                <v-card-actions>
+                <v-card-actions>    
                     <v-btn color="primary" text @click="showDeleteConfirmation = false">Cancelar</v-btn>
                     <v-btn color="error" @click="deleteAccount">Eliminar</v-btn>
                 </v-card-actions>
@@ -97,6 +101,19 @@ export default {
         deleteAccount() {
             console.log('Account deleted');
             this.showDeleteConfirmation = false;
+        },
+        triggerFileInput() {
+            this.$refs.fileInput.click();
+        },
+        onFileSelected(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    this.avatar = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
         },
     },
 };
