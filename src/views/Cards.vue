@@ -1,5 +1,5 @@
 <template>
-    <h1>Mis Tarjetas</h1>
+    <h1 class="text-no-wrap">Mis Tarjetas</h1>
     <CardsList :cardItems="cards" />
 </template>
 

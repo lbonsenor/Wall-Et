@@ -50,6 +50,12 @@ body {
   }
 }
 
+.title { 
+    color: rgb(var(--v-theme-title));
+    font-size: medium;
+    font-weight: 500;
+}
+
 
 
 .gradient-card {

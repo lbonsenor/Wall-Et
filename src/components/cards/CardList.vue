@@ -55,13 +55,6 @@ export default {
     min-width: fit-content;
 }
 
-.title { 
-    color: rgb(var(--v-theme-title));
-    align-self: center;
-    font-size: medium;
-    font-weight: bold;
-    padding: 0 12px 0 12px;
-}
 .link {
     color: rgb(var(--v-theme-primary));
     font-size:x-small;

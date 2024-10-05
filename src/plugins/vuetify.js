@@ -14,7 +14,7 @@ import { createVuetify } from 'vuetify'
 const lightTheme = {
   dark: false,
   colors: {
-    primary: '#5D24FF',
+    primary: '#5d24ff',
     'on-primary': '#FFFFFF',
     error: '#BA1A1A',
     'on-error': '#FFFFFF',

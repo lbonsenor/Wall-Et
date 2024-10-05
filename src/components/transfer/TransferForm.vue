@@ -1,5 +1,5 @@
 <template>
-    <v-card rounded="xl" class="pa-6">
+    <v-card rounded="xl" style="min-width: fit-content;" class="pa-6">
         <div class="mb-2">
             <v-text style="color: rgb(var(--v-theme-title));">Destinatario</v-text>
             <v-text-field variant="underlined" persistent-hint hint="Ingresá CVU o alias"></v-text-field>
@@ -10,15 +10,14 @@
         </div>
         <div class="display mb-4">
             <v-text class="mb-2" style="color: rgb(var(--v-theme-title));">Medio de Pago</v-text>
-            <v-btn prepend-icon="mdi-credit-card-outline" text="Elegir medio" variant="outlined" rounded="xl"></v-btn>
+            <v-btn prepend-icon="mdi-credit-card-outline" style="min-width: fit-content;" text="Elegir medio" variant="outlined" rounded="xl"></v-btn>
         </div>
         <div>
             <v-text style="color: rgb(var(--v-theme-title));">Monto</v-text>
             <v-text-field v-model="amount" @blur="handleAmountInput" class="amount" variant="underlined"
                 prepend-icon="mdi-currency-usd"></v-text-field>
-
         </div>
-
+        <v-btn class="d-flex mx-auto" style="min-width: fit-content;" width="50%" height=50 color="primary" rounded="xl" prepend-icon="mdi-send-outline" text="Continuar"></v-btn>
     </v-card>
 </template>
 
