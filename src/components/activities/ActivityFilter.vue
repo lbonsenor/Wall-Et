@@ -36,8 +36,10 @@
 
             <!-- Medio de Pago -->
             <p class="title">Medio de pago</p>
-            <v-checkbox v-for="payment_method in payment_methods" hide-details v-model="selectedPaymentTypes"
-                :value="payment_method.value" :label="payment_method.label" class="custom-checkbox" />
+            <template v-for="(payment_method, index) in payment_methods" :key="index">
+                <v-checkbox hide-details  v-model="selectedPaymentTypes"
+                    :value="payment_method.value" :label="payment_method.label" class="custom-checkbox" />
+            </template>
 
             <!-- Botones de aplicar y limpiar -->
             <div class="flex-row justify-center d-md-flex d-lg-flex justify-md-space-between justify-lg-space-between align-center mt-4">
