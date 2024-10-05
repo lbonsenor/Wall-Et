@@ -1,7 +1,6 @@
 <template>
-    <v-main>
-        <h2 style="color:white">Actividades</h2>
-    </v-main>
+    <h1>Actividades</h1>
+
 </template>
 
 <script>
