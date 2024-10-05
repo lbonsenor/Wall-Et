@@ -58,7 +58,7 @@ export default {
     background-color: rgb(var(--v-theme-surface));
     border-radius: 20px;
     overflow: hidden;
-    min-width: fit-content;
+    min-width: 300px;
   }
 
 .date-header {

@@ -102,10 +102,10 @@ export default {
   }
 
   .activity-list {
-    width: 60%;
+    width: 70%;
     margin-right: 20px;
   }
   .activity-filter { 
-    width: 40%;
+    width: 30%;
   }
   </style>
