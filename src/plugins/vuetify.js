@@ -83,4 +83,7 @@ export default createVuetify({
     defaultTheme: 'lightTheme',
     themes: {lightTheme, darkTheme}
   },
+  // date: {
+  //   adapter: DayJsAdapter, 
+  // }
 })
