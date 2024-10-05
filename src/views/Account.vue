@@ -45,7 +45,7 @@
                             <span class="text-decoration-underline">Cambiar contraseña</span>
                         </v-btn>
 
-                        <v-btn variant="text" prepend-icon="mdi-delete-outline" class="justify-start">
+                        <v-btn variant="text" prepend-icon="mdi-delete-outline" class="justify-start" @click="showDeleteConfirmation = true">
                             <span class="text-decoration-underline">Eliminar cuenta</span>
                         </v-btn>
                     </div>
@@ -56,6 +56,18 @@
 
             <!-- </v-col> -->
         </v-row>
+
+        <v-dialog v-model="showDeleteConfirmation" max-width="400">
+            <v-card>
+                <v-card-title class="headline">Confirmar eliminación de cuenta</v-card-title>
+                <v-card-text class="pt-2">¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.</v-card-text>
+                <v-card-actions>
+                    <v-btn color="primary" text @click="showDeleteConfirmation = false">Cancelar</v-btn>
+                    <v-btn color="error" @click="deleteAccount">Eliminar</v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
+
     </v-container>
 </template>
 
@@ -72,6 +84,7 @@ export default {
             email: 'lbonsenor@itba.edu.ar',
             phone: '+54 911 6447 3647',
             dni: '44358712',
+            showDeleteConfirmation: false,
         };
     },
     methods: {
@@ -80,6 +93,10 @@ export default {
         },
         changeAvatar() {
             console.log('Avatar changed');
+        },
+        deleteAccount() {
+            console.log('Account deleted');
+            this.showDeleteConfirmation = false;
         },
     },
 };
