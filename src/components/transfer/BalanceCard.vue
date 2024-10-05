@@ -9,8 +9,8 @@
                 {{ isBalanceShown ? formatter.format(balance) : "∗∗∗∗∗∗∗∗∗∗∗∗" }}
             </v-text>
             
-            <v-btn color="button" class="ml-2" variant="tonal" size="x-small" @click="isBalanceShown = !isBalanceShown" icon>
-                <v-icon>{{ isBalanceShown ? "mdi-eye-off-outline" : "mdi-eye-outline" }}</v-icon>
+            <v-btn color="details" class="ml-2" variant="tonal" size="small" @click="isBalanceShown = !isBalanceShown" icon>
+                <v-icon size="large">{{ isBalanceShown ? "mdi-eye-off-outline" : "mdi-eye-outline" }}</v-icon>
             </v-btn>
         </div>
     </v-card>

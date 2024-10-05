@@ -22,7 +22,7 @@
             <!-- Monto -->
             <p class="title">Monto</p>
             <v-range-slider rounded="pill" color="primary" v-model="range" min="0" max="17500" :step="1"
-                class="align-center" thumb-label thumb-color="primary" hide-details hide-spin-buttons>
+                class="align-center mx-3" thumb-label thumb-color="primary" hide-details hide-spin-buttons>
             </v-range-slider>
             <div class="d-flex justify-space-between pl-2" style="margin-top: -12px;">
                 <v-text-field prefix="$"
@@ -37,12 +37,12 @@
             <!-- Medio de Pago -->
             <p class="title">Medio de pago</p>
             <v-checkbox v-for="payment_method in payment_methods" hide-details v-model="selectedPaymentTypes"
-                :value="payment_method.value" :label="payment_method.label" class="custom-checkbox mb-2 rounded-pill" />
+                :value="payment_method.value" :label="payment_method.label" class="custom-checkbox" />
 
             <!-- Botones de aplicar y limpiar -->
             <div class="flex-row justify-center d-md-flex d-lg-flex justify-md-space-between justify-lg-space-between align-center mt-4">
-                <v-btn class="mb-2 mr-2 flex-grow-1 flex-grow" flat variant="outlined" rounded="xl" @click="apply">Aplicar</v-btn>
-                <v-btn class="mb-2 mr-2 flex-grow-1 flex-grow" flat variant="outlined" rounded="xl" @click="cleanup">Limpiar</v-btn>
+                <v-btn class="mb-2 mr-2 flex-grow-1 flex-grow" flat variant="tonal" rounded="xl" @click="apply">Aplicar</v-btn>
+                <v-btn class="mb-2 mr-2 flex-grow-1 flex-grow" flat variant="tonal" rounded="xl" @click="cleanup">Limpiar</v-btn>
             </div>
 
         </v-card-text>
@@ -127,7 +127,8 @@ const onSearch = () => {
 
 const apply = () => {
     // mandamos los filtros a una api 
-    alert('Buscando...')
+    window.scrollTo({ top: 50, behavior: 'smooth' })
+    alert('Filtrando...')
 }
 
 const cleanup = () => {
@@ -170,24 +171,20 @@ const cleanup = () => {
 .currency-input :deep(.v-field__input) {
     max-width: fit-content;
 }
-
+/* 
 .custom-checkbox {
-    background-color: rgb(var(--v-theme-primary));
+    background-color: transparent;
     padding: 0px 10px;
     color: white;
     border-width: 5px;
+
     border-color: white;
-}
+} */
 
 .custom-checkbox :deep(.v-label--clickable) {
     opacity: 100%;
     font-size: 14px;
 }
 
-.custom-checkbox :deep(.v-icon) {
-    color: white !important;
-    opacity: 100%;
-}
 
-/* v-text-field__prefix */
 </style>

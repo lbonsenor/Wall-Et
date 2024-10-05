@@ -18,7 +18,7 @@
         />
       </v-card-text>
       <v-card-actions class="mb-2">
-        <v-btn color="primary" @click="toggleMode">
+        <v-btn color="details" @click="toggleMode">
           {{ isRange ? 'Seleccionar fecha' : 'Seleccionar período' }}
         </v-btn>
         <v-btn color="success" @click="confirmSelection" :disabled="!isValidSelection" class="mr-2">

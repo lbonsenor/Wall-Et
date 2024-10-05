@@ -56,7 +56,7 @@ export default {
 }
 
 .link {
-    color: rgb(var(--v-theme-primary));
+    color: rgb(var(--v-theme-details));
     font-size:x-small;
     padding: 0 12px 0 12px;
     align-self: center;
