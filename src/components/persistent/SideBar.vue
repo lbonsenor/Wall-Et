@@ -67,8 +67,8 @@ export default {
   }
 
   .v-list-item__overlay {
-    background: transparent;
-    display: none;
-}
+    color: rgb(var(--v-theme-button));
+  }
+  
 
 </style>
