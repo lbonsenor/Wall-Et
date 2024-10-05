@@ -18,7 +18,8 @@
         :prepend-icon="item.icon"
         :active="isCurrentRoute(item.route)"
         active-class="active" 
-        color="on-surface" 
+        class="hi"
+
         @click="navigateTo(item.route)">
       </v-list-item>
     </v-list>
@@ -64,5 +65,10 @@ export default {
   .logo{
     font-family: "Fira Mono";
   }
+
+  .v-list-item__overlay {
+    color: rgb(var(--v-theme-button));
+  }
+  
 
 </style>

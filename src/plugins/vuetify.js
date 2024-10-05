@@ -33,6 +33,7 @@ const lightTheme = {
     'on-card': "#FFFFFF",
     button_hover: '#713EFF',
     star: "#FFCC00",
+    details: '#5D24FF',
 
 
     grad1: "#5d24ff",
@@ -65,6 +66,8 @@ const darkTheme = {
     'on-card': "#FFFFFF",
     button_hover: '#713EFF',
     star: "#FFD700",
+    details: '#A788FF',
+
 
     // transparent: transparent, 
     // 'on-transparent': "#FFFFFF"
@@ -83,4 +86,7 @@ export default createVuetify({
     defaultTheme: 'lightTheme',
     themes: {lightTheme, darkTheme}
   },
+  // date: {
+  //   adapter: DayJsAdapter, 
+  // }
 })
