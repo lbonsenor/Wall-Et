@@ -1,6 +1,6 @@
 <template>
-    <div class="d-flex ga-5 align-center">
-        <v-card class="mt-2 gradient-card" :class="randomGradientClass" height="30vh" min-width="40vh" max-width="60vh"
+    <div class="d-flex ga-5 align-center mr-3">
+        <v-card class="mt-2 gradient-card" :class="randomGradientClass" min-height="150px" min-width="200px"
             rounded="lg" elevation="3">
             <div class="parent_container">
                 <div class="d-flex align-center justify-space-between">
@@ -110,6 +110,9 @@ export default {
 
 .card_details {
     padding: 5px;
+    /* height: 100%;
+    justify-content: space-between;
+    justify-items: baseline; */
     /* color: white; */
 }
 
@@ -117,7 +120,7 @@ export default {
     justify-content: space-between;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 150px;
     padding: 12px;
     /* color: white; */
 }

@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mt-2 new-card d-flex flex-column justify-center" height="30vh" min-width="40vh" max-width="60vh">
+  <v-card class="mt-2 ml-5 new-card d-flex flex-column justify-center" height="30vh" min-width="40vh" max-width="60vh">
     <div class="card-content d-flex flex-column align-center">
       <v-dialog v-model="dialog" max-width="600">
         <template v-slot:activator="{ props: activatorProps }">

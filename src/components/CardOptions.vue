@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex mt-2" style="height:29vh;">
+    <div class="d-flex mt-2" style="min-height:150px;">
         <v-divider vertical class="border-opacity-100" />
         <div class="card_options">
             <div class="d-flex">
@@ -30,6 +30,7 @@ export default {
     min-width: fit-content;
     margin: 3%;
     align-items: flex-start;
+    text-wrap: nowrap;
 }
 
 .card_options div {

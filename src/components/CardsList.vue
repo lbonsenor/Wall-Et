@@ -5,7 +5,7 @@
                 <CardItem v-bind="cardItem" />
             </template>
         </div>
-        <NewCard/>
+        <NewCard class="ml-2"/>
     </div>
 
 </template>
