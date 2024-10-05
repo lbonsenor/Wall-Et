@@ -5,7 +5,7 @@
         <v-text style="font-weight: 500; color:rgb(var(--v-theme-title))">Dinero Disponible</v-text>
         <div class="d-flex align-center">
             <v-text class="me-auto text-no-wrap balance">
-                {{ isBalanceShown ? formatter.format(balance) : "******" }}
+                {{ isBalanceShown ? formatter.format(balance) : "∗∗∗∗∗∗∗∗∗∗∗∗" }}
             </v-text>
             
             <v-btn color="button" class="ml-2" variant="tonal" size="x-small" @click="isBalanceShown = !isBalanceShown" icon>
@@ -31,9 +31,14 @@
             return {
                 isBalanceShown: false,
                 formatter: new Intl.NumberFormat('es-AR', {style: 'currency', currency: 'ARS'}),
-                balance: 1234562222.22
             };
         },
+        props:{
+            balance: {
+                type: Number,
+                default: 0
+            }
+        },  
         methods: {
             navigateToTransferir() {
                 this.$router.push({ path: '/transferir' });
@@ -52,7 +57,7 @@
         font-size: x-large; 
         font-weight: 600;
         overflow: scroll;
-        /* font-family: "Roboto Mono", monospace; */
+        /* font-family: "Fira Mono", monospace; */
     }
     .balance::-webkit-scrollbar{
         width: 0px;

@@ -1,8 +1,8 @@
 <template>
   <h1>Inicio</h1>
   <div class="d-flex ga-5 align-center mb-5">
-    <BalanceBox />
-    <CVU/>
+    <BalanceBox :balance="balance"/>
+    <CVU :alias="alias" :cvu="cvu"/>
   </div>
   <div class="d-flex">
     <activity-list :activities="activities" :display-count="4" />
@@ -14,8 +14,8 @@
 <script>
 import BalanceBox from '@/components/BalanceBox.vue';
 import CVU from '@/components/CVU.vue';
-import ActivityList from '@/components/ActivityList.vue';
-import CardList from '@/components/CardList.vue';
+import ActivityList from '@/components/activities/ActivityList.vue';
+import CardList from '@/components/cards/CardList.vue';
 
 export default {
   name: 'Home',
@@ -26,6 +26,7 @@ export default {
     CVU,
     ActivityList,
     BalanceBox,
+    CardList
   },
   data() {
     return {
@@ -116,7 +117,12 @@ export default {
           time: '11:45',
           out: true
         },
-      ]
+        
+      ],
+      alias: "lau.bonsenor",
+      cvu: "00000000123145687945123",
+      balance: 123.12
+      
     }
   }
 }
