@@ -2,15 +2,18 @@
     <h1>Actividades</h1>
     <div class="activity">
         <ActivityList class="activity-list" :activities="activities" :display-count="Infinity"/>
+        <ActivityFilter class="activity-filter"/>
     </div>
 </template>
 
 <script>
 import ActivityList from '@/components/activities/ActivityList.vue';
+import ActivityFilter from '@/components/activities/ActivityFilter.vue';
 export default {
     name: 'Activities',
     components: {
       ActivityList,
+      ActivityFilter
     },
     data() {
       return {
@@ -100,5 +103,9 @@ export default {
 
   .activity-list {
     width: 60%;
+    margin-right: 20px;
+  }
+  .activity-filter { 
+    width: 40%;
   }
   </style>
