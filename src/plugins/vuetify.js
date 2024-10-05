@@ -34,9 +34,9 @@ const lightTheme = {
     button_hover: '#713EFF',
 
     grad1: "#5d24ff",
-    grad2: "#704983",
-    grad3: "#1f0261",
-    grad4: "#5d24ff"
+    grad2: "#7300ff",
+    grad3: "#6933ff",
+    grad4: "#8a61ff"
   }
 }
 

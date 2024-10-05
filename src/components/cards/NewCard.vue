@@ -50,7 +50,7 @@ export default {
       },
       cardNumber: value => {
         const pattern = /^[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}$/;
-        return pattern.test(value.replaceAll(' ', '')) || 'Tarjeta Inválida'
+        return pattern.test(value) || 'Tarjeta Inválida'
       }, 
       cvv: value => {
         const pattern = /^[0-9]{3}$/;
