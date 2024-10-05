@@ -5,6 +5,7 @@ import Transfer from '@/views/Transfer.vue'
 import { createWebHashHistory } from 'vue-router'
 import Cards from '@/views/Cards.vue'
 import Activities from '@/views/Activities.vue'
+import Account from '@/views/Account.vue'
 
 
 const routes = [
@@ -22,10 +23,16 @@ const routes = [
         path: '/mis-tarjetas',
         name: 'cards',
         component: Cards 
-    },{ 
+    },
+    { 
         path: '/actividades',
         name: 'activities',
         component: Activities 
+    },
+    { 
+        path: '/account',
+        name: 'account',
+        component: Account 
     },
 ]
 

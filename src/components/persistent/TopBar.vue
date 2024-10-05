@@ -12,7 +12,9 @@
             <v-btn color="white" icon class="mr-3">
                 <v-icon>mdi-bell</v-icon>
             </v-btn>
-            <v-avatar color="info" icon="mdi-account" ></v-avatar>
+            <v-btn icon @click="navigateToAccount">
+                <v-avatar color="info" icon="mdi-account"></v-avatar>
+            </v-btn>
         </v-toolbar>
     <!-- </v-card> -->
 </template>
@@ -20,8 +22,10 @@
 <script setup>
 import { useTheme } from 'vuetify';
 import { computed } from 'vue';
+import { useRouter } from 'vue-router';
 
 const theme = useTheme()
+const router = useRouter()
 
 const isDarkTheme = computed(() => theme.global.current.value.dark)
 
@@ -30,6 +34,10 @@ const themeIcon = computed(() =>
 
 function toggleTheme () {
     theme.global.name.value = isDarkTheme.value ? 'lightTheme' : 'darkTheme'
+}
+
+function navigateToAccount() {
+    router.push('/account')
 }
 </script>
 

@@ -51,7 +51,7 @@ const darkTheme = {
     error: '#BA1A1A',
     'on-error': '#FFFFFF',
     success: '#34E350',
-    background: '#101010',
+    background: '#161313',
     'on-background': '#FFFFFF',
     surface: '#1F1F1F',
     'on-surface': '#FFFFFF',
