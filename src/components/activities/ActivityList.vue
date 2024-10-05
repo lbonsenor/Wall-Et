@@ -1,5 +1,4 @@
 <template>
-    <div class="activity-list">
       <div class="activity-container">
         <div class="d-flex justify-space-between mb-4">
             <h1 class="title">Actividades Recientes</h1>
@@ -12,7 +11,6 @@
           <ActivityItem v-bind="activity" />
         </template>
       </div>
-    </div>
   </template>
   
   <script>
@@ -56,11 +54,6 @@
   </script>
   
   <style scoped>
-  .activity-list {
-    max-width: 500px;
-    margin: 12px 0;
-  }
-  
   .activity-container {
     background-color: rgb(var(--v-theme-surface));
     border-radius: 20px;

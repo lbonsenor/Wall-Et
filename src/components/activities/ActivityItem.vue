@@ -1,5 +1,5 @@
 <template>
-    <v-card class="pa-1 px-4" min-width="350" max-width="500" color="surface" flat>
+    <v-card class="pa-1 px-4" min-width="350" color="surface" flat>
         <v-row align="center" style="color:rgb(var(--v-theme-title))" no-gutters>
             <v-col cols="2" class="me-auto">
                 <v-avatar size="65">

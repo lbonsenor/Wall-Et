@@ -32,6 +32,8 @@ const lightTheme = {
     card: '#3b556e',
     'on-card': "#FFFFFF",
     button_hover: '#713EFF',
+    star: "#FFCC00",
+
 
     grad1: "#5d24ff",
     grad2: "#7300ff",
@@ -62,6 +64,7 @@ const darkTheme = {
     card: '#3b556e',
     'on-card': "#FFFFFF",
     button_hover: '#713EFF',
+    star: "#FFD700",
 
     // transparent: transparent, 
     // 'on-transparent': "#FFFFFF"
