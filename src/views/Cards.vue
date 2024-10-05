@@ -1,8 +1,6 @@
 <template>
-    <v-main>
-        <h1>Mis Tarjetas</h1>
-        <CardsList :cardItems="cards" />
-    </v-main>
+    <h1>Mis Tarjetas</h1>
+    <CardsList :cardItems="cards" />
 </template>
 
 <script>

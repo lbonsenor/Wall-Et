@@ -30,7 +30,6 @@ export default {
     min-width: fit-content;
     margin: 3%;
     align-items: flex-start;
-    text-wrap: nowrap;
 }
 
 .card_options div {
