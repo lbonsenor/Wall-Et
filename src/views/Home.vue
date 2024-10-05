@@ -14,8 +14,8 @@
 <script>
 import BalanceBox from '@/components/BalanceBox.vue';
 import CVU from '@/components/CVU.vue';
-import ActivityList from '@/components/ActivityList.vue';
-import CardList from '@/components/CardList.vue';
+import ActivityList from '@/components/activities/ActivityList.vue';
+import CardList from '@/components/cards/CardList.vue';
 
 export default {
   name: 'Home',
@@ -26,6 +26,7 @@ export default {
     CVU,
     ActivityList,
     BalanceBox,
+    CardList
   },
   data() {
     return {

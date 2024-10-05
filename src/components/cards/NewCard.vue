@@ -49,8 +49,8 @@ export default {
         return pattern.test(value) || 'Mes/Año Inválido'
       },
       cardNumber: value => {
-        const pattern = /^[0-9]{16}$/;
-        return pattern.test(value) || 'Tarjeta Inválida'
+        const pattern = /^[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}$/;
+        return pattern.test(value.replaceAll(' ', '')) || 'Tarjeta Inválida'
       }, 
       cvv: value => {
         const pattern = /^[0-9]{3}$/;

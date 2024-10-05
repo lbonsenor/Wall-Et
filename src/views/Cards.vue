@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import CardsList from '@/components/CardsList.vue';
+import CardsList from '@/components/cards/CardsList.vue';
 
 export default {
     name: 'Cards',

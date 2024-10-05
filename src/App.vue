@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import SideBar from '@/components/SideBar.vue';
-import TopBar from '@/components/TopBar.vue';
+import SideBar from '@/components/persistent/SideBar.vue';
+import TopBar from '@/components/persistent/TopBar.vue';
 
 export default { 
   components: {
