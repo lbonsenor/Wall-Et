@@ -14,7 +14,7 @@
 
                 color="secondary"
                 ></v-text-field>
-                <div class="hi" width="30%" size="large" rounded="lg" variant="tonal" 
+                <div class="hi"
                 @click="navigateToRegisterPage"
                 >Empezar</div>
             </div>
@@ -72,9 +72,6 @@ h4 {
     overflow: hidden;
 
 
-}
-.v-btn--size-large {
-    --v-btn-height:55px;
 }
 
 .hi:hover {

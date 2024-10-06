@@ -56,8 +56,6 @@ body {
     font-weight: 500;
 }
 
-
-
 .gradient-card {
     transition: all 0.3s ease;
 }
