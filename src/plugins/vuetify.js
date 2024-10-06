@@ -34,7 +34,7 @@ const lightTheme = {
     button_hover: '#713EFF',
     star: "#FFCC00",
     details: '#5D24FF',
-
+    title_span: '#FFCC00',
 
     grad1: "#5d24ff",
     grad2: "#7300ff",
@@ -67,7 +67,7 @@ const darkTheme = {
     button_hover: '#713EFF',
     star: "#FFD700",
     details: '#A788FF',
-
+    title_span: '#A788FF',
 
     // transparent: transparent, 
     // 'on-transparent': "#FFFFFF"
