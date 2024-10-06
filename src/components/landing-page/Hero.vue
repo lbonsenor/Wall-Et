@@ -1,9 +1,9 @@
 <template>
-    <div class="row pa-12 ga-12 ma-12" style="height:auto">
-        <div>
+    <div class="row ga-12 pa-16 mb-10" style="height:auto">
+        <div style="width:30vw">
             <h2>Tu plata, tus reglas: <span style="color: rgb(var(--v-theme-title_span));">simplifica tus finanzas</span></h2>
             <br/>
-            <h4>La billetera virtual que Argentina estaba esperando - rápido, seguro y fácil.</h4>
+            <p style="font-size:large">La billetera virtual que Argentina estaba esperando - rápido, seguro y fácil.</p>
             <div class="row ga-2 mt-6">
                 <v-text-field 
                 width="70%" variant="outlined" rounded="lg"
@@ -39,7 +39,7 @@ const navigateToRegisterPage = () => {
     align-items: center;
     align-self: center; 
     align-content: center;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap:nowrap;
 }
 

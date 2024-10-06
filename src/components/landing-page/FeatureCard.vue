@@ -1,7 +1,8 @@
 <template>
 
     <div style="display: flex; flex-direction: column; align-items: center;">
-        <img :src="image" width="100px" alt="Image" style="display: block; margin: 0 auto; margin-bottom: -50px; z-index: 2;" />
+        <img :src="image" width="30%" alt="Image"
+            style="display: block; margin: 0 auto; margin-bottom: -50px; z-index: 2;" />
         <div class="card">
             <h3 style="text-align: center;">{{ title }}</h3>
             <p style="text-align: center;">{{ text }}</p>
@@ -14,7 +15,7 @@
 .card {
     display: flex;
     flex-direction: column;
-    padding: 60px 30px 30px 30px;
+    padding: 60px 30px 50px 30px;
     align-content: center;
     align-items: center;
     justify-content: center;
@@ -24,8 +25,8 @@
     border: none;
     border-radius: 12px;
     height: fit-content;
-    width: fit-content;
-    max-width: 300px;
+    width: 25vw;
+    /* max-width: 300px; */
     /* position: relative; */
     /* overflow: hidden; */
     gap: 20px;
@@ -41,8 +42,6 @@
 </style>
 
 <script setup>
-
-
 const props = defineProps({
     symbol: String,
     title: String,

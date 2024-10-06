@@ -35,6 +35,8 @@ const lightTheme = {
     star: "#FFCC00",
     details: '#5D24FF',
     title_span: '#FFCC00',
+    nav: '#5d24ff',
+    nav_title: '5D24FF',
 
     grad1: "#5d24ff",
     grad2: "#7300ff",
@@ -68,6 +70,9 @@ const darkTheme = {
     star: "#FFD700",
     details: '#A788FF',
     title_span: '#A788FF',
+    nav: '#202020',
+    nav_title: 'FFFFFF',
+
 
     // transparent: transparent, 
     // 'on-transparent': "#FFFFFF"
