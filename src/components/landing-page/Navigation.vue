@@ -1,9 +1,9 @@
 <template>
     <nav class="topnav">
-      <a href="#" class="nav-link" :class="{ active: activeLink === 'home' }" @click="setActive('home')">Home</a>
+      <a href="#" class="nav-link" :class="{ active: activeLink === 'home' }" @click="setActive('home')">Inicio</a>
       <a href="#features" class="nav-link" :class="{ active: activeLink === 'features' }" @click="setActive('features')">Features</a>
       <a href="#testimonials" class="nav-link" :class="{ active: activeLink === 'testimonials' }" @click="setActive('testimonials')">Testimonials</a>
-      <a href="#about" class="nav-link" :class="{ active: activeLink === 'about' }" @click="setActive('about')">About</a>
+      <a href="#about" class="nav-link" :class="{ active: activeLink === 'about' }" @click="setActive('about')">FAQs</a>
     </nav>
   </template>
   
@@ -32,7 +32,7 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     left: 50%;
-    transform: translateX(-50%)
+    transform: translateX(-50%);
   }
   
   .nav-link {
@@ -66,6 +66,12 @@
     .nav-link {
       padding: 8px 12px;
       font-size: 14px;
+    }
+  }
+
+  @media (max-width: 820px) {
+    .topnav {
+        display: none;
     }
   }
   </style>

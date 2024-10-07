@@ -1,56 +1,92 @@
+
+
 <template>
-    <div class="row ga-12 pa-16 mb-10" style="height:auto">
-        <div style="width:30vw">
-            <h2>Tu plata, tus reglas: <span style="color: rgb(var(--v-theme-title_span));">simplifica tus finanzas</span></h2>
-            <br/>
-            <p style="font-size:large">La billetera virtual que Argentina estaba esperando - rápido, seguro y fácil.</p>
-            <div class="row ga-2 mt-6">
-                <v-text-field 
-                width="70%" variant="outlined" rounded="lg"
-                placeholder="Email"
-                persistent-placeholder
-                hide-details
-                hide-spin-buttons
-
-                color="secondary"
-                ></v-text-field>
-                <div class="hi"
-                @click="navigateToRegisterPage"
-                >Empezar</div>
-            </div>
+    <div class="hero-container">
+      <div class="left-content">
+        <div class="content-wrapper">
+          <h2>Tu plata, tus reglas: <span class="highlight">simplifica tus finanzas</span></h2>
+          <p class="description">La billetera virtual que Argentina estaba esperando - rápido, seguro y fácil.</p>
+          <div class="input-group">
+            <v-text-field 
+              variant="outlined" 
+              rounded="lg"
+              placeholder="Email"
+              persistent-placeholder
+              hide-details
+              hide-spin-buttons
+              color="secondary"
+              width="300px"
+            ></v-text-field>
+            <div class="hi" @click="navigateToRegisterPage">Empezar</div>
+          </div>
         </div>
-        <div class="img-container" style="width:50%">
-            <img src="@/assets/wallet.svg" width="500px"/>
-        </div>
+      </div>
+      <div class="right-content">
+        <img src="@/assets/wallet.svg" alt="Wallet" />
+      </div>
     </div>
-</template>
-
-<script setup>
-const navigateToRegisterPage = () => {
+  </template>
+  
+  <script setup>
+  const navigateToRegisterPage = () => {
     alert("To register page")
-}
-
-</script>
-
-<style scoped>
-.row {
+  }
+  </script>
+  
+  <style scoped>
+  .hero-container {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    align-self: center; 
-    align-content: center;
-    justify-content: space-around;
-    flex-wrap:nowrap;
-}
+    justify-content: space-between;
+    padding: 2rem;
+    gap: 2rem;
+    margin-top: 30px;
+  }
+  
+  .left-content {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .content-wrapper {
+    max-width: 500px;
+  }
+  
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  .highlight {
+    color: rgb(var(--v-theme-title_span));
+  }
+  
+  .description {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    margin-bottom: 2rem;
+  }
+  
+  .input-group {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .right-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .right-content img {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+  }
 
-h2 {
-    font-size: xxx-large;
-}
-
-h4 {
-    font-weight: 500;
-}
-
+  
 .hi {
     display: inline-flex;
     padding: 12px 24px;
@@ -98,5 +134,38 @@ h4 {
     transform: translateY(1px);
     box-shadow: 0 2px 4px rgba(93, 36, 255, 0.2), 0 0 10px rgba(93, 36, 255, 0.3)
 }
-
-</style>
+    
+  @media (max-width: 820px) {
+    .hero-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .left-content, .right-content {
+      justify-content: center;
+    }
+  
+    .content-wrapper {
+      max-width: 100%;
+    }
+  
+    .input-group {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .right-content img {
+      max-height: 300px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .hero-container {
+      padding: 1rem;
+    }
+  
+    .right-content img {
+      max-height: 200px;
+    }
+  }
+  </style>
