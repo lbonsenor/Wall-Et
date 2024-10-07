@@ -24,15 +24,18 @@
   .topnav {
     background: rgba(var(--v-theme-nav), 0.5);
     backdrop-filter: blur(10px);
-    position: fixed;
+    position: sticky;
+    top: 20px;
+    display: flex; 
     width: 80%;
     text-align: center;
     border-radius: 25px;
     padding: 5px 10px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    left: 50%;
-    transform: translateX(-50%);
+    justify-content: center;
+    width: 100%;
+    transition: top 0.3s;
   }
   
   .nav-link {

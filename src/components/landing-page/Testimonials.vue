@@ -1,15 +1,15 @@
 <template>
     <div id="testimonials"
-        style="display: flex; flex-direction: column; align-items: center; justify-content: center;  width:100%; padding-top:150px;">
+        style="display: flex; flex-direction: column; align-items: center; justify-content: center;  width:100%; padding-top:100px;">
         <h1>Qué dicen nuestros usuarios</h1>
         <div class="testimonials">
-            <TestimonialCard 
+            <TestimonialCard
             :image="profile1"
             color="star"
             username="camila_lee"
             quote="Buenisimooo! Mucho mejor que MercadoPago"
             />
-            <TestimonialCard  
+            <TestimonialCard
             :image="profile2"
             color="primary"
             username="college_graduate"
@@ -44,10 +44,6 @@ import profile3 from '@/assets/profile3.png'
     gap:50px;
     margin-top: 20px;
 }
-@media (max-width:500px) {
-    .testimonials {
-        gap: 40px;
-    }
-}
+
 
 </style>

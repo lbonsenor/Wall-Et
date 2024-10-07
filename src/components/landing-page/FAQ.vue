@@ -1,9 +1,9 @@
 <template>
     <div id="faq"
-        style="display: flex; flex-direction: column; align-items: center; justify-content: center;  width:100%; padding-top:150px; margin-bottom: 20px;">
+        style="display: flex; flex-direction: column; align-items: center; justify-content: center;  width:100%; padding-top:100px; margin-bottom: 20px; ">
         <h1 class="mb-3">FAQs</h1>
         <v-expansion-panels
-        color="secondary"
+        color="surface"
         variant="popout"
         >
             <v-expansion-panel title="1. ¿Como recupero mi wallet?"

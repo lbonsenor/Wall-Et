@@ -1,7 +1,7 @@
 <template>
-    <div id="features" style="padding-top: 150px;">
+    <div id="features" style="padding-top: 100px">
         <div class="dotted-background">
-        <div style="display: flex; width:100%; justify-content: center;">
+        <div style="display: flex; width:100%; justify-content: center; margin-bottom: 20px;">
             <h1>¿Por qué nos eligen?</h1>
         </div>
         <div class="inner-container">

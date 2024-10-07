@@ -5,7 +5,8 @@
     variant="tonal"
     elevation="12"
     rounded="xl"
-    class="d-flex flex-column align-center justify-center pa-6"
+    class="card d-flex flex-column align-center justify-center pa-6"
+    
     >
         <v-avatar :image="image" size="100px" :color="color" class="justify-self-center"/>
         <p class="font-weight-bold my-2">{{ "@" + username }}</p>
