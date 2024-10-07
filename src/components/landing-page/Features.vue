@@ -1,9 +1,10 @@
 <template>
-    <div id="features" class="">
-        <div style="display: flex; width:100%; justify-content: center; padding-top:150px;">
+    <div id="features" style="padding-top: 150px;">
+        <div class="dotted-background">
+        <div style="display: flex; width:100%; justify-content: center;">
             <h1>¿Por qué nos eligen?</h1>
         </div>
-        <div class="inner-container dotted-background">
+        <div class="inner-container">
             <div class="align-self-start">
                 <FeatureCard 
                 symbol="1"
@@ -30,6 +31,8 @@
             </div>
         </div>
     </div>
+</div>
+
 
 </template>
 
@@ -46,8 +49,11 @@ import featureImage3 from '@/assets/goal.png'
     background-image: radial-gradient(#ffffff 1px, transparent 1px);
     background-size: 80px 80px;
     background-repeat: repeat;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
     /* justify-content: center;
-    align-self: center;
+    
     align-content: center;
     align-items: center;
     display: flex; 
