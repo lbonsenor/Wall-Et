@@ -24,15 +24,20 @@
             <v-range-slider rounded="pill" color="primary" v-model="range" min="0" max="17500" :step="1"
                 class="align-center mx-3" thumb-label thumb-color="primary" hide-details hide-spin-buttons>
             </v-range-slider>
-            <div class="d-flex justify-space-between pl-2" style="margin-top: -12px;">
-                <v-text-field prefix="$"
-                    class="currency-input d-lg-inline-flex d-md-inline-flex d-none pa-0 ma-0" color="primary"
-                    v-model="range[0]" density="compact" type="number" variant="text" hide-details=""></v-text-field>
-                <v-spacer style="width: 45%;" />
-                <v-text-field prefix="$"
-                    class="currency-input d-lg-inline-flex d-md-inline-flex d-none pa-0 ma-0" color="primary"
-                    v-model="range[1]" density="compact" type="number" variant="text" hide-details=""></v-text-field>
-            </div>
+
+            <v-row class="pl-2">
+                <v-col>
+                    <v-text-field prefix="$"
+                    class="currency-input" color="primary"
+                    v-model="range[0]" density="compact" variant="underlined" hide-details=""/>
+                </v-col>
+                <v-col>
+                    <v-text-field suffix="$"
+                        class="currency-input-right" color="primary"
+                        v-model="range[1]" density="compact" variant="underlined"/>
+                    
+                </v-col>
+            </v-row>
 
             <!-- Medio de Pago -->
             <p class="title">Medio de pago</p>
@@ -161,31 +166,31 @@ const cleanup = () => {
     margin-left: 5px;
 }
 
-.currency-input {
-    max-width: fit-content;
-}
 
 .currency-input :deep(.v-text-field__prefix) {
-    margin-left: -4px !important;
+    /* margin-left: -4px !important; */
     padding-inline-start: 0;
+    padding-top: 0;
 }
 
-.currency-input :deep(.v-field__input) {
-    max-width: fit-content;
+.currency-input >>> input{
+    padding-top: 0px !important;
 }
-/* 
-.custom-checkbox {
-    background-color: transparent;
-    padding: 0px 10px;
-    color: white;
-    border-width: 5px;
-
-    border-color: white;
-} */
 
 .custom-checkbox :deep(.v-label--clickable) {
     opacity: 100%;
     font-size: 14px;
+}
+
+.currency-input-right >>> input{
+    text-align: end;
+    padding-top: 0px !important;
+    margin-right: 5px;
+}
+
+.currency-input-right :deep(.v-text-field__suffix){
+    padding-top: 0;
+    padding-inline-end: 0;
 }
 
 
