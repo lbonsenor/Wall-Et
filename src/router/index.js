@@ -6,7 +6,6 @@ import { createWebHashHistory } from 'vue-router'
 import Cards from '@/views/Cards.vue'
 import Activities from '@/views/Activities.vue'
 import Account from '@/views/Account.vue'
-import Landing from '@/views/Landing.vue'
 
 
 const routes = [
@@ -34,11 +33,6 @@ const routes = [
         path: '/account',
         name: 'account',
         component: Account 
-    },
-    { 
-        path: '/landing',
-        name: 'landing',
-        component: Landing 
     },
 ]
 

@@ -43,7 +43,7 @@ function navigateToAccount() {
 
 <style scoped>
     .fixed-bar {
-    /* position: sticky; */
+    position: sticky;
     top: 0;
     z-index: 10;
     margin-bottom: 12px;
