@@ -173,7 +173,7 @@ const cleanup = () => {
     padding-top: 0;
 }
 
-.currency-input >>> input{
+.currency-input :deep(input){
     padding-top: 0px !important;
 }
 
@@ -182,7 +182,7 @@ const cleanup = () => {
     font-size: 14px;
 }
 
-.currency-input-right >>> input{
+.currency-input-right :deep(input){
     text-align: end;
     padding-top: 0px !important;
     margin-right: 5px;
