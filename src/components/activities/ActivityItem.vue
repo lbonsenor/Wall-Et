@@ -34,7 +34,6 @@
 
 <script setup>
 import { useDisplay } from 'vuetify'
-import { defineProps } from 'vue'
 
 const { smAndDown, mdAndUp } = useDisplay()
 
