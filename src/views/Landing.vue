@@ -1,3 +1,4 @@
+<!-- Landing page -->
 <template>
         <Navigation />
         <Hero />
