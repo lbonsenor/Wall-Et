@@ -1,10 +1,10 @@
 <template>
     <v-container fluid>
         <v-row justify="left">
-            <!-- <v-col cols="12" sm="8" md="6" lg="4"> -->
-            <h1>Mi Cuenta</h1>
             <div class="d-flex fill-width align-center justify-space-around" style="width: 100%;">
-                <v-form @submit.prevent="updateProfile" style="width: 50%;" class="mb-4">
+                <v-form @submit.prevent="updateProfile" style="width: 100%;" class="mb-4">
+                    <h1>Mi Cuenta</h1>
+
                     <v-text-field v-model="name" label="Nombre" prepend-inner-icon="mdi-account-outline"
                         variant="outlined" />
 
@@ -24,40 +24,41 @@
                     </v-btn>
                 </v-form>
 
-                <div>
-                    <div class="d-flex align-center mb-6">
-                        <div class="avatar-container mr-4">
-                            <v-avatar size="80">
-                                <v-img :src="avatar" alt="Profile picture" />
-                            </v-avatar>
-
-                            <v-btn icon size="30" color="primary" class="change-avatar-btn" @click="triggerFileInput">
-                                <v-icon size="small">mdi-camera</v-icon>
-                            </v-btn>
-
-                            <input type="file" ref="fileInput" accept="image/*" style="display: none" @change="onFileSelected">
-                        </div>
-
+                <v-col cols="12" md="4">
+                    <v-card class="pa-6">
                         <div>
-                            <h2>{{ name }}</h2>
-                            <p>{{ username }}</p>
+                            <div class="d-flex align-center mb-6">
+                                <div class="avatar-container mr-4">
+                                    <v-avatar size="80">
+                                        <v-img :src="avatar" alt="Profile picture" />
+                                    </v-avatar>
+
+                                    <v-btn icon size="30" color="primary" class="change-avatar-btn" @click="triggerFileInput">
+                                        <v-icon size="small">mdi-camera</v-icon>
+                                    </v-btn>
+
+                                    <input type="file" ref="fileInput" accept="image/*" style="display: none" @change="onFileSelected">
+                                </div>
+
+                                <div>
+                                    <h2>{{ name }}</h2>
+                                    <p>{{ username }}</p>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <v-btn variant="text" prepend-icon="mdi-lock-outline" class="justify-start" block>
+                                    <span class="text-decoration-underline">Cambiar contraseña</span>
+                                </v-btn>
+
+                                <v-btn variant="text" prepend-icon="mdi-delete-outline" class="justify-start" block @click="showDeleteConfirmation = true">
+                                    <span class="text-decoration-underline">Eliminar cuenta</span>
+                                </v-btn>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <v-btn variant="text" prepend-icon="mdi-lock-outline" class="justify-start">
-                            <span class="text-decoration-underline">Cambiar contraseña</span>
-                        </v-btn>
-
-                        <v-btn variant="text" prepend-icon="mdi-delete-outline" class="justify-start" @click="showDeleteConfirmation = true">
-                            <span class="text-decoration-underline">Eliminar cuenta</span>
-                        </v-btn>
-                    </div>
-                </div>
-
-
+                    </v-card>
+                </v-col>
             </div>
-
-            <!-- </v-col> -->
         </v-row>
 
         <!-- Quizás debería ser otro componente -->
