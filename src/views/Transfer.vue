@@ -1,11 +1,11 @@
 <template>
     <h1>Transferir</h1>
     <div class="d-flex">
-        <div class="left-column mr-6">
-        <BalanceCard class="mb-6"/>
-        <ContactList></ContactList>
+        <div class="left-column mr-8">
+            <BalanceCard class="mb-8"/>
+            <ContactList></ContactList>
         </div>
-    <TransferForm class="transfer-form"></TransferForm> 
+        <TransferForm class="transfer-form"></TransferForm> 
     </div>
 </template>
 
