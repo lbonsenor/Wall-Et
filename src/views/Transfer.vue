@@ -1,6 +1,6 @@
 <template>
     <h1>Transferir</h1>
-    <div class="d-flex mt-6">
+    <div class="d-flex">
         <div class="left-column mr-6">
         <BalanceCard class="mb-6"/>
         <ContactList></ContactList>
