@@ -19,9 +19,18 @@
         :active="isCurrentRoute(item.route)"
         active-class="active" 
         class="hi"
-
         @click="navigateTo(item.route)">
       </v-list-item>
+
+      <v-spacer></v-spacer>
+
+      <v-list-item
+        nav rounded="pill" 
+        prepend-icon="mdi-logout"
+        title="Cerrar sesión"
+        @click="singOut"
+        class="sign-out-btn"
+      ></v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -45,6 +54,9 @@ export default {
     },
     isCurrentRoute(route){
       return this.$route.path == route
+    },
+    singOut() {
+      console.log("Cerrando sesión");
     }
   }
 }
@@ -65,10 +77,10 @@ export default {
   .logo{
     font-family: "Fira Mono";
   }
-
   .v-list-item__overlay {
     color: rgb(var(--v-theme-button));
   }
-  
-
+  .sign-out-btn {
+    color: red !important;
+  }
 </style>
