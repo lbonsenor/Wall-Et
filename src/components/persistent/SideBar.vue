@@ -55,6 +55,8 @@ export default {
     },
     singOut() {
       console.log("Cerrando sesión");
+      this.$state.isSignedIn = false;
+      this.$router.push('/'); //todo -> either go to landing or to login (landing seems better)
     }
   }
 }
