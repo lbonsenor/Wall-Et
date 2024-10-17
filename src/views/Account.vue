@@ -25,7 +25,7 @@
                 </v-form>
 
                 <v-col cols="12" md="4">
-                    <v-card class="pa-6">
+                    <v-card class="pa-6" rounded="xl">
                         <div>
                             <div class="d-flex align-center mb-6">
                                 <div class="avatar-container mr-4">
@@ -77,7 +77,7 @@
 </template>
 
 <script>
-import avatar from '@/assets/wallet-white.png';
+import avatar from '@/assets/logo.png';
 
 export default {
     name: 'Account',
