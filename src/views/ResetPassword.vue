@@ -31,7 +31,7 @@
           width="300px"
         ></v-text-field>
         <div class="d-flex justify-center mt-4">
-        <v-btn value="reset-button" @click="signin">Restablecer</v-btn>
+          <v-btn value="register-button d-flex mx-auto" color="primary" width="40%" height=50 style="min-width: fit-content;" text="Restablecer" variant="outlined" rounded="xl"@click="signin"></v-btn>
       </div>
       </v-card>
     </div>
