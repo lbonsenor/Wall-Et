@@ -22,8 +22,6 @@
         @click="navigateTo(item.route)">
       </v-list-item>
 
-      <v-spacer></v-spacer>
-
       <v-list-item
         nav rounded="pill" 
         prepend-icon="mdi-logout"
