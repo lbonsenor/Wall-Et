@@ -1,7 +1,7 @@
 <template>
     <v-card rounded="xl" style="min-width: fit-content;" class="pa-6">
         <div class="mb-2">
-            <v-text style="color: rgb(var(--v-theme-title));">Destinatario</v-text>
+            <v-text style="color: rgb(var(--v-theme-title));">Cliente</v-text>
             <v-text-field variant="underlined" persistent-hint hint="Ingresá CVU o alias"></v-text-field>
         </div>
         <div class="mb-2">
