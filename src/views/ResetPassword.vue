@@ -1,7 +1,7 @@
 <template>
     <div class="container">
       <div class="header">
-      <img class="logo" src="./../assets/logo.png" alt="Wall-ET logo" />
+      <img class="logo" src="./../assets/wallet-white.png" alt="Wall-ET logo" />
       <h2> WALL · Et</h2>
       </div>
       
@@ -68,7 +68,8 @@
     background-color: var(--v-theme-button);
   }
   .logo {
-    filter: invert(1) brightness(100) saturate(100%);
+
+    
   max-width: 100%; 
   height: 50px;   
   margin-bottom: 16px; 
