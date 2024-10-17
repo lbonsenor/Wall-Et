@@ -2,7 +2,7 @@
     <div class="container">
       <div class="header">
       <img class="logo" src="./../assets/logo.png" alt="Wall-ET logo" />
-      <h2>WALL · Et</h2>
+      <h2> WALL · Et</h2>
       </div>
       
         <h1 class="welcome-header">Bienvenidx!</h1>
@@ -104,7 +104,7 @@
           width="300px"
         ></v-text-field>
         <div class="d-flex justify-center mt-4">
-        <v-btn value="register-button" @click="signin">Registrarse</v-btn>
+        <v-btn value="register-button" @click="signin">Registrarme</v-btn>
       </div>
       </v-card>
     </div>
@@ -154,17 +154,18 @@
   }
   .logo {
     filter: invert(1) brightness(100) saturate(100%);
-  max-width: 100%; /* Ensures the image is responsive */
-  height: 50px;    /* Maintains aspect ratio */
-  margin-bottom: 16px; /* Adds space below the image */
+  max-width: 100%; 
+  height: 50px;   
+  margin-bottom: 16px; 
 }
 .header {
   margin-bottom: 1px;
   display: flex;
-  align-items: center; /* Vertically center the logo and text */
-  margin-bottom: 16px; /* Space below the header */
+  align-items: center; 
+  margin-bottom: 16px; 
 }
 .welcome-header {
   margin-top: 1px; /* Adjust space above the heading */};
+
 
   </style>
