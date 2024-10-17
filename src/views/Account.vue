@@ -48,7 +48,7 @@
                             
                             <div>
                                 <v-btn variant="text" prepend-icon="mdi-lock-outline" class="justify-start" block>
-                                    <span class="text-decoration-underline">Cambiar contraseña</span>
+                                    <span class="text-decoration-underline" @click="resetPassword">Cambiar contraseña</span>
                                 </v-btn>
 
                                 <v-btn variant="text" prepend-icon="mdi-delete-outline" class="justify-start" block @click="showDeleteConfirmation = true">
@@ -63,7 +63,7 @@
 
         <!-- Quizás debería ser otro componente -->
         <v-dialog v-model="showDeleteConfirmation" max-width="400">
-            <v-card>
+            <v-card rounded="lg">
                 <v-card-title class="headline">Confirmar eliminación de cuenta</v-card-title>
                 <v-card-text class="pt-2">¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.</v-card-text>
                 <v-card-actions>    
@@ -78,6 +78,7 @@
 
 <script>
 import avatar from '@/assets/logo.png';
+import ResetPassword from './ResetPassword.vue';
 
 export default {
     name: 'Account',
@@ -115,6 +116,9 @@ export default {
                 };
                 reader.readAsDataURL(file);
             }
+        },
+        resetPassword(){
+            this.$router.push('/reset');
         },
     },
 };
