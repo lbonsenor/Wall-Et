@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-      <div class="header">
+      <div class="header" @click="returnLanding">
       <img class="logo" src="./../assets/logo.png" alt="Wall-ET logo" />
       <h2> WALL · Et</h2>
       </div>
@@ -121,6 +121,9 @@
       signin() {
         this.signIn(); 
         this.$router.push('/inicio');
+      },
+      returnLanding(){
+        this.$router.push('/');
       }
       
     }
