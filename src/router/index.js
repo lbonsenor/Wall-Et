@@ -9,6 +9,7 @@ import Account from '@/views/Account.vue'
 import Landing from '@/views/Landing.vue'
 import Login from '@/views/Login.vue'
 import { components } from 'vuetify/dist/vuetify-labs.js'
+import ResetPassword from '@/views/ResetPassword.vue'
 
 
 const routes = [
@@ -46,6 +47,11 @@ const routes = [
         path: '/login',
         name: 'login',
         component: Login
+    },
+    {
+        path: '/reset',
+        name: 'resetpassword',
+        component: ResetPassword
     }
 ]
 
