@@ -42,7 +42,7 @@ export default {
         { title: 'Transferir Dinero', value: "transfer", icon: "mdi-send-outline", route: '/transferir' },
         { title: 'Actividades', value: "activities", icon: "mdi-receipt-text-clock-outline", route: '/actividades' },
         { title: 'Mis Tarjetas', value: "cards", icon: "mdi-credit-card-outline", route: '/mis-tarjetas' },
-        { title: 'Cobrar', value: "charge", icon: "mdi-piggy-bank-outline", route: '/cobrar' },
+        { title: 'Cobrar', value: "charge", icon: "mdi-cash-multiple", route: '/cobrar' },
       ],
     }
   },
