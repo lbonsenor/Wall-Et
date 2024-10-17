@@ -6,7 +6,7 @@
         </div>
         <div class="mb-2">
             <v-text style="color: rgb(var(--v-theme-title));">Motivo</v-text>
-            <v-text-field variant="underlined" persistent-hint hint="Ingresá un mensaje al destinatario"></v-text-field>
+            <v-text-field variant="underlined" persistent-hint hint="Ingresá el motivo del pago"></v-text-field>
         </div>
         <div>
             <v-text style="color: rgb(var(--v-theme-title));">Monto</v-text>
