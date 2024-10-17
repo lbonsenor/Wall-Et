@@ -3,7 +3,7 @@
     class="rounded-e-xl">
     <template v-slot:prepend>
         <v-list-item variant="outline" class="align-center mt-2"
-          prepend-avatar="@/assets/logo.png">
+          prepend-avatar="@/assets/logo.svg">
             <h2 class="logo text-center">WALL·Et</h2>
         </v-list-item>
     </template>
