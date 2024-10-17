@@ -7,9 +7,13 @@
 
 </template>
 
-<script setup>
-const navigateToRegisterPage = () => {
-    alert("To register page")
+<script>
+export default{
+methods:{ navigateToRegisterPage(){
+    //alert("To register page")
+    console.log(this.$router.push('/login'))
+}
+}
 }
 </script>
 

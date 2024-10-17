@@ -1,8 +1,8 @@
 <template>
-  <TopBar/>
+  <TopBar v-if="$state.isSignedIn"/>
   <v-app class="bg-transparent">
-    <SideBar />
-    <v-main class="mx-5">
+    <SideBar v-if="$state.isSignedIn" />
+    <v-main  class="mx-5">
       <RouterView/>
     </v-main>
     <!-- <AppFooter /> -->

@@ -7,11 +7,13 @@ import Cards from '@/views/Cards.vue'
 import Activities from '@/views/Activities.vue'
 import Account from '@/views/Account.vue'
 import Landing from '@/views/Landing.vue'
+import Login from '@/views/Login.vue'
+import { components } from 'vuetify/dist/vuetify-labs.js'
 
 
 const routes = [
     { 
-        path: '/', 
+        path: '/inicio', 
         name: 'home',
         component: Home 
     }, 
@@ -36,10 +38,15 @@ const routes = [
         component: Account 
     },
     { 
-        path: '/landing',
+        path: '/',
         name: 'landing',
         component: Landing 
     },
+    {
+        path: '/login',
+        name: 'login',
+        component: Login
+    }
 ]
 
 const router = createRouter({
