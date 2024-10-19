@@ -38,7 +38,7 @@ export default {
   data: () => {
     return {
       items: [
-        { title: 'Inicio', value: "home", icon: "mdi-home-outline", route: '/' },
+        { title: 'Inicio', value: "home", icon: "mdi-home-outline", route: '/inicio' },
         { title: 'Transferir Dinero', value: "transfer", icon: "mdi-send-outline", route: '/transferir' },
         { title: 'Actividades', value: "activities", icon: "mdi-receipt-text-clock-outline", route: '/actividades' },
         { title: 'Mis Tarjetas', value: "cards", icon: "mdi-credit-card-outline", route: '/mis-tarjetas' },

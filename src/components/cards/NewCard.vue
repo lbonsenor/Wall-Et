@@ -10,14 +10,14 @@
         </template>
         <v-card prepend-icon="mdi-credit-card" title="Agregar Tarjeta">
           <v-card-text>
-            <v-text-field label="Número de tarjeta" required :rules="[rules.cardNumber]"></v-text-field>
-            <v-text-field label="Titular de tarjeta" required></v-text-field>
+            <v-text-field  v-model="cardNumber" label="Número de tarjeta" required :rules="[rules.cardNumber]"></v-text-field>
+            <v-text-field v-model="cardOwner" label="Titular de tarjeta" required></v-text-field>
             <v-row dense>
               <v-col cols="7" md="7" sm="7">
-                <v-text-field label="Fecha de vencimiento" hint="MM/YY" :rules="[rules.monthYear]"></v-text-field>
+                <v-text-field v-model="expiryDate"  label="Fecha de vencimiento" hint="MM/YY" :rules="[rules.monthYear]"></v-text-field>
               </v-col>
               <v-col cols="5" md="5" sm="5">
-                <v-text-field label="CVV" required :rules="[rules.cvv]"></v-text-field>
+                <v-text-field  v-model="cvv" label="CVV" required :rules="[rules.cvv]"></v-text-field>
               </v-col>
             </v-row>
           </v-card-text>
@@ -29,7 +29,7 @@
 
             <v-btn text="Cerrar" variant="plain" @click="dialog = false"></v-btn>
 
-            <v-btn color="primary" text="Agregar" variant="tonal" @click="dialog = false"></v-btn>
+            <v-btn color="primary" text="Agregar" variant="tonal" @click="addNewCard"></v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -38,12 +38,19 @@
   </v-card>
 </template>
 
-<script>
-export default {
-  name: 'NewCard',
-  data: () => ({
-    dialog: false,
-    rules: {
+<script setup>
+import { ref } from 'vue';
+import { useCardStore } from '@/stores/CardStore';
+
+const cardStore = useCardStore();
+
+const dialog = ref(false)
+const cardNumber = ref('');
+const cardOwner = ref('');
+const expiryDate = ref('');
+const cvv = ref('');
+
+const rules = {
       monthYear: value => {
         const pattern = /^(0?[0-9]|1[0-2])\/[0-9]{2}$/;
         return pattern.test(value) || 'Mes/Año Inválido'
@@ -57,8 +64,53 @@ export default {
         return pattern.test(value) || 'CVV Inválido'
       }, 
     }
-  }),
 
+    const addNewCard = () => {
+  if (validateForm()) {
+    const newCard = {
+      card_brand: detectCardBrand(cardNumber.value),
+      card_type: detectCardType(cardNumber.value),
+      card_number: cardNumber.value,
+      card_owner: cardOwner.value,
+      card_expiry_date: expiryDate.value,
+      card_cvv: cvv.value
+    };
+
+    cardStore.addCard(newCard);
+    resetForm();
+    dialog.value = false;
+  }
+};
+
+
+const validateForm = () => {
+  return rules.cardNumber(cardNumber.value) === true &&
+         rules.monthYear(expiryDate.value) === true &&
+         rules.cvv(cvv.value) === true &&
+         cardOwner.value.trim() !== '';
+};
+
+const resetForm = () => {
+  cardNumber.value = '';
+  cardOwner.value = '';
+  expiryDate.value = '';
+  cvv.value = '';
+};
+
+
+// CAMBIAR LUEGO!!!!!
+const detectCardBrand = (number) => {
+  // a modo de ejemplo 
+  if (number.startsWith('4')) return 'Visa';
+  if (number.startsWith('5')) return 'Mastercard';
+  if (number.startsWith('3')) return 'American Express';
+  return 'Unknown';
+};
+
+const detectCardType = (number) => {
+  if (number.startsWith('4')) return 'Credito';
+  if (number.startsWith('5')) return 'Debito';
+  return 'Credito';
 }
 </script>
 

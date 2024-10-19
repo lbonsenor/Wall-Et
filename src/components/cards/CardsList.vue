@@ -1,7 +1,7 @@
 <template>
     <div class="d-flex">
         <div class="card-list">
-            <template v-for="(cardItem, index) in this.cardItems" :key="index">
+            <template v-for="cardItem in cardItems" :key="cardItem.id">
                 <CardItem v-bind="cardItem" />
             </template>
         </div>
@@ -10,21 +10,17 @@
 
 </template>
 
-<script>
+<script setup>
 import CardItem from './CardItem.vue';
 import NewCard from './NewCard.vue';
 
-export default {
-    name: 'CardsList',
-    components: { CardItem, NewCard },
-    props: {
-        cardItems: {
-            type: Array,
-            required: true
-        }
-    }
 
-}
+const props = defineProps({
+    cardItems: {
+        type: Array,
+        required: true
+    }
+});
 
 </script>
 
