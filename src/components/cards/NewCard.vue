@@ -9,8 +9,9 @@
           <p class="text-center add">Agregar tarjeta</p>
         </template>
         <v-card prepend-icon="mdi-credit-card" title="Agregar Tarjeta">
+          <v-form @submit.prevent="addNewCard" v-model="isFormValid">
           <v-card-text>
-            <v-text-field  v-model="cardNumber" label="Número de tarjeta" required :rules="[rules.cardNumber]"></v-text-field>
+            <v-text-field  v-model="cardNumber" label="Número de tarjeta" required :rules="[rules.cardNumber]" @input="formatCardNumber"></v-text-field>
             <v-text-field v-model="cardOwner" label="Titular de tarjeta" required></v-text-field>
             <v-row dense>
               <v-col cols="7" md="7" sm="7">
@@ -27,10 +28,11 @@
           <v-card-actions>
             <v-spacer></v-spacer>
 
-            <v-btn text="Cerrar" variant="plain" @click="dialog = false"></v-btn>
+            <v-btn text="Cerrar" @click="dialog = false"></v-btn>
 
-            <v-btn color="primary" text="Agregar" variant="tonal" @click="addNewCard"></v-btn>
+            <v-btn color="primary" text="Agregar" type="submit" :disabled="!isFormValid"></v-btn>
           </v-card-actions>
+          </v-form>
         </v-card>
       </v-dialog>
 
@@ -39,34 +41,30 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 import { useCardStore } from '@/stores/CardStore';
 
 const cardStore = useCardStore();
 
 const dialog = ref(false)
+const isFormValid = ref(false);
+
 const cardNumber = ref('');
 const cardOwner = ref('');
 const expiryDate = ref('');
 const cvv = ref('');
 
 const rules = {
-      monthYear: value => {
-        const pattern = /^(0?[0-9]|1[0-2])\/[0-9]{2}$/;
-        return pattern.test(value) || 'Mes/Año Inválido'
-      },
-      cardNumber: value => {
-        const pattern = /^[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}$/;
-        return pattern.test(value) || 'Tarjeta Inválida'
-      }, 
-      cvv: value => {
-        const pattern = /^[0-9]{3}$/;
-        return pattern.test(value) || 'CVV Inválido'
-      }, 
-    }
+  monthYear: v => /^(0[1-9]|1[0-2])\/\d{2}$/.test(v) || 'Formato MM/YY inválido',
+  cardNumber: v => /^(\d{4}\s?){4}$/.test(v.replace(/\s/g, '')) || 'Número de tarjeta inválido',
+  cvv: v => /^\d{3,4}$/.test(v) || 'CVV inválido'
+};
 
-    const addNewCard = () => {
-  if (validateForm()) {
+const formatCardNumber = () => {
+  cardNumber.value = cardNumber.value.replace(/\s/g, '').replace(/(\d{4})/g, '$1 ').trim();
+};
+const addNewCard = () => {
+  if (isFormValid.value) {
     const newCard = {
       card_brand: detectCardBrand(cardNumber.value),
       card_type: detectCardType(cardNumber.value),
@@ -75,20 +73,11 @@ const rules = {
       card_expiry_date: expiryDate.value,
       card_cvv: cvv.value
     };
-
     cardStore.addCard(newCard);
     resetForm();
     dialog.value = false;
   }
-};
-
-
-const validateForm = () => {
-  return rules.cardNumber(cardNumber.value) === true &&
-         rules.monthYear(expiryDate.value) === true &&
-         rules.cvv(cvv.value) === true &&
-         cardOwner.value.trim() !== '';
-};
+  }
 
 const resetForm = () => {
   cardNumber.value = '';

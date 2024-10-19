@@ -22,15 +22,20 @@
                 </div>
             </div>
         </v-card>
-        <CardOptions />
+        <CardOptions :cardId="id" />
     </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
 import CardOptions from './CardOptions.vue';
+import { ref, computed } from 'vue';
+
 
 const props = defineProps({
+    id: {
+        type: Number,
+        required: true
+    },
     card_brand: {
         type: String,
         required: true
@@ -68,6 +73,8 @@ const randomGradientClass = computed(() => {
     const randomIndex = Math.floor(Math.random() * gradientClasses.length);
     return gradientClasses[randomIndex];
 });
+
+
 </script>
 
 <style scoped>

@@ -10,10 +10,22 @@ export const useCardStore = defineStore('card', () => {
     }
 
     function addCard(card) {
-        const newId = cards.value.length > 0 ? cards.value.length + 1 : 1
+        const newId = cards.value.length > 0 ? Math.max(...cards.value.map(c => c.id)) + 1 : 1
         const newCard = {...card, id: newId}
         cards.value.push(newCard)
+        return newId;
     }
 
-    return { cards, fetchCards, addCard }
+    function removeCard(cardId) {
+        cards.value = cards.value.filter(card => card.id !== cardId)
+    }
+
+    function modifyCard(cardId) {
+        const card = cards.value.find(card => card.id === cardId)
+        if (card) {
+            // Modificar la tarjeta
+        }
+    }
+
+    return { cards, fetchCards, addCard, removeCard }
 })
