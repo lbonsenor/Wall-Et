@@ -121,7 +121,7 @@
     },
     methods: {
       signin() {
-         this.userStore.signIn(),
+         this.userStore.signIn();
         this.$router.push('/inicio');
       },
       returnLanding(){

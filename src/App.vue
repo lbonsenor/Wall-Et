@@ -18,9 +18,9 @@ export default {
   setup(){
     const userStore = useUserStore(); // Access the store here
 
-return {
+  return {
   userStore
-};
+  };
   },
 
   components: {
