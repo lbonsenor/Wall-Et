@@ -1,7 +1,7 @@
 <template>
-  <TopBar v-if="$state.isSignedIn"/>
+  <TopBar v-if="userStore.isSignedIn"/>
   <v-app class="bg-transparent">
-    <SideBar v-if="$state.isSignedIn" />
+    <SideBar v-if="userStore.isSignedIn" />
     <v-main  class="mx-5">
       <RouterView/>
     </v-main>
@@ -12,8 +12,17 @@
 <script>
 import SideBar from '@/components/persistent/SideBar.vue';
 import TopBar from '@/components/persistent/TopBar.vue';
+import { useUserStore } from './stores/UserStore';
 
 export default { 
+  setup(){
+    const userStore = useUserStore(); // Access the store here
+
+return {
+  userStore
+};
+  },
+
   components: {
     TopBar, 
     SideBar

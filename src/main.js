@@ -10,25 +10,17 @@ import { registerPlugins } from '@/plugins'
 import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from '@/router/index'
+import { useUserStore } from './stores/UserStore'
 
 const pinia = createPinia();
 const app = createApp(App);
 
+
 registerPlugins(app);
-
-app.use(pinia);
 app.use(router);
+app.use(pinia);
 
 
-// Create a reactive state for global properties
-const state = reactive({
-    isSignedIn: false,
-  });
 
-app.config.globalProperties.signIn = function() {
-    state.isSignedIn = true; // Change visibility
-  };
-  
-app.config.globalProperties.$state = state;
 
 app.mount('#app');

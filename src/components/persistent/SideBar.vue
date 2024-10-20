@@ -34,9 +34,11 @@
 </template>
 
 <script>
+import { useUserStore } from '@/stores/UserStore';
 export default {
   data: () => {
     return {
+      userStore : useUserStore(),
       items: [
         { title: 'Inicio', value: "home", icon: "mdi-home-outline", route: '/inicio' },
         { title: 'Transferir Dinero', value: "transfer", icon: "mdi-send-outline", route: '/transferir' },
@@ -55,7 +57,7 @@ export default {
     },
     singOut() {
       console.log("Cerrando sesión");
-      this.$state.isSignedIn = false;
+      this.userStore.signOut();
       this.$router.push('/'); //todo -> either go to landing or to login (landing seems better)
     }
   }
