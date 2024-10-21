@@ -121,8 +121,9 @@
     },
     methods: {
       signin() {
-         this.userStore.signIn();
-        this.$router.push('/inicio');
+        this.userStore.signIn();
+        const redirect = this.$router.currentRoute.value.query.redirect || '/inicio';
+        this.$router.push(redirect);
       },
       returnLanding(){
         this.$router.push('/');
