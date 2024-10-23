@@ -1,30 +1,30 @@
-    <template>
-        <container class="container">
-            <v-row no-gutters justify="space-between" class="d-flex">
-                <div>
-                    <h3>Alias</h3>
-                    <v-text>{{ alias }}</v-text>
-                </div>
-                <v-tooltip open-on-click :open-on-hover="false" v-model="AliasCopied" text="Copiado!">
-                    <template v-slot:activator="{ on, props }">
-                        <v-btn v-bind="props" v-on="on" icon="mdi-content-copy" color="secondary" @click="copy(alias)"/>
-                    </template>
-                </v-tooltip> 
-            </v-row>
-            <v-divider class="mt-4 mb-4" thickness="1" color="white"></v-divider>
-            <v-row no-gutters justify="space-between" class="d-flex">
-                <div>
-                    <h3>CVU</h3>
-                    <v-text class="number">{{ cvu }}</v-text>
-                </div>
-                <v-tooltip open-on-click :open-on-hover="false" v-model="CVUCopied" text="Copiado!">
-                    <template v-slot:activator="{ on, props }">
-                        <v-btn v-bind="props" v-on="on" icon="mdi-content-copy" color="secondary" @click="copy(cvu)"/>
-                    </template>
-                </v-tooltip>
-            </v-row>
-        </container>
-    </template>
+<template>
+    <container class="container">
+        <v-row no-gutters justify="space-between" class="d-flex">
+            <div>
+                <h3>Alias</h3>
+                <v-text>{{ alias }}</v-text>
+            </div>
+            <v-tooltip open-on-click :open-on-hover="false" v-model="AliasCopied" text="Copiado!">
+                <template v-slot:activator="{ on, props }">
+                    <v-btn v-bind="props" v-on="on" icon="mdi-content-copy" color="secondary" @click="copy(alias)"/>
+                </template>
+            </v-tooltip> 
+        </v-row>
+        <v-divider class="mt-4 mb-4" thickness="1" color="white"></v-divider>
+        <v-row no-gutters justify="space-between" class="d-flex">
+            <div>
+                <h3>CVU</h3>
+                <v-text class="number">{{ cvu }}</v-text>
+            </div>
+            <v-tooltip open-on-click :open-on-hover="false" v-model="CVUCopied" text="Copiado!">
+                <template v-slot:activator="{ on, props }">
+                    <v-btn v-bind="props" v-on="on" icon="mdi-content-copy" color="secondary" @click="copy(cvu)"/>
+                </template>
+            </v-tooltip>
+        </v-row>
+    </container>
+</template>
 
 <script>
     export default{
