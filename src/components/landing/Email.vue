@@ -1,7 +1,5 @@
 <template>
     <div class="email d-flex ga-3">
-        <v-text-field variant="outlined" rounded="lg" placeholder="Email" persistent-placeholder hide-details
-            hide-spin-buttons color="secondary" width="300px"></v-text-field>
         <div class="button" @click="navigateToRegisterPage">Empezar</div>
     </div>
 </template>
@@ -25,7 +23,7 @@ export default{
     font-weight: normal;
     font-size: normal;
     letter-spacing: normal;
-    background: linear-gradient(135deg, #7c3aff 0%, #5d24ff 50%, #4a00e0 100%);
+    background: linear-gradient(135deg, #7c3aff 0%, #794afc 50%, #936ce2 100%);
     color: white;
     border: none;
     border-radius: 12px;
@@ -33,6 +31,7 @@ export default{
     box-shadow: 0 4px 6x rgba(93, 36, 255, 0.2), 0 0 15px rgba(93, 36, 255, 0.3);
     position: relative;
     overflow: hidden;
+    min-width: 180px;
 }
 
 .button:hover {
