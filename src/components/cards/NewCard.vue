@@ -10,14 +10,14 @@
         </template>
         <v-card prepend-icon="mdi-credit-card" title="Agregar Tarjeta">
           <v-card-text>
-            <v-text-field label="Número de tarjeta" required :rules="[rules.cardNumber]"></v-text-field>
-            <v-text-field label="Titular de tarjeta" required></v-text-field>
+            <v-text-field label="Número de tarjeta"  required v-model="cardInfo.cardNumber" :rules="[rules.cardNumber]"></v-text-field>
+            <v-text-field label="Titular de tarjeta" required v-model="cardInfo.cardHolder"></v-text-field>
             <v-row dense>
               <v-col cols="7" md="7" sm="7">
-                <v-text-field label="Fecha de vencimiento" hint="MM/YY" :rules="[rules.monthYear]"></v-text-field>
+                <v-text-field label="Fecha de vencimiento" hint="MM/YY" required v-model="cardInfo.monthYear" :rules="[rules.monthYear]"></v-text-field>
               </v-col>
               <v-col cols="5" md="5" sm="5">
-                <v-text-field label="CVV" required :rules="[rules.cvv]"></v-text-field>
+                <v-text-field label="CVV" required v-model="cardInfo.cvv" :rules="[rules.cvv]"></v-text-field>
               </v-col>
             </v-row>
           </v-card-text>
@@ -27,9 +27,9 @@
           <v-card-actions>
             <v-spacer></v-spacer>
 
-            <v-btn text="Cerrar" variant="plain" @click="dialog = false"></v-btn>
+            <v-btn color="primary" text="Cerrar" variant="outlined" @click="dialog = false"></v-btn>
 
-            <v-btn color="primary" text="Agregar" variant="tonal" @click="dialog = false"></v-btn>
+            <v-btn color="primary" text="Agregar" variant="flat" :disabled="!isCardValid" @click="dialog = false"></v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -39,14 +39,22 @@
 </template>
 
 <script>
+
 export default {
   name: 'NewCard',
   data: () => ({
     dialog: false,
+    cardInfo: {
+      cardNumber: '',
+      cardHolder: '',
+      monthYear: '',
+      cvv: '',
+    },
     rules: {
-      monthYear: value => {
+      monthYear: function (value) {
         const pattern = /^(0?[0-9]|1[0-2])\/[0-9]{2}$/;
         return pattern.test(value) || 'Mes/Año Inválido'
+        
       },
       cardNumber: value => {
         const pattern = /^[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}$/;
@@ -56,8 +64,18 @@ export default {
         const pattern = /^[0-9]{3}$/;
         return pattern.test(value) || 'CVV Inválido'
       }, 
-    }
+    },
   }),
+  computed: {
+    isCardValid() {
+      const { cardNumber, monthYear, cvv } = this.cardInfo;
+      return (
+        this.rules.cardNumber(cardNumber) === true &&
+        this.rules.monthYear(monthYear) === true &&
+        this.rules.cvv(cvv) === true
+      );
+    }
+  },
 
 }
 </script>
