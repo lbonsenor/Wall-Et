@@ -1,13 +1,16 @@
 <template>
   <h1>Inicio</h1>
-  <div class="d-flex flex-wrap ga-5 align-center mb-5">
-    <BalanceBox :balance="balance" class="flex-grow-1"/>
-    <CVU :alias="alias" :cvu="cvu" class="flex-grow-1"/>
-  </div>
-  <div class="d-flex">
-    <ActivityList :activities="activities" :displayCount="5" :isHomePage="true" class="flex-grow-1"/>    
-    <CardList class="flex-grow-1 ml-5" :cards="cards" :display-count="5"/>
-  </div>
+  <v-col style="width: fit-content; margin: auto">
+    <v-row class="align-center ga-7 mb-7">
+      <BalanceBox :balance="balance"/>
+      <CVU :alias="alias" :cvu="cvu"/>
+    </v-row>
+    <v-row class="ga-7">
+      <ActivityList :activities="activities" :displayCount="5" :isHomePage="true" />    
+      <CardList :cards="cards" :display-count="5"/>
+    </v-row>
+  </v-col>
+  
 </template>
 
 <script>
