@@ -1,7 +1,7 @@
 <template>
-    <v-card class="pa-5 rounded-xl" color="surface" min-width="302">
+    <v-card class="pa-5 rounded-xl balance-card" color="surface" min-width="302">
         <v-text style="font-weight: 500; color:rgb(var(--v-theme-title))">Dinero Disponible</v-text>
-    <div class="d-flex align-center justify-space-between mt-2 balance-container">
+        <div class="d-flex align-center justify-space-between mt-2 balance-container">
             <v-text class="me-auto text-no-wrap balance">
                 {{ isBalanceShown ? formatter.format(balance) : "∗∗∗∗∗∗∗∗∗∗∗∗" }}
             </v-text>
@@ -77,5 +77,8 @@
     .balance::-webkit-scrollbar{
         width: 0px;
         background: transparent;
+    }
+    .balance-card {
+        max-width: 800px;
     }
 </style>
