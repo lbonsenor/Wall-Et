@@ -1,6 +1,6 @@
 <template>
     <div class="card-list">
-        <div class="d-flex justify-space-between mb-4">
+        <div class="d-flex justify-space-between align-center mb-4">
             <h1 class="title">Tarjetas</h1>
             <v-btn class="link" @click="navigateToCards" elevation="0" variant="text" density="compact">Ver más ></v-btn>
         </div>
@@ -43,7 +43,7 @@ export default {
 <style scoped>
 .card-list { 
     /* max-width: auto; */
-    padding: 20px 20px 0px 20px;
+    padding: 20px 20px 20px 20px;
     background-color: rgb(var(--v-theme-surface));
     border-radius: 20px 20px 120px 0;
     overflow: hidden;

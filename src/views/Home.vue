@@ -1,14 +1,13 @@
 <template>
   <h1>Inicio</h1>
-  <div class="d-flex ga-5 align-center mb-5">
-    <BalanceBox :balance="balance"/>
-    <CVU :alias="alias" :cvu="cvu"/>
+  <div class="d-flex flex-wrap ga-5 align-center mb-5">
+    <BalanceBox :balance="balance" class="flex-grow-1"/>
+    <CVU :alias="alias" :cvu="cvu" class="flex-grow-1"/>
   </div>
   <div class="d-flex">
-    <ActivityList :activities="activities" :displayCount="5" :isHomePage="true" />    
-    <CardList class="ml-5" :cards="cards" :display-count="5"/>
+    <ActivityList :activities="activities" :displayCount="5" :isHomePage="true" class="flex-grow-1"/>    
+    <CardList class="flex-grow-1 ml-5" :cards="cards" :display-count="5"/>
   </div>
-    
 </template>
 
 <script>
@@ -122,7 +121,6 @@ export default {
       alias: "lau.bonsenor",
       cvu: "00000000123145687945123",
       balance: 123.12
-      
     }
   }
 }
