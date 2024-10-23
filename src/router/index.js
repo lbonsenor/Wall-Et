@@ -25,7 +25,7 @@ const routes = [
         component: Transfer 
     },
     { 
-        path: '/mis-tarjetas',
+        path: '/tarjetas',
         name: 'cards',
         component: Cards 
     },

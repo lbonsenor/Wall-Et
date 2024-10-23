@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         navigateToCards() {
-            return this.$router.push('/mis-tarjetas')
+            return this.$router.push('/tarjetas')
         }
     }
 }
