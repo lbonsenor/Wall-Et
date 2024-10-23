@@ -1,13 +1,12 @@
 <template>
     <div class="d-flex">
         <div class="card-list">
-            <template v-for="(cardItem, index) in this.cardItems" :key="index">
+            <template v-for="(cardItem) in this.cardItems" :key="index">
                 <CardItem v-bind="cardItem" />
             </template>
         </div>
         <NewCard class="ml-2"/>
     </div>
-
 </template>
 
 <script>
@@ -25,7 +24,6 @@ export default {
     }
 
 }
-
 </script>
 
 <style scoped>

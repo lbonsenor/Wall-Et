@@ -6,7 +6,7 @@
   </div>
   <div class="d-flex">
     <ActivityList :activities="activities" :displayCount="5" :isHomePage="true" />    
-    <CardList class="ml-10" :cards="cards" :display-count="5"/>
+    <CardList class="ml-5" :cards="cards" :display-count="5"/>
   </div>
     
 </template>
