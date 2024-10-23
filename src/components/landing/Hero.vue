@@ -2,8 +2,8 @@
     <div class="hero-container">
         <div class="left-content">
             <div class="content-wrapper">
-                <h2>Tu plata, tus reglas: <span class="highlight">simplifica tus finanzas</span></h2>
-                <p class="description">La billetera virtual que Argentina estaba esperando - rápido, seguro y fácil.</p>
+                <h2>Tu plata, tus reglas: <span class="highlight">simplificá tus finanzas</span></h2>
+                <p class="description">La billetera virtual que Argentina estaba esperando; rápida, segura y simple.</p>
                 <Email />
             </div>
         </div>
@@ -52,8 +52,6 @@ h2 {
     margin-bottom: 2rem;
 }
 
-
-
 .right-content {
     flex: 1;
     display: flex;
@@ -66,8 +64,6 @@ h2 {
     max-height: 400px;
     object-fit: contain;
 }
-
-
 
 @media (max-width: 820px) {
     .hero-container {

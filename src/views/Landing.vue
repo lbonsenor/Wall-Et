@@ -1,12 +1,12 @@
 <!-- Landing page -->
 <template>
-        <Navigation />
-        <Hero />
-        <Features />
-        <Testimonials />
-        <FAQ />
-        <JoinUs />
-        <Footer />
+    <Navigation />
+    <Hero />
+    <Features />
+    <Testimonials />
+    <FAQ />
+    <JoinUs />
+    <Footer />
 </template>
 
 <script>

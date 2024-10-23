@@ -4,22 +4,22 @@
         <h1>Qué dicen nuestros usuarios</h1>
         <div class="testimonials">
             <TestimonialCard
-            :image="profile1"
-            color="star"
-            username="camila_lee"
-            quote="Buenisimooo! Mucho mejor que MercadoPago"
+                :image="profile1"
+                color="star"
+                username="camila_lee"
+                quote="Buenisimooo! Mucho mejor que MercadoPago"
             />
             <TestimonialCard
-            :image="profile2"
-            color="primary"
-            username="college_graduate"
-            quote="Coolest app on the store. Recommended for full-time students"
+                :image="profile2"
+                color="primary"
+                username="noah_cefalta"
+                quote="La mejor aplicación. Recomendada para estudiantes"
             />
             <TestimonialCard 
-            :image="profile3"
-            color="success"
-            username="working_mom"
-            quote="I love this app! It's super easy to use!!"
+                :image="profile3"
+                color="success"
+                username="sandra_gomez"
+                quote="Me encanta! Es muy fácil de usar!!"
             />
         </div>
     </div>
@@ -31,11 +31,9 @@ import TestimonialCard from './TestimonialCard.vue';
 import profile1 from '@/assets/profile1.png'
 import profile2 from '@/assets/profile2.png'
 import profile3 from '@/assets/profile3.png'
-
 </script>
 
 <style>
-
 .testimonials {
     display: flex;
     flex-direction: row;
@@ -44,6 +42,4 @@ import profile3 from '@/assets/profile3.png'
     gap:50px;
     margin-top: 20px;
 }
-
-
 </style>

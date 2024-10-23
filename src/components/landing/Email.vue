@@ -4,16 +4,13 @@
             hide-spin-buttons color="secondary" width="300px"></v-text-field>
         <div class="button" @click="navigateToRegisterPage">Empezar</div>
     </div>
-
 </template>
 
 <script>
 export default{
-methods:{ navigateToRegisterPage(){
-    //alert("To register page")
-    console.log(this.$router.push('/login'))
-}
-}
+    methods:{ navigateToRegisterPage() {
+        console.log(this.$router.push('/login'))
+    }}
 }
 </script>
 
@@ -29,7 +26,6 @@ methods:{ navigateToRegisterPage(){
     font-size: normal;
     letter-spacing: normal;
     background: linear-gradient(135deg, #7c3aff 0%, #5d24ff 50%, #4a00e0 100%);
-    /* transition: all 0.3s ease; */
     color: white;
     border: none;
     border-radius: 12px;
@@ -37,8 +33,6 @@ methods:{ navigateToRegisterPage(){
     box-shadow: 0 4px 6x rgba(93, 36, 255, 0.2), 0 0 15px rgba(93, 36, 255, 0.3);
     position: relative;
     overflow: hidden;
-
-
 }
 
 .button:hover {
