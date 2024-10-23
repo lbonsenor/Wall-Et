@@ -2,7 +2,7 @@
   <div class="activity-container pa-4">
     <div class="d-flex justify-space-between">
         <h1 class="title">Actividades Recientes</h1>
-        <v-btn class="link" @click="navigateToActivities" elevation="0" variant="text" density="compact">Ver más ></v-btn>
+        <v-btn v-if="isHomePage" class="link" @click="navigateToActivities" elevation="0" variant="text" density="compact">Ver más ></v-btn>
     </div>
     <template v-for="(activity, index) in displayedActivities" :key="index">
       <div v-if="isNewDate(index)" class="date-header">
@@ -31,6 +31,10 @@ export default {
     displayCount: {
       type: Number,
       default: Infinity
+    },
+    isHomePage: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -48,18 +52,20 @@ export default {
       if (index === 0) return true
       return this.displayedActivities[index].date !== this.displayedActivities[index - 1].date
     },
-
+    navigateToActivities() {
+      this.$router.push('/actividades')
+    }
   }
 }
 </script>
 
 <style scoped>
 .activity-container {
-    background-color: rgb(var(--v-theme-surface));
-    border-radius: 20px;
-    overflow: hidden;
-    min-width: 300px;
-  }
+  background-color: rgb(var(--v-theme-surface));
+  border-radius: 20px;
+  overflow: hidden;
+  min-width: 300px;
+}
 
 .date-header {
   text-align: left;

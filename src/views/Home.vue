@@ -5,7 +5,7 @@
     <CVU :alias="alias" :cvu="cvu"/>
   </div>
   <div class="d-flex">
-    <activity-list :activities="activities" :display-count="4" />
+    <ActivityList :activities="activities" :displayCount="5" :isHomePage="true" />    
     <CardList class="ml-10" :cards="cards" :display-count="5"/>
   </div>
     
