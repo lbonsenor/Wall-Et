@@ -4,7 +4,7 @@
             <h1 class="title">Tarjetas</h1>
             <v-btn class="link" @click="navigateToCards" elevation="0" variant="text" density="compact">Ver más ></v-btn>
         </div>
-        <template v-for="(card) in displayedCards" :key="index">
+        <template v-for="(card, index) in displayedCards" :key="index">
             <MiniCard v-bind="card"/>
         </template>
     </div>
