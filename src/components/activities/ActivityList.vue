@@ -1,7 +1,7 @@
 <template>
   <div class="activity-container pa-4">
     <div class="d-flex justify-space-between">
-        <h1 class="title">Actividades Recientes</h1>
+        <h1 v-if="isHomePage" class="title">Actividades Recientes</h1>
         <v-btn v-if="isHomePage" class="link" @click="navigateToActivities" elevation="0" variant="text" density="compact">Ver más ></v-btn>
     </div>
     <template v-for="(activity, index) in displayedActivities" :key="index">
