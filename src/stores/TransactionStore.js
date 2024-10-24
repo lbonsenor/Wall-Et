@@ -114,9 +114,17 @@ export const useTransactionStore = defineStore('transaction', () => {
             }
 
             // Amount range filter
-            if (range) {
-                const amount = parseFloat(transaction.amount.replace(/[^0-9.-]+/g, ""))
-                matches = matches && amount >= range[0] && amount <= range[1]
+            if (range && range.length === 2) {
+                const cleanAmount = transaction.amount
+                    .replace('$', '')
+                    .replace(/\./g, '')
+                    .replace(',', '.')
+                const amount = parseFloat(cleanAmount)
+                
+                // Only apply filter if we have valid numbers
+                if (!isNaN(amount) && !isNaN(range[0]) && !isNaN(range[1])) {
+                    matches = matches && amount >= range[0] && amount <= range[1]
+                }
             }
 
             // Period filter
@@ -157,7 +165,17 @@ export const useTransactionStore = defineStore('transaction', () => {
         filteredTransactions.value = [...transactions.value]
     }
 
-    // Helper date functions
+    function getMaxAmount() {
+        return Math.max(...transactions.value.map(transaction => {
+            // Remove currency symbol, dots (thousand separators), and convert comma to dot
+            const cleanAmount = transaction.amount
+                .replace('$', '')
+                .replace(/\./g, '')
+                .replace(',', '.')
+            return parseFloat(cleanAmount)
+        }))
+    }
+
     function isSameDay(date1, date2) {
         return date1.getDate() === date2.getDate() &&
             date1.getMonth() === date2.getMonth() &&
@@ -187,6 +205,7 @@ export const useTransactionStore = defineStore('transaction', () => {
         filteredTransactions,
         fetchTransactions, 
         applyFilters,
-        clearFilters
+        clearFilters,
+        getMaxAmount
     }
 })

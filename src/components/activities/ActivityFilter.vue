@@ -17,7 +17,7 @@
             </v-chip-group>
 
             <p class="title">Monto</p>
-            <v-range-slider rounded="pill" color="primary" v-model="range" min="0" max="17500" :step="1"
+            <v-range-slider rounded="pill" color="primary" v-model="range" min="0" :max="maxAmount" :step="1"
                 class="align-center mx-3" thumb-label thumb-color="primary" hide-details hide-spin-buttons>
             </v-range-slider>
 
@@ -64,7 +64,8 @@ const loading = ref(false)
 const search = ref('')
 const selectedTransactionTypes = ref([])
 const selectedPeriod = ref('all_time')
-const range = ref([0, 17500])
+const maxAmount = ref(0)
+const range = ref([0, 0])
 const selectedPaymentTypes = ref([])
 
 const transaction_type = ref([
@@ -133,7 +134,7 @@ const cleanup = () => {
     selectedTransactionTypes.value = []
     selectedPeriod.value = 'all_time'
     selectedPaymentTypes.value = []
-    range.value = [0, 17500]
+    range.value = [0, maxAmount.value]
     
     transactionStore.clearFilters()
     window.scrollTo({ top: 50, behavior: 'smooth' })
@@ -142,6 +143,8 @@ const cleanup = () => {
 onMounted(() => {
     cardStore.fetchCards()
     transactionStore.clearFilters()
+    maxAmount.value = transactionStore.getMaxAmount()
+    range.value = [0, maxAmount.value]
 })
 </script>
 
