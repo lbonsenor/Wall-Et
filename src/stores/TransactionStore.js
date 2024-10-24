@@ -1,8 +1,11 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import { useCardStore } from '@/stores/CardStore'
 import walletApi from '@/api/wallet'
 
 export const useTransactionStore = defineStore('transaction', () => {
+    const cardStore = useCardStore()
+
     const previousTransactions = [
         {
             date: '2024-09-10',
@@ -98,22 +101,29 @@ export const useTransactionStore = defineStore('transaction', () => {
         filteredTransactions.value = transactions.value.filter(transaction => {
             let matches = true
             
-            // Search filter
             if (search) {
                 matches = matches && transaction.user.toLowerCase().includes(search.toLowerCase())
             }
 
-            // Transaction types filter
             if (transactionTypes && transactionTypes.length > 0) {
                 matches = matches && transactionTypes.includes(transaction.transaction_type)
             }
 
-            // Payment types filter
             if (paymentTypes && paymentTypes.length > 0) {
-                matches = matches && paymentTypes.includes(transaction.payment_type)
+                if (paymentTypes.includes('default')) {
+                    matches = matches && transaction.payment_type === 'Dinero disponible'
+                } else {
+                    const cardPayment = paymentTypes.some(cardId => {
+                        const card = cardStore.cards.find(c => c.id.toString() === cardId)
+                        if (card) {
+                            return transaction.payment_type.includes(card.card_brand)
+                        }
+                        return false
+                    })
+                    matches = matches && cardPayment
+                }
             }
 
-            // Amount range filter
             if (range && range.length === 2) {
                 const cleanAmount = transaction.amount
                     .replace('$', '')
@@ -121,13 +131,11 @@ export const useTransactionStore = defineStore('transaction', () => {
                     .replace(',', '.')
                 const amount = parseFloat(cleanAmount)
                 
-                // Only apply filter if we have valid numbers
                 if (!isNaN(amount) && !isNaN(range[0]) && !isNaN(range[1])) {
                     matches = matches && amount >= range[0] && amount <= range[1]
                 }
             }
 
-            // Period filter
             if (period) {
                 const transDate = new Date(transaction.date)
                 const today = new Date()
@@ -167,7 +175,6 @@ export const useTransactionStore = defineStore('transaction', () => {
 
     function getMaxAmount() {
         return Math.max(...transactions.value.map(transaction => {
-            // Remove currency symbol, dots (thousand separators), and convert comma to dot
             const cleanAmount = transaction.amount
                 .replace('$', '')
                 .replace(/\./g, '')

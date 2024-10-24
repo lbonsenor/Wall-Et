@@ -34,14 +34,12 @@
                 </v-col>
             </v-row>
 
-            <!-- Medio de Pago -->
             <p class="title">Medio de pago</p>
             <template v-for="(payment_method, index) in availablePaymentMethods" :key="index">
                 <v-checkbox hide-details v-model="selectedPaymentTypes"
                     :value="payment_method.value" :label="payment_method.label" class="custom-checkbox" />
             </template>
 
-            <!-- Botones de aplicar y limpiar -->
             <div class="flex-row justify-center d-md-flex d-lg-flex justify-md-space-between justify-lg-space-between align-center mt-4">
                 <v-btn class="mb-2 mr-2 flex-grow-1 flex-grow" flat variant="tonal" rounded="xl" @click="apply">Aplicar</v-btn>
                 <v-btn class="mb-2 mr-2 flex-grow-1 flex-grow" flat variant="tonal" rounded="xl" @click="cleanup">Limpiar</v-btn>
