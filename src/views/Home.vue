@@ -7,7 +7,7 @@
     </v-row>
     <v-row class="ga-7">
       <ActivityList :activities="activities" :displayCount="5" :isHomePage="true" />    
-      <CardList :cards="cards" :display-count="5"/>
+      <CardList :cards="cardStore.cards" :display-count="5"/>
     </v-row>
   </v-col>
   
