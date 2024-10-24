@@ -13,7 +13,7 @@ import ResetPassword from '@/views/ResetPassword.vue'
 import Charge from '@/views/Charge.vue'
 import { useUserStore } from '@/stores/UserStore'
 import ErrorPage from '@/views/ErrorPage.vue'
-import Ingresar from '@/views/Ingresar.vue'
+import Deposit from '@/views/Deposit.vue'
 
 
 const routes = [
@@ -80,7 +80,7 @@ const routes = [
     {
         path: '/ingresar',
         name: 'Ingresar',
-        component: Ingresar,
+        component: Deposit,
         meta: {requiresAuth : true}
     }
 ]
