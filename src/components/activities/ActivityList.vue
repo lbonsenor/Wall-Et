@@ -55,7 +55,7 @@
           </div>
           
           <div class="my-2">
-            <div class="text-caption">Método de Pago</div>
+            <div class="text-caption">Medio de Pago</div>
             <div>{{ selectedActivity.payment_type }}</div>
           </div>
           

@@ -79,6 +79,7 @@ export const useTransactionStore = defineStore('transaction', () => {
     ]
 
     const transactions = ref([...previousTransactions])
+    const filteredTransactions = ref([])
 
     function fetchTransactions() {
         transactions.value = walletApi.getTransactions()
@@ -93,26 +94,99 @@ export const useTransactionStore = defineStore('transaction', () => {
         transactions.value.unshift(newTransaction)
     }
 
-    function filterTransactions({ startDate, endDate, type, paymentMethod }) {
-        return transactions.value.filter(transaction => {
+    function applyFilters({ search, transactionTypes, period, range, paymentTypes, startDate, endDate }) {
+        filteredTransactions.value = transactions.value.filter(transaction => {
             let matches = true
             
-            if (startDate && endDate) {
+            // Search filter
+            if (search) {
+                matches = matches && transaction.user.toLowerCase().includes(search.toLowerCase())
+            }
+
+            // Transaction types filter
+            if (transactionTypes && transactionTypes.length > 0) {
+                matches = matches && transactionTypes.includes(transaction.transaction_type)
+            }
+
+            // Payment types filter
+            if (paymentTypes && paymentTypes.length > 0) {
+                matches = matches && paymentTypes.includes(transaction.payment_type)
+            }
+
+            // Amount range filter
+            if (range) {
+                const amount = parseFloat(transaction.amount.replace(/[^0-9.-]+/g, ""))
+                matches = matches && amount >= range[0] && amount <= range[1]
+            }
+
+            // Period filter
+            if (period) {
                 const transDate = new Date(transaction.date)
-                matches = matches && transDate >= new Date(startDate) && transDate <= new Date(endDate)
+                const today = new Date()
+
+                switch(period) {
+                    case 'today':
+                        matches = matches && isSameDay(transDate, today)
+                        break
+                    case 'this_week':
+                        matches = matches && isThisWeek(transDate)
+                        break
+                    case 'this_month':
+                        matches = matches && isThisMonth(transDate)
+                        break
+                    case 'this_year':
+                        matches = matches && isThisYear(transDate)
+                        break
+                    case 'custom':
+                        if (startDate && endDate) {
+                            matches = matches && 
+                                transDate >= new Date(startDate) && 
+                                transDate <= new Date(endDate)
+                        }
+                        break
+                }
             }
-            
-            if (type) {
-                matches = matches && transaction.transaction_type === type
-            }
-            
-            if (paymentMethod) {
-                matches = matches && transaction.payment_type === paymentMethod
-            }
-            
+
             return matches
         })
+
+        return filteredTransactions.value
     }
 
-    return { transactions, fetchTransactions, addTransaction, filterTransactions }
+    function clearFilters() {
+        filteredTransactions.value = [...transactions.value]
+    }
+
+    // Helper date functions
+    function isSameDay(date1, date2) {
+        return date1.getDate() === date2.getDate() &&
+            date1.getMonth() === date2.getMonth() &&
+            date1.getFullYear() === date2.getFullYear()
+    }
+
+    function isThisWeek(date) {
+        const today = new Date()
+        const firstDay = new Date(today.setDate(today.getDate() - today.getDay()))
+        const lastDay = new Date(today.setDate(today.getDate() - today.getDay() + 6))
+        return date >= firstDay && date <= lastDay
+    }
+
+    function isThisMonth(date) {
+        const today = new Date()
+        return date.getMonth() === today.getMonth() &&
+            date.getFullYear() === today.getFullYear()
+    }
+
+    function isThisYear(date) {
+        const today = new Date()
+        return date.getFullYear() === today.getFullYear()
+    }
+
+    return { 
+        transactions, 
+        filteredTransactions,
+        fetchTransactions, 
+        applyFilters,
+        clearFilters
+    }
 })

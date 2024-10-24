@@ -109,6 +109,10 @@ const onSearch = () => {
     }, 500)
 }
 
+const apply = () => {
+    applyFilters()
+}
+
 const applyFilters = () => {
     const startDate = selectedPeriod.value === 'custom' ? dateDialogRef.value?.confirmedSelection[0] : null
     const endDate = selectedPeriod.value === 'custom' ? dateDialogRef.value?.confirmedSelection[1] : null
@@ -122,7 +126,6 @@ const applyFilters = () => {
         startDate,
         endDate
     })
-    window.scrollTo({ top: 50, behavior: 'smooth' })
 }
 
 const cleanup = () => {
@@ -138,6 +141,7 @@ const cleanup = () => {
 
 onMounted(() => {
     cardStore.fetchCards()
+    transactionStore.clearFilters()
 })
 </script>
 
