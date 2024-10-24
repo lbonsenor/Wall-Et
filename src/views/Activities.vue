@@ -9,6 +9,7 @@
 <script>
 import ActivityList from '@/components/activities/ActivityList.vue';
 import ActivityFilter from '@/components/activities/ActivityFilter.vue';
+
 export default {
     name: 'Activities',
     components: {
@@ -20,7 +21,7 @@ export default {
         activities: [
           {
             date: '2024-09-10',
-            title: 'Pedidos Ya Hola Hola Hoal HOla ',
+            user: 'Pedidos Ya Hola Hola Hoal HOla ',
             transaction_type: 'Pago online',
             payment_type: 'Dinero disponible',
             amount: '$17.500.000,00',
@@ -29,7 +30,7 @@ export default {
           },
           {
             date: '2024-03-01',
-            title: 'Camila Lee',
+            user: 'Camila Lee',
             transaction_type: 'Transferencia recibida',
             payment_type: 'Dinero disponible',
             amount: '$20.500,00',
@@ -38,7 +39,7 @@ export default {
           },
           {
             date: '2024-02-28',
-            title: 'Farmacity',
+            user: 'Farmacity',
             transaction_type: 'Pago online',
             payment_type: 'Mastercard prepago',
             amount: '$25.176,70',
@@ -47,7 +48,7 @@ export default {
           },
           {
             date: '2024-02-28',
-            title: 'Farmacity',
+            user: 'Farmacity',
             transaction_type: 'Pago online',
             payment_type: 'Mastercard prepago',
             amount: '$25.176,70',
@@ -55,7 +56,7 @@ export default {
             out: true
           }, {
             date: '2024-02-28',
-            title: 'Farmacity',
+            user: 'Farmacity',
             transaction_type: 'Pago online',
             payment_type: 'Mastercard prepago',
             amount: '$25.176,70',
@@ -63,7 +64,7 @@ export default {
             out: true
           }, {
             date: '2024-02-28',
-            title: 'Farmacity',
+            user: 'Farmacity',
             transaction_type: 'Pago online',
             payment_type: 'Mastercard prepago',
             amount: '$25.176,70',
@@ -71,7 +72,7 @@ export default {
             out: true
           }, {
             date: '2024-02-28',
-            title: 'Farmacity',
+            user: 'Farmacity',
             transaction_type: 'Pago online',
             payment_type: 'Mastercard prepago',
             amount: '$25.176,70',
@@ -79,7 +80,7 @@ export default {
             out: true
           }, {
             date: '2024-02-28',
-            title: 'Farmacity',
+            user: 'Farmacity',
             transaction_type: 'Pago online',
             payment_type: 'Mastercard prepago',
             amount: '$25.176,70',

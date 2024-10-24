@@ -28,9 +28,89 @@ const cards = [
         }
 ]
 
+const transactions = [
+    {
+        date: '2024-09-10',
+        user: 'Pedidos Ya Hola Hola Hoal HOla ',
+        transaction_type: 'Pago online',
+        payment_type: 'Dinero disponible',
+        amount: '$17.500.000,00',
+        time: '17:15',
+        out: true
+    },
+    {
+        date: '2024-03-01',
+        user: 'Camila Lee',
+        transaction_type: 'Transferencia recibida',
+        payment_type: 'Dinero disponible',
+        amount: '$20.500,00',
+        time: '09:00',
+        out: false
+    },
+    {
+        date: '2024-02-28',
+        user: 'Farmacity',
+        transaction_type: 'Pago online',
+        payment_type: 'Mastercard prepago',
+        amount: '$25.176,70',
+        time: '11:45',
+        out: true
+    },
+    {
+        date: '2024-02-28',
+        user: 'Farmacity',
+        transaction_type: 'Pago online',
+        payment_type: 'Mastercard prepago',
+        amount: '$25.176,70',
+        time: '11:45',
+        out: true
+    }, 
+    {
+        date: '2024-02-28',
+        user: 'Farmacity',
+        transaction_type: 'Pago online',
+        payment_type: 'Mastercard prepago',
+        amount: '$25.176,70',
+        time: '11:45',
+        out: true
+    }, 
+    {
+        date: '2024-02-28',
+        user: 'Farmacity',
+        transaction_type: 'Pago online',
+        payment_type: 'Mastercard prepago',
+        amount: '$25.176,70',
+        time: '11:45',
+        out: true
+    }, 
+    {
+        date: '2024-02-28',
+        user: 'Farmacity',
+        transaction_type: 'Pago online',
+        payment_type: 'Mastercard prepago',
+        amount: '$25.176,70',
+        time: '11:45',
+        out: true
+    }, 
+    {
+        date: '2024-02-28',
+        user: 'Farmacity',
+        transaction_type: 'Pago online',
+        payment_type: 'Mastercard prepago',
+        amount: '$25.176,70',
+        time: '11:45',
+        out: true
+    },
+]
+
 function getCards() {
     // Llamar a la API y obtener las tarjetas dinamicamente 
     return cards;
 }
 
-export default { getCards }
+function getTransactions() {
+    // Llamar a la API y obtener las transacciones dinamicamente 
+    return transactions;
+}
+
+export default { getCards, getTransactions }

@@ -11,7 +11,7 @@
         </v-avatar>
       </v-col>
       <v-col class="text-no-wrap scrollable px-3 fill-height py-0">
-          <v-card-text class="font-weight-bold pa-0">{{ title }}</v-card-text>
+          <v-card-text class="font-weight-bold pa-0">{{ user }}</v-card-text>
           <v-card-text class="text-caption pa-0 mt-0.5 text-sm-caption"
             style="color:rgb(var(--v-theme-text_caption))">{{ transaction_type }}</v-card-text>
           <v-card-text class="d-flex align-center text-caption pa-0 mt-0.5"
@@ -37,7 +37,7 @@ import { useDisplay } from 'vuetify'
 const { smAndDown, mdAndUp } = useDisplay()
 
 const props = defineProps({
-  title: {
+  user: {
     type: String,
     required: true
   },
