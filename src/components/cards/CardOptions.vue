@@ -4,7 +4,7 @@
         <div class="card_options">
             <div class="d-flex">
                 <v-icon icon="mdi-swap-horizontal mr-4" />
-                <p>Modificar datos</p>
+                <p>Modificar</p>
             </div>
             <div class="d-flex">
                 <v-icon icon="mdi-pause mr-4" />
