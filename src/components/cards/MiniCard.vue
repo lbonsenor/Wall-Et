@@ -3,8 +3,8 @@
     @click="navigateToCards">
         <template v-slot:prepend>
             <v-icon icon="mdi-credit-card" class="mr-2"></v-icon>
-            <v-card-title class="custom-subtitle mr-2"> {{ " " + type + " " }} </v-card-title>
-            <v-card-title class="custom-subtitle"> {{ " ···· ···· ···· " + last_digits }}</v-card-title>
+            <v-card-title class="custom-subtitle mr-2"> {{ " " + card_type + " " }} </v-card-title>
+            <v-card-title class="custom-subtitle"> {{ " ···· ···· ···· " + card_number.substring(card_number.length-4) }}</v-card-title>
         </template>
     </v-card>
 </template>
@@ -15,15 +15,15 @@
 export default {
     name: 'MiniCard',
     props: {
-        company: {
+        card_brand: {
             type: String,
             required: true
         },
-        type: {
+        card_type: {
             type: String,
             required: false
         },
-        last_digits: {
+        card_number: {
             type: String,
             required: true
         }

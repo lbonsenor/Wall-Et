@@ -1,17 +1,23 @@
 <template>
     <h1 class="text-no-wrap">Tarjetas</h1>
-    <CardsList :cardItems="cards" />
+    <CardsList :cards="cardStore.cards" />
 </template>
 
-<script setup>
+<script>
 import CardsList from '@/components/cards/CardsList.vue';
 
 import { onMounted } from 'vue';
 import { useCardStore } from '@/stores/CardStore';
 
-const cardStore = useCardStore();
-onMounted(() => {
-    cardStore.fetchCards();
-});
+export default{
+    data() {
+        return{
+            cardStore: useCardStore()
+        }
+    }
+}
+// onMounted(() => {
+//     cardStore.fetchCards();
+// });
 </script>
 
