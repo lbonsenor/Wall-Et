@@ -1,47 +1,40 @@
 <template>
   <v-container fluid>
     <v-row justify="left">
-      <div
-        class="d-flex fill-width align-center justify-space-around"
-        style="width: 100%"
-      >
-        <v-form
-          @submit.prevent="updateProfile"
-          style="width: 100%"
-          class="mb-4"
-        >
+      <div class="d-flex fill-width align-center justify-space-around" style="width: 100%">
+        <v-form @submit.prevent="updateProfile" style="width: 100%" class="mb-4">
           <h1>Cuenta</h1>
 
           <v-text-field
-            v-model="name"
+            v-model="userData.name"
             label="Nombre"
             prepend-inner-icon="mdi-account-outline"
             variant="outlined"
           />
 
           <v-text-field
-            v-model="username"
+            v-model="userData.username"
             label="Usuario"
             prepend-inner-icon="mdi-at"
             variant="outlined"
           />
 
           <v-text-field
-            v-model="email"
+            v-model="userData.email"
             label="Email"
             prepend-inner-icon="mdi-email-outline"
             variant="outlined"
           />
 
           <v-text-field
-            v-model="phone"
+            v-model="userData.phone"
             label="Teléfono"
             prepend-inner-icon="mdi-phone-outline"
             variant="outlined"
           />
 
           <v-text-field
-            v-model="dni"
+            v-model="userData.dni"
             label="DNI"
             prepend-inner-icon="mdi-card-account-details-outline"
             variant="outlined"
@@ -58,7 +51,8 @@
               <div class="d-flex align-center mb-6">
                 <div class="avatar-container mr-4">
                   <v-avatar size="80">
-                    <v-img :src="avatar" alt="Profile picture" />
+                    <v-img v-if="userData.avatar" :src="userData.avatar" alt="Profile picture" />
+                    <v-icon v-else size="40">mdi-account</v-icon>
                   </v-avatar>
 
                   <v-btn
@@ -81,8 +75,8 @@
                 </div>
 
                 <div>
-                  <h2>{{ name }}</h2>
-                  <p>{{ username }}</p>
+                  <h2>{{ userData.name }}</h2>
+                  <p>{{ userData.username }}</p>
                 </div>
               </div>
 
@@ -92,10 +86,9 @@
                   prepend-icon="mdi-lock-outline"
                   class="justify-start"
                   block
+                  @click="resetPassword"
                 >
-                  <span class="text-decoration-underline" @click="resetPassword"
-                    >Cambiar contraseña</span
-                  >
+                  <span class="text-decoration-underline">Cambiar contraseña</span>
                 </v-btn>
 
                 <v-btn
@@ -105,7 +98,7 @@
                   block
                   @click="showDeleteConfirmation = true"
                 >
-                <span class="text-decoration-underline delete-account">Eliminar cuenta</span>
+                  <span class="text-decoration-underline delete-account">Eliminar cuenta</span>
                 </v-btn>
               </div>
             </div>
@@ -114,20 +107,14 @@
       </div>
     </v-row>
 
-    <!-- Quizás debería ser otro componente -->
     <v-dialog v-model="showDeleteConfirmation" max-width="400">
       <v-card rounded="lg">
-        <v-card-title class="headline"
-          >Confirmar eliminación de cuenta</v-card-title
-        >
-        <v-card-text class="pt-2"
-          >¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se
-          puede deshacer.</v-card-text
-        >
+        <v-card-title class="headline">Confirmar eliminación de cuenta</v-card-title>
+        <v-card-text class="pt-2">
+          ¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.
+        </v-card-text>
         <v-card-actions>
-          <v-btn color="primary" text @click="showDeleteConfirmation = false"
-            >Cancelar</v-btn
-          >
+          <v-btn color="primary" text @click="showDeleteConfirmation = false">Cancelar</v-btn>
           <v-btn color="error" @click="deleteAccount">Eliminar</v-btn>
         </v-card-actions>
       </v-card>
@@ -136,28 +123,22 @@
 </template>
 
 <script>
-import avatar from "@/assets/logo.png";
-import ResetPassword from "./ResetPassword.vue";
+import { useUserStore } from '@/stores/UserStore';
 
 export default {
   name: "Account",
   data() {
+    const userStore = useUserStore();
     return {
-      name: "Lautaro Bonseñor",
-      username: "lau_bonsenor",
-      avatar: avatar,
-      email: "lbonsenor@itba.edu.ar",
-      phone: "+54 911 6447 3647",
-      dni: "44358712",
+      userStore,
+      userData: { ...userStore.getUserProfile },
       showDeleteConfirmation: false,
     };
   },
   methods: {
     updateProfile() {
+      this.userStore.updateProfile(this.userData);
       console.log("Profile updated");
-    },
-    changeAvatar() {
-      console.log("Avatar changed");
     },
     deleteAccount() {
       console.log("Account deleted");
@@ -171,7 +152,8 @@ export default {
       if (file) {
         const reader = new FileReader();
         reader.onload = (e) => {
-          this.avatar = e.target.result;
+          this.userData.avatar = e.target.result;
+          this.userStore.updateProfile({ ...this.userData });
         };
         reader.readAsDataURL(file);
       }
@@ -180,6 +162,14 @@ export default {
       this.$router.push("/resetar-contraseña");
     },
   },
+  watch: {
+    'userStore.getUserProfile': {
+      handler(newValue) {
+        this.userData = { ...newValue };
+      },
+      deep: true
+    }
+  }
 };
 </script>
 
