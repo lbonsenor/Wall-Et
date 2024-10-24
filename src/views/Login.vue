@@ -55,7 +55,7 @@
         width="300px"
       ></v-text-field>
       <div class="d-flex justify-center mt-4">
-        <v-btn value="register-button d-flex mx-auto" color="primary" width="40%" height=50 style="min-width: fit-content;" text="Ingresar" variant="outlined" rounded="xl"@click="signin"></v-btn>
+        <v-btn value="register-button d-flex mx-auto" color="primary" width="40%" height=50 style="min-width: fit-content;" text="Ingresar" variant="outlined" rounded="xl" @click="signin"></v-btn>
       </div>
       </v-card>
       <v-card class = "mx-auto px-6 py-8" max-width="350" rounded="xl" v-if="selected === 'registro'">
@@ -104,7 +104,7 @@
           width="300px"
         ></v-text-field>
         <div class="d-flex justify-center mt-4">
-          <v-btn value="register-button d-flex mx-auto" color="primary" width="40%" height=50 style="min-width: fit-content;" text="Registrarme" variant="outlined" rounded="xl"@click="signin"></v-btn>
+          <v-btn value="register-button d-flex mx-auto" color="primary" width="40%" height=50 style="min-width: fit-content;" text="Registrarme" variant="outlined" rounded="xl" @click="signin"></v-btn>
         </div>
       </v-card>
     </div>
