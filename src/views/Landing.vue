@@ -1,17 +1,13 @@
 <!-- Landing page -->
 <template>
-        <Navigation />
-        <!-- <ul>
-            <li v-for="card in cardStore.cards" :key="card.id">
-            {{ card.name }} - ${{ card.balance }}
-        </li>
-        </ul> -->
-        <Hero />
-        <Features />
-        <Testimonials />
-        <FAQ />
-        <JoinUs />
-        <Footer />
+    <Navigation />
+    <Hero />
+    <Features />
+    <Testimonials />
+    <FAQ />
+    <JoinUs />
+    <Footer />
+
 </template>
 
 <script setup>

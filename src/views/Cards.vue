@@ -1,6 +1,6 @@
 <template>
-    <h1 class="text-no-wrap">Mis Tarjetas</h1>
-    <CardsList :cardItems="cardStore.cards" />
+    <h1 class="text-no-wrap">Tarjetas</h1>
+    <CardsList :cardItems="cards" />
 </template>
 
 <script setup>

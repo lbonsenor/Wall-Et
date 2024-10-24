@@ -28,7 +28,7 @@ const routes = [
         meta: {requiresAuth : true} 
     },
     { 
-        path: '/mis-tarjetas',
+        path: '/tarjetas',
         name: 'cards',
         component: Cards,
         meta: { requiresAuth: true}

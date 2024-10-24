@@ -1,8 +1,8 @@
 <template>
     <div class="container">
       <div class="header">
-      <img class="logo" src="./../assets/wallet-white.png" alt="Wall-ET logo" />
-      <h2> WALL · Et</h2>
+      <img class="logo" src="./../assets/wallet-white.png" alt="Wall-Et logo" />
+      <h2> Wall · Et</h2>
       </div>
       
         <h1 class="reset-header">Restablezca su contraseña</h1>

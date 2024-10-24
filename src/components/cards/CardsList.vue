@@ -1,27 +1,17 @@
 <template>
     <div class="d-flex">
         <div class="card-list">
-            <template v-for="cardItem in cardItems" :key="cardItem.id">
+            <template v-for="(cardItem) in this.cardItems" :key="index">
                 <CardItem v-bind="cardItem" />
             </template>
         </div>
         <NewCard class="ml-2"/>
     </div>
-
 </template>
 
 <script setup>
 import CardItem from './CardItem.vue';
 import NewCard from './NewCard.vue';
-
-
-const props = defineProps({
-    cardItems: {
-        type: Array,
-        required: true
-    }
-});
-
 </script>
 
 <style scoped>

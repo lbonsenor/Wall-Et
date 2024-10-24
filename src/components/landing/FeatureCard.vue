@@ -20,22 +20,17 @@
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, #7c3aff 0%, #5d24ff 50%, #4a00e0 100%);
-    /* background-color: rgba(var(--v-theme-button), 0.8); */
     color: white;
     border: none;
     border-radius: 12px;
     height: fit-content;
     width: 25vw;
-    /* max-width: 300px; */
-    /* position: relative; */
-    /* overflow: hidden; */
     gap: 20px;
 
 }
 
 .card:hover {
     background: linear-gradient(30deg, #7c3aff 0%, #5d24ff 50%, #4a00e0 100%);
-    /* transform: translateY(-2px); */
     transform: scale(1.05);
     box-shadow: 0 6px 8px rgba(93, 36, 255, 0.3), 0 0 20px rgba(93, 36, 255, 0.4);
 }
@@ -48,5 +43,4 @@ const props = defineProps({
     text: String,
     image: String
 })
-
 </script>

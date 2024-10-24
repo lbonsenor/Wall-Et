@@ -21,6 +21,7 @@ const setActive = (linkName) => {
 html {
   scroll-behavior: smooth;
 }
+
 .topnav {
   background: rgba(var(--v-theme-nav), 0.5);
   backdrop-filter: blur(10px);

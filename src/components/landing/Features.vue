@@ -7,26 +7,26 @@
         <div class="inner-container">
             <div class="align-self-start">
                 <FeatureCard 
-                symbol="1"
-                title="Strategy"
-                text="Amplitud de features para usar, lorem ipsut odor, blah blah"
-                :image="featureImage1"
+                    symbol="1"
+                    title="Rápida"
+                    text="En tan solo un par de clicks, podés realizar una transferencia a quien quieras."
+                    :image="featureImage1"
                 />
             </div>
             <div class="align-self-end">
                 <FeatureCard 
-                symbol="1"
-                title="Escalar"
-                text="Facil y rapido, navegacion intituiva, no cobra comisiones y puedo ahorrar mas"
-                :image="featureImage2"
+                    symbol="1"
+                    title="Segura"
+                    text="Certificada por el Banco Central de la República Argentina."
+                    :image="featureImage2"
                 />
             </div>
             <div class="align-self-start">
                 <FeatureCard 
-                symbol="1"
-                title="Goals"
-                text="Setea tus metas y cumplilas, mira tu progreso y motivate"
-                :image="featureImage3"
+                    symbol="1"
+                    title="Simple"
+                    text="Wall-Et es fácil y rápida, y cuenta con una navegación intituiva."
+                    :image="featureImage3"
                 />
             </div>
         </div>
