@@ -59,7 +59,7 @@ const routes = [
         meta : { requiresAuth: false }
     },
     {
-        path: '/reset',
+        path: '/resetar-contraseña',
         name: 'resetpassword',
         component: ResetPassword,
         meta: { requiresAuth: true}

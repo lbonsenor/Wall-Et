@@ -177,7 +177,7 @@ export default {
       }
     },
     resetPassword() {
-      this.$router.push("/reset");
+      this.$router.push("/resetar-contraseña");
     },
   },
 };

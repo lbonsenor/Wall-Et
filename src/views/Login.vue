@@ -126,11 +126,11 @@
         const redirect = this.$router.currentRoute.value.query.redirect || '/inicio';
         this.$router.push(redirect);
       },
-      returnLanding(){
+      returnLanding() {
         this.$router.push('/');
       },
       forgotPassword() {
-        console.log('Forgot password clicked');
+        this.$router.push("/olvide-mi-contraseña");
       }
     }
   };
