@@ -31,10 +31,31 @@
           width="300px"
         ></v-text-field>
         <div class="d-flex justify-center mt-4">
-          <v-btn value="register-button d-flex mx-auto" color="primary" width="40%" height=50 style="min-width: fit-content;" text="Restablecer" variant="outlined" rounded="xl"@click="signin"></v-btn>
+          <v-btn 
+            value="register-button d-flex mx-auto" 
+            color="primary" 
+            width="40%" 
+            height=50 
+            style="min-width: fit-content;" 
+            text="Restablecer" 
+            variant="outlined" 
+            rounded="xl"
+            @click="resetPassword">
+          </v-btn>
         </div>
       </v-card>
     </div>
+
+    <v-dialog v-model="dialog" max-width="300">
+      <v-card>
+        <v-card-text class="text-center pa-4">
+          La contraseña ha sido cambiada exitosamente.
+        </v-card-text>
+        <v-card-actions class="justify-center">
+          <v-btn color="primary" @click="closeDialog">Aceptar</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
   
@@ -43,11 +64,15 @@
     data() {
       return {
         selected: 'sesion', // Set default selected button -> later change to an input from parent component
+        dialog: false,
       };
     },
     methods: {
-      signin() {
-        this.signIn(); 
+      resetPassword() {
+        this.dialog = true;
+      },
+      closeDialog() {
+        this.dialog = false;
         this.$router.push('/inicio');
       },
     }
@@ -59,8 +84,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
-    width: 100vw;
+    min-height: 68vh;
+    width: 91vw;
   }
 
   .container {
