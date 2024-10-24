@@ -10,16 +10,26 @@
                 <v-icon icon="mdi-pause mr-4" />
                 <p>Pausar</p>
             </div>
-            <div class="d-flex erase">
+            <div class="d-flex erase" @click="removeCard">
                 <v-icon icon="mdi-trash-can-outline mr-4" />
                 <p>Eliminar</p>
             </div>
         </div>
     </div>
 </template>
-<script>
-export default {
-    name: 'CardOptions',
+<script setup>
+import { useCardStore } from '@/stores/CardStore';
+
+const props = defineProps({
+    cardId: {
+        type: Number,
+        required: true
+    }
+});
+
+const cardStore = useCardStore();
+function removeCard() {
+    cardStore.removeCard(props.cardId);
 }
 </script>
 <style scoped>

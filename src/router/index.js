@@ -11,53 +11,63 @@ import Login from '@/views/Login.vue'
 import { components } from 'vuetify/dist/vuetify-labs.js'
 import ResetPassword from '@/views/ResetPassword.vue'
 import Charge from '@/views/Charge.vue'
+import { useUserStore } from '@/stores/UserStore'
 
 
 const routes = [
     { 
         path: '/inicio', 
         name: 'home',
-        component: Home 
+        component: Home,
+        meta: {requiresAuth : true}
     }, 
     { 
         path: '/transferir',
         name: 'transferir',
-        component: Transfer 
+        component: Transfer,
+        meta: {requiresAuth : true} 
     },
     { 
         path: '/tarjetas',
         name: 'cards',
-        component: Cards 
+        component: Cards,
+        meta: { requiresAuth: true}
     },
     { 
         path: '/actividades',
         name: 'activities',
-        component: Activities 
+        component: Activities,
+        meta: { requiresAuth: true}
     },
     { 
         path: '/account',
         name: 'account',
-        component: Account 
+        component: Account,
+        meta: { requiresAuth: true}
     },
     { 
         path: '/',
         name: 'landing',
-        component: Landing 
+        component: Landing,
+        meta: {requiresAuth : false}
     },
     {
         path: '/login',
         name: 'login',
-        component: Login
+        component: Login,
+        meta : { requiresAuth: false }
     },
     {
         path: '/reset',
         name: 'resetpassword',
-        component: ResetPassword
+        component: ResetPassword,
+        meta: { requiresAuth: true}
     },
     {
         path: '/cobrar',
         name: 'charge',
-        component: Charge
+        component: Charge,
+        meta: { requiresAuth: true}
     }
 ]
 
@@ -66,9 +76,17 @@ const router = createRouter({
     routes,
 })
 
-router.beforeEach((to, from, next) => {
-    console.log('Navigating to:', to.path);
-    next();
+router.beforeEach((to, from, next) => { /* authentication is set from here! */
+const userStore = useUserStore();
+    if(to.meta.requiresAuth && !userStore.isSignedIn){
+        next({
+            path: '/login',
+            query: { redirect: to.fullPath }
+          });
+    }
+    else {
+        next();
+    }
   });
   
 export default router; 

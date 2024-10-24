@@ -9,21 +9,9 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import CardItem from './CardItem.vue';
 import NewCard from './NewCard.vue';
-
-export default {
-    name: 'CardsList',
-    components: { CardItem, NewCard },
-    props: {
-        cardItems: {
-            type: Array,
-            required: true
-        }
-    }
-
-}
 </script>
 
 <style scoped>

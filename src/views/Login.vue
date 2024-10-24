@@ -111,16 +111,19 @@
 </template>
   
   <script>
+  import { useUserStore } from '@/stores/UserStore';
   export default {
     data() {
       return {
         selected: 'sesion', // Set default selected button -> later change to an input from parent component
+        userStore : useUserStore(),
       };
     },
     methods: {
       signin() {
-        this.signIn(); 
-        this.$router.push('/inicio');
+        this.userStore.signIn();
+        const redirect = this.$router.currentRoute.value.query.redirect || '/inicio';
+        this.$router.push(redirect);
       },
       returnLanding(){
         this.$router.push('/');
