@@ -31,6 +31,7 @@
                     color="button"
                     rounded="pill"
                     variant="flat"
+                    @click="navigateToIngresar"
                     block
                 >
                 Ingresar
@@ -57,6 +58,9 @@
         methods: {
             navigateToTransferir() {
                 this.$router.push({ path: '/transferir' });
+            },
+            navigateToIngresar() {
+                this.$router.push({ path: '/ingresar' });
             }
         }
     };
