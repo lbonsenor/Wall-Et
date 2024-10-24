@@ -41,26 +41,30 @@
 </template>
 
 <script>
-    export default{
-        data() {
-            return {
-                isBalanceShown: false,
-                formatter: new Intl.NumberFormat('es-AR', {style: 'currency', currency: 'ARS'}),
-            };
-        },
-        props:{
-            balance: {
-                type: Number,
-                default: 0
-            }
-        },  
-        methods: {
-            navigateToTransferir() {
-                this.$router.push({ path: '/transferir' });
-            }
-        }
-    };
+import { useBalanceStore } from '@/stores/BalanceStore'
 
+export default {
+    data() {
+        return {
+            isBalanceShown: false,
+            formatter: new Intl.NumberFormat('es-AR', {style: 'currency', currency: 'ARS'}),
+            balanceStore: useBalanceStore()
+        };
+    },
+    mounted() {
+        this.balanceStore.fetchBalance()
+    },
+    computed: {
+        balance() {
+            return this.balanceStore.balance
+        }
+    },
+    methods: {
+        navigateToTransferir() {
+            this.$router.push({ path: '/transferir' });
+        }
+    }
+};
 </script>
 
 <style scoped>

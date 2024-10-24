@@ -103,14 +103,18 @@ const transactions = [
     },
 ]
 
+const balance = 175000.50;
+
 function getCards() {
-    // Llamar a la API y obtener las tarjetas dinamicamente 
     return cards;
 }
 
 function getTransactions() {
-    // Llamar a la API y obtener las transacciones dinamicamente 
     return transactions;
 }
 
-export default { getCards, getTransactions }
+function getBalance() {
+    return balance;
+}
+
+export default { getCards, getTransactions, getBalance }
