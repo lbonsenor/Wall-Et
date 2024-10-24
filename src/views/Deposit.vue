@@ -13,24 +13,24 @@
 
     <v-text-field 
       v-if="selectedOption === 'cbu'"
-      class="mb-5"
+      class="mb-2"
       variant="outlined" 
       rounded="lg" 
       placeholder="Ingrese su CBU" 
       persistent-placeholder 
       hide-details 
-      hide-spin-buttons 
       color="secondary" 
     ></v-text-field>
-    <div v-if="selectedOption === 'tarjeta'">
+    <div v-if="selectedOption === 'tarjeta'" class="mb-2">
       <v-select
         v-model="selectedCard"
         :items=formattedCards
         item-title="text"
         item-value="id"
         label="Seleccione una tarjeta"
-        outlined
-        rounded
+        variant="outlined"
+        rounded="lg"
+        hide-details
       ></v-select>
     </div>
     <div>
