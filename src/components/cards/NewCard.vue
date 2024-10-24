@@ -10,14 +10,14 @@
         </template>
         <v-card prepend-icon="mdi-credit-card" title="Agregar Tarjeta">
           <v-card-text>
-            <v-text-field label="Número de tarjeta"  required v-model="cardInfo.cardNumber" :rules="[rules.cardNumber]"></v-text-field>
-            <v-text-field label="Titular de tarjeta" required v-model="cardInfo.cardHolder"></v-text-field>
+            <v-text-field label="Número de tarjeta"  required v-model="cardInfo.card_number" :rules="[rules.card_number]"></v-text-field>
+            <v-text-field label="Titular de tarjeta" required v-model="cardInfo.card_owner"></v-text-field>
             <v-row dense>
               <v-col cols="7" md="7" sm="7">
-                <v-text-field label="Fecha de vencimiento" hint="MM/YY" required v-model="cardInfo.monthYear" :rules="[rules.monthYear]"></v-text-field>
+                <v-text-field label="Fecha de vencimiento" hint="MM/YY" required v-model="cardInfo.card_expiry_date" :rules="[rules.card_expiry_date]"></v-text-field>
               </v-col>
               <v-col cols="5" md="5" sm="5">
-                <v-text-field label="CVV" required v-model="cardInfo.cvv" :rules="[rules.cvv]"></v-text-field>
+                <v-text-field label="CVV" required v-model="cardInfo.card_cvv" :rules="[rules.card_cvv]"></v-text-field>
               </v-col>
             </v-row>
           </v-card-text>
@@ -29,7 +29,7 @@
 
             <v-btn color="primary" text="Cerrar" variant="outlined" @click="dialog = false"></v-btn>
 
-            <v-btn color="primary" text="Agregar" variant="flat" :disabled="!isCardValid" @click="dialog = false"></v-btn>
+            <v-btn color="primary" text="Agregar" variant="flat" :disabled="!isCardValid" @click="dialog = false; cardStore.addCard(cardInfo)"></v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -39,28 +39,30 @@
 </template>
 
 <script>
+import { useCardStore } from '@/stores/CardStore';
 
 export default {
   name: 'NewCard',
   data: () => ({
     dialog: false,
+    cardStore: useCardStore(),
     cardInfo: {
-      cardNumber: '',
-      cardHolder: '',
-      monthYear: '',
-      cvv: '',
+      card_number: '',
+      card_owner: '',
+      card_expiry_date: '',
+      card_cvv: '',
     },
     rules: {
-      monthYear: function (value) {
+      card_expiry_date: function (value) {
         const pattern = /^(0?[0-9]|1[0-2])\/[0-9]{2}$/;
         return pattern.test(value) || 'Mes/Año Inválido'
         
       },
-      cardNumber: value => {
+      card_number: value => {
         const pattern = /^[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}$/;
         return pattern.test(value) || 'Tarjeta Inválida'
       }, 
-      cvv: value => {
+      card_cvv: value => {
         const pattern = /^[0-9]{3}$/;
         return pattern.test(value) || 'CVV Inválido'
       }, 
@@ -68,11 +70,11 @@ export default {
   }),
   computed: {
     isCardValid() {
-      const { cardNumber, monthYear, cvv } = this.cardInfo;
+      const { card_number, card_expiry_date, card_cvv } = this.cardInfo;
       return (
-        this.rules.cardNumber(cardNumber) === true &&
-        this.rules.monthYear(monthYear) === true &&
-        this.rules.cvv(cvv) === true
+        this.rules.card_number(card_number) === true &&
+        this.rules.card_expiry_date(card_expiry_date) === true &&
+        this.rules.card_cvv(card_cvv) === true
       );
     }
   },

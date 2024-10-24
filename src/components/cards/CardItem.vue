@@ -30,14 +30,9 @@
 import CardOptions from './CardOptions.vue';
 import { ref, computed } from 'vue';
 
-
 const props = defineProps({
     id: {
         type: Number,
-        required: true
-    },
-    card_brand: {
-        type: String,
         required: true
     },
     card_type: {
@@ -62,6 +57,8 @@ const props = defineProps({
     }
 });
 
+const isHovered = ref(false);
+
 const isCardNumberShown = ref(false);
 
 const toggleCardNumber = () => {
@@ -73,7 +70,6 @@ const randomGradientClass = computed(() => {
     const randomIndex = Math.floor(Math.random() * gradientClasses.length);
     return gradientClasses[randomIndex];
 });
-
 
 </script>
 
