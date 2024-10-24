@@ -1,8 +1,8 @@
 <template>
   <nav class="topnav">
     <a href="#" class="nav-link" :class="{ active: activeLink === 'home' }" @click="setActive('home')">Inicio</a>
-    <a href="#features" class="nav-link" :class="{ active: activeLink === 'features' }" @click="setActive('features')">Features</a>
-    <a href="#testimonials" class="nav-link" :class="{ active: activeLink === 'testimonials' }" @click="setActive('testimonials')">Testimonials</a>
+    <a href="#features" class="nav-link" :class="{ active: activeLink === 'features' }" @click="setActive('features')">Ventajas</a>
+    <a href="#testimonials" class="nav-link" :class="{ active: activeLink === 'testimonials' }" @click="setActive('testimonials')">Testimonios</a>
     <a href="#faq" class="nav-link" :class="{ active: activeLink === 'faq' }" @click="setActive('faq')">FAQs</a>
   </nav>
 </template>

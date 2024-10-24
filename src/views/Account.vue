@@ -101,11 +101,11 @@
                 <v-btn
                   variant="text"
                   prepend-icon="mdi-delete-outline"
-                  class="justify-start"
+                  class="justify-start delete-account"
                   block
                   @click="showDeleteConfirmation = true"
                 >
-                  <span class="text-decoration-underline">Eliminar cuenta</span>
+                  <span class="text-decoration-underline delete-account">Eliminar cuenta</span>
                 </v-btn>
               </div>
             </div>
@@ -204,5 +204,9 @@ export default {
   background-color: white;
   border: 2px solid var(--v-primary-base);
   transform: translate(20%, 20%);
+}
+
+.delete-account {
+  color: red;
 }
 </style>
