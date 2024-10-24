@@ -5,29 +5,25 @@
       <h2>Wall · Et</h2>
     </div>
       
-  <h1 class="welcome-header">Bienvenidx!</h1>
+    <h1 class="welcome-header">Bienvenidx!</h1>
     <div class="button-toggle-container">
-      <v-btn-toggle 
-        v-model="selected" 
-        mandatory 
-        rounded="xl"
-      >
-      <v-btn 
-        class="pill-button" 
-        :class="{ 'active-button': selected === 'sesion' }" 
-        variant="outlined" 
-        value="sesion"
-      >
-        Iniciar sesión
-      </v-btn>
-      <v-btn 
-        class="pill-button" 
-        :class="{ 'active-button': selected === 'registro' }" 
-        variant="outlined" 
-        value="registro"
-      >
-        Registrarme
-      </v-btn>
+      <v-btn-toggle v-model="selected" mandatory rounded="xl">
+        <v-btn 
+          class="pill-button" 
+          :class="{ 'active-button': selected === 'sesion' }" 
+          variant="outlined" 
+          value="sesion"
+        >
+          Iniciar sesión
+        </v-btn>
+        <v-btn 
+          class="pill-button" 
+          :class="{ 'active-button': selected === 'registro' }" 
+          variant="outlined" 
+          value="registro"
+        >
+          Registrarme
+        </v-btn>
       </v-btn-toggle>
     </div>
   
@@ -57,60 +53,65 @@
       <div class="d-flex justify-center mt-4">
         <v-btn value="register-button d-flex mx-auto" color="primary" width="40%" height=50 style="min-width: fit-content;" text="Ingresar" variant="outlined" rounded="xl" @click="signin"></v-btn>
       </div>
-      </v-card>
-      <v-card class = "mx-auto px-6 py-8" max-width="350" rounded="xl" v-if="selected === 'registro'">
-        <v-text-field 
-          class="mb-2"
-          variant="outlined" 
-          rounded="lg" 
-          placeholder="Email" 
-          persistent-placeholder 
-          hide-details 
-          hide-spin-buttons 
-          color="secondary" 
-          width="300px"
-        ></v-text-field>
-        <v-text-field 
-          class="mb-2"
-          variant="outlined" 
-          rounded="lg" 
-          placeholder="Nombre de usuario" 
-          persistent-placeholder 
-          hide-details 
-          hide-spin-buttons 
-          color="secondary" 
-          width="300px"
-        ></v-text-field>
-        <v-text-field 
-          class="mb-2"
-          variant="outlined" 
-          rounded="lg" 
-          placeholder="Contraseña" 
-          persistent-placeholder 
-          hide-details 
-          hide-spin-buttons 
-          color="secondary" 
-          width="300px"
-        ></v-text-field>
-        <v-text-field 
-          class="mb-2"
-          variant="outlined" 
-          rounded="lg" 
-          placeholder="Repita contraseña" 
-          persistent-placeholder 
-          hide-details 
-          hide-spin-buttons 
-          color="secondary" 
-          width="300px"
-        ></v-text-field>
-        <div class="d-flex justify-center mt-4">
-          <v-btn value="register-button d-flex mx-auto" color="primary" width="40%" height=50 style="min-width: fit-content;" text="Registrarme" variant="outlined" rounded="xl" @click="signin"></v-btn>
-        </div>
-      </v-card>
+    </v-card>
+
+  <v-card class = "mx-auto px-6 py-8" max-width="350" rounded="xl" v-if="selected === 'registro'">
+    <v-text-field 
+        class="mb-2"
+        variant="outlined" 
+        rounded="lg" 
+        placeholder="Email" 
+        persistent-placeholder 
+        hide-details 
+        hide-spin-buttons 
+        color="secondary" 
+        width="300px"
+      ></v-text-field>
+      <v-text-field 
+        class="mb-2"
+        variant="outlined" 
+        rounded="lg" 
+        placeholder="Nombre de usuario" 
+        persistent-placeholder 
+        hide-details 
+        hide-spin-buttons 
+        color="secondary" 
+        width="300px"
+      ></v-text-field>
+      <v-text-field 
+        class="mb-2"
+        variant="outlined" 
+        rounded="lg" 
+        placeholder="Contraseña" 
+        persistent-placeholder 
+        hide-details 
+        hide-spin-buttons 
+        color="secondary" 
+        width="300px"
+      ></v-text-field>
+      <v-text-field 
+        class="mb-2"
+        variant="outlined" 
+        rounded="lg" 
+        placeholder="Repita contraseña" 
+        persistent-placeholder 
+        hide-details 
+        hide-spin-buttons 
+        color="secondary" 
+        width="300px"
+      ></v-text-field>
+      <div class="d-flex justify-center mt-4">
+        <v-btn value="register-button d-flex mx-auto" color="primary" width="40%" height=50 style="min-width: fit-content;" text="Registrarme" variant="outlined" rounded="xl" @click="signin"></v-btn>
+      </div>
+    </v-card>
+
+    <div class="forgot-password-link" v-if="selected === 'sesion'">
+      <a href="#" @click.prevent="forgotPassword">Olvidé mi contraseña</a>
     </div>
+  </div>
 </template>
   
-  <script>
+<script>
   import { useUserStore } from '@/stores/UserStore';
   export default {
     data() {
@@ -127,12 +128,15 @@
       },
       returnLanding(){
         this.$router.push('/');
+      },
+      forgotPassword() {
+        console.log('Forgot password clicked');
       }
     }
   };
-  </script>
+</script>
   
-  <style scoped>
+<style scoped>
   .container {
     justify-content: center; 
     align-items: center; 
@@ -155,17 +159,30 @@
   }
 
   .logo {
-  max-width: 100%; 
-  height: 50px;   
-  margin-bottom: 16px; 
-}
-.header {
-  margin-bottom: 1px;
-  display: flex;
-  align-items: center; 
-  margin-bottom: 16px; 
-}
-.welcome-header {
-  margin-top: 1px;
-};
+    max-width: 100%; 
+    height: 50px;   
+    margin-bottom: 16px; 
+  }
+
+  .header {
+    margin-bottom: 1px;
+    display: flex;
+    align-items: center; 
+    margin-bottom: 16px; 
+  }
+
+  .welcome-header {
+    margin-top: 1px;
+  }
+
+  .forgot-password-link {
+    text-align: center;
+    margin-top: 11px;
+  }
+
+  .forgot-password-link a {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 </style>
