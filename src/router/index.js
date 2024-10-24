@@ -10,6 +10,7 @@ import Landing from '@/views/Landing.vue'
 import Login from '@/views/Login.vue'
 import { components } from 'vuetify/dist/vuetify-labs.js'
 import ResetPassword from '@/views/ResetPassword.vue'
+import ForgotMyPassword from '@/views/ForgotMyPassword.vue'
 import Charge from '@/views/Charge.vue'
 import { useUserStore } from '@/stores/UserStore'
 import ErrorPage from '@/views/ErrorPage.vue'
@@ -65,6 +66,12 @@ const routes = [
         meta: { requiresAuth: true}
     },
     {
+        path: '/olvide-mi-contraseña',
+        name: 'forgotMyPassword',
+        component: ForgotMyPassword,
+        meta: { requiresAuth: false}
+    },
+    {
         path: '/cobrar',
         name: 'charge',
         component: Charge,
@@ -75,7 +82,7 @@ const routes = [
         name: 'NotFound',
         component: ErrorPage,
         meta: { requiresAuth : false}
-      },
+    },
 ]
 
 const router = createRouter({
