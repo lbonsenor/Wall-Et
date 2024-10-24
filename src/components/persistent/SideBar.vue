@@ -26,7 +26,7 @@
         nav rounded="pill" 
         prepend-icon="mdi-logout"
         title="Cerrar sesión"
-        @click="singOut"
+        @click="signOut"
         class="sign-out-btn"
       ></v-list-item>
     </v-list>
@@ -55,7 +55,7 @@ export default {
     isCurrentRoute(route){
       return this.$route.path == route
     },
-    singOut() {
+    signOut() {
       console.log("Cerrando sesión");
       this.userStore.signOut();
       this.$router.push('/'); //todo -> either go to landing or to login (landing seems better)

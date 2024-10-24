@@ -91,7 +91,12 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => { /* authentication is set from here! */
-const userStore = useUserStore();
+    const userStore = useUserStore();
+    
+    if(!to.meta.requiresAuth){
+        userStore.signOut()
+    }
+    
     if(to.meta.requiresAuth && !userStore.isSignedIn){
         next({
             path: '/login',
@@ -101,6 +106,6 @@ const userStore = useUserStore();
     else {
         next();
     }
-  });
+});
   
 export default router; 
