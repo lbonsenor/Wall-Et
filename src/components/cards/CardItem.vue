@@ -78,25 +78,6 @@ const randomGradientClass = computed(() => {
 </script>
 
 <style scoped>
-/* .gradient-card {
-    background: radial-gradient(
-    circle at top left,
-    rgba(var(--v-theme-primary), 0.7),
-    rgba(var(--v-theme-secondary), 0.5),
-    rgba(var(--v-theme-card), 1)
-  );
-  transition: all 0.3s ease;
-}
-
-.gradient-card:hover {
-  background: radial-gradient(
-    circle at bottom right,
-    rgba(var(--v-theme-primary), 0.8),
-    rgba(var(--v-theme-secondary), 0.6),
-    rgba(var(--v-theme-card), 1)
-  );
-  transform: scale(1.02);
-} */
 
 .gradient-card {
     transition: all 0.3s ease;
@@ -109,10 +90,7 @@ const randomGradientClass = computed(() => {
 
 .card_details {
     padding: 5px;
-    /* height: 100%;
-    justify-content: space-between;
-    justify-items: baseline; */
-    /* color: white; */
+
 }
 
 .parent_container {
