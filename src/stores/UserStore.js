@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import walletApi from '@/api/wallet';
 
 export const useUserStore = defineStore('user', {
   state: () => ({
@@ -24,18 +25,7 @@ export const useUserStore = defineStore('user', {
   actions: {
     signIn() {
       this.isSignedIn = true;
-      // Simulating user data
-      this.user = {
-        id: 1,
-        name: 'Lautaro Bonseñor',
-        username: 'lau_bonsenor',
-        email: 'lbonsenor@itba.edu.ar',
-        phone: '+54 911 6447 3647',
-        dni: '44358712',
-        avatar: null,
-        cvu: '0000079800000000000000',
-        alias: 'lau.bonsenor.wallet'
-      }
+      this.user = walletApi.getUser();
     },
 
     signOut() {

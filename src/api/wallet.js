@@ -105,6 +105,18 @@ const transactions = [
 
 const balance = 175000.50;
 
+const user = {
+    id: 1,
+    name: 'Lautaro Bonseñor',
+    username: 'lau_bonsenor',
+    email: 'lbonsenor@itba.edu.ar',
+    phone: '+54 911 6447 3647',
+    dni: '44358712',
+    avatar: null,
+    cvu: '0000079800000000000000',
+    alias: 'lau.bonsenor.wallet'
+}
+
 function getCards() {
     return cards;
 }
@@ -117,4 +129,8 @@ function getBalance() {
     return balance;
 }
 
-export default { getCards, getTransactions, getBalance }
+function getUser() {
+    return user;
+}
+
+export default { getCards, getTransactions, getBalance, getUser }
