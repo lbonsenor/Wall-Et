@@ -55,7 +55,7 @@
         width="300px"
       ></v-text-field>
       <div class="d-flex justify-center mt-4">
-        <v-btn value="register-button d-flex mx-auto" color="primary" width="40%" height=50 style="min-width: fit-content;" text="Ingresar" variant="outlined" rounded="xl"@click="signin"></v-btn>
+        <v-btn value="register-button d-flex mx-auto" color="primary" width="40%" height=50 style="min-width: fit-content;" text="Ingresar" variant="outlined" rounded="xl" @click="signin"></v-btn>
       </div>
       </v-card>
       <v-card class = "mx-auto px-6 py-8" max-width="350" rounded="xl" v-if="selected === 'registro'">
@@ -104,23 +104,26 @@
           width="300px"
         ></v-text-field>
         <div class="d-flex justify-center mt-4">
-          <v-btn value="register-button d-flex mx-auto" color="primary" width="40%" height=50 style="min-width: fit-content;" text="Registrarme" variant="outlined" rounded="xl"@click="signin"></v-btn>
+          <v-btn value="register-button d-flex mx-auto" color="primary" width="40%" height=50 style="min-width: fit-content;" text="Registrarme" variant="outlined" rounded="xl" @click="signin"></v-btn>
         </div>
       </v-card>
     </div>
 </template>
   
   <script>
+  import { useUserStore } from '@/stores/UserStore';
   export default {
     data() {
       return {
         selected: 'sesion', // Set default selected button -> later change to an input from parent component
+        userStore : useUserStore(),
       };
     },
     methods: {
       signin() {
-        this.signIn(); 
-        this.$router.push('/inicio');
+        this.userStore.signIn();
+        const redirect = this.$router.currentRoute.value.query.redirect || '/inicio';
+        this.$router.push(redirect);
       },
       returnLanding(){
         this.$router.push('/');

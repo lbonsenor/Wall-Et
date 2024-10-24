@@ -17,7 +17,9 @@
 import BalanceBox from '@/components/BalanceBox.vue';
 import CVU from '@/components/CVU.vue';
 import ActivityList from '@/components/activities/ActivityList.vue';
-import CardList from '@/components/cards/CardList.vue';
+import CardList from '@/components/cards/MiniCardsList.vue';
+
+import { useCardStore } from '@/stores/CardStore';
 
 export default {
   name: 'Home',
@@ -32,24 +34,7 @@ export default {
   },
   data() {
     return {
-      cards: [
-        {
-          company: 'Mastercard',
-          type: 'Crédito',
-          last_digits: '1234'
-        },
-        {
-          company: 'Mastercard',
-          type: 'Crédito',
-          last_digits: '1234'
-        },
-        {
-          company: 'Mastercard',
-          type: 'Crédito',
-          last_digits: '1234'
-        },
-        
-      ],
+      cardStore: useCardStore(),
       activities: [
         {
           date: '2024-09-10',

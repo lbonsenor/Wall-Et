@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex ga-5 align-center mr-3">
+    <div class="card-item d-flex ga-5 align-center mr-3">
         <v-card class="mt-2 gradient-card" :class="randomGradientClass" min-height="150px" min-width="200px"
             rounded="lg" elevation="3">
             <div class="parent_container">
@@ -8,8 +8,7 @@
                         <img src="@/assets/mc_symbol.svg" height="40px" />
                         <p class="text-align-start">{{ card_type }}</p>
                     </div>
-                    <v-btn color="white" variant="tonal" size="small" @click="isCardNumberShown = !isCardNumberShown"
-                        icon>
+                    <v-btn color="white" variant="tonal" size="small" @click="toggleCardNumber">
                         <v-icon>{{ isCardNumberShown ? "mdi-eye-off-outline" : "mdi-eye-outline" }}</v-icon>
                     </v-btn>
                 </div>
@@ -23,58 +22,58 @@
                 </div>
             </div>
         </v-card>
-        <CardOptions />
+        <CardOptions :cardId="id" />
     </div>
 </template>
 
-<script>
+<script setup>
 import CardOptions from './CardOptions.vue';
+import { ref, computed } from 'vue';
 
-export default {
-    name: 'CardItem',
-    components: {
-        CardOptions
+
+const props = defineProps({
+    id: {
+        type: Number,
+        required: true
     },
-    props: {
-        card_brand: {
-            type: String,
-            required: true
-        },
-        card_type: {
-            type: String,
-            required: true
-        },
-        card_number: {
-            type: String,
-            required: true,
-        },
-        card_owner: {
-            type: String,
-            required: true
-        },
-        card_expiry_date: {
-            type: String,
-            required: true
-        },
-        card_cvv: {
-            type: Number,
-            required: true
-        }
+    card_brand: {
+        type: String,
+        required: true
     },
-    data() {
-        return {
-            isCardNumberShown: false,
-        };
+    card_type: {
+        type: String,
+        required: true
     },
-    computed: {
-        randomGradientClass() {
-            const gradientClasses = ['card-gradient-1', 'card-gradient-2', 'card-gradient-3', 'card-gradient-4', 'card-gradient-5'];
-            const randomIndex = Math.floor(Math.random() * gradientClasses.length);
-            return gradientClasses[randomIndex];
-        }
+    card_number: {
+        type: String,
+        required: true,
+    },
+    card_owner: {
+        type: String,
+        required: true
+    },
+    card_expiry_date: {
+        type: String,
+        required: true
+    },
+    card_cvv: {
+        type: Number,
+        required: true
     }
+});
 
+const isCardNumberShown = ref(false);
+
+const toggleCardNumber = () => {
+    isCardNumberShown.value = !isCardNumberShown.value;
 };
+
+const randomGradientClass = computed(() => {
+    const gradientClasses = ['card-gradient-1', 'card-gradient-2', 'card-gradient-3', 'card-gradient-4', 'card-gradient-5'];
+    const randomIndex = Math.floor(Math.random() * gradientClasses.length);
+    return gradientClasses[randomIndex];
+});
+
 
 </script>
 
