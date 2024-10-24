@@ -105,7 +105,7 @@
                   block
                   @click="showDeleteConfirmation = true"
                 >
-                  <span class="text-decoration-underline delete-account">Eliminar cuenta</span>
+                <span class="text-decoration-underline delete-account">Eliminar cuenta</span>
                 </v-btn>
               </div>
             </div>
