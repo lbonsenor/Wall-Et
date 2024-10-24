@@ -1,8 +1,8 @@
 <template>
   <h1>Actividades</h1>
   <div class="activity">
-      <ActivityList class="activity-list" :activities="transactionStore.transactions" :display-count="Infinity"/>
-      <ActivityFilter class="activity-filter"/>
+    <ActivityList class="activity-list" :activities="transactionStore.transactions" :display-count="Infinity"/>
+    <ActivityFilter class="activity-filter"/>
   </div>
 </template>
 
