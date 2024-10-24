@@ -22,38 +22,9 @@
       hide-spin-buttons 
       color="secondary" 
     ></v-text-field>
-
-    <!-- Rest of your form fields -->
-    <v-text-field 
-      class="mb-2"
-      variant="outlined" 
-      rounded="lg" 
-      placeholder="Nombre de usuario" 
-      persistent-placeholder 
-      hide-details 
-      hide-spin-buttons 
-      color="secondary" 
-    ></v-text-field>
-    <v-text-field 
-      class="mb-2"
-      variant="outlined" 
-      rounded="lg" 
-      placeholder="Contraseña" 
-      persistent-placeholder 
-      hide-details 
-      hide-spin-buttons 
-      color="secondary" 
-    ></v-text-field>
-    <v-text-field 
-      class="mb-2"
-      variant="outlined" 
-      rounded="lg" 
-      placeholder="Repita contraseña" 
-      persistent-placeholder 
-      hide-details 
-      hide-spin-buttons 
-      color="secondary" 
-    ></v-text-field>
+    <div v-if="selectedOption === 'tarjeta'" class="mb-4">
+      <CardList :cards="cardStore.cards" :display-count="3" @card-selected="selectCard" />
+    </div>
     <div>
       <v-text style="color: rgb(var(--v-theme-title));">Monto</v-text>
       <v-text-field v-model="amount" class="amount" variant="underlined"
@@ -66,12 +37,36 @@
 </template>
 
 <script>
+import { useCardStore } from '@/stores/CardStore';
+import CardList from '@/components/cards/MiniCardsList.vue';
+
 export default {
+  components: {
+      CardList,
+  },
   data() {
     return {
       selectedOption: 'tarjeta',
       amount: '',
+      cardStore: useCardStore(),
+      selectedCard: null,
     }
   },
+  methods: {
+    selectCard(card) {
+      this.selectedCard = card;
+    }
+  }
 }
 </script>
+
+<style scoped>
+.amount input,
+.amount {
+  font-size: xxx-large !important;
+  text-align: end;
+  min-width: 50%;
+  margin-left: auto;
+  font-family: "Fira Mono";
+}
+</style>
