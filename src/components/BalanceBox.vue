@@ -1,9 +1,7 @@
 <template>
-    <v-card class="pa-5 rounded-xl" 
-            color="surface"
-            min-width="302">
+    <v-card class="pa-5 rounded-xl balance-card" color="surface" min-width="302">
         <v-text style="font-weight: 500; color:rgb(var(--v-theme-title))">Dinero Disponible</v-text>
-        <div class="d-flex align-center">
+        <div class="d-flex align-center justify-space-between mt-2 balance-container">
             <v-text class="me-auto text-no-wrap balance">
                 {{ isBalanceShown ? formatter.format(balance) : "∗∗∗∗∗∗∗∗∗∗∗∗" }}
             </v-text>
@@ -12,15 +10,32 @@
                 <v-icon size="large">{{ isBalanceShown ? "mdi-eye-off-outline" : "mdi-eye-outline" }}</v-icon>
             </v-btn>
         </div>
-        <v-row class="pa-3 mt-2 ga-3">
-            <v-btn class="v-btn__content text-none" 
-                prepend-icon="mdi-send-outline"
-                color="button" rounded="pill" variant="flat" text="Transferir"
-                @click="navigateToTransferir"
-                />
-            <v-btn class="v-btn__content text-none"
-                prepend-icon="mdi-cash-multiple"
-                color="button" rounded="pill" variant="flat" text="Ingresar"/>
+        <v-row class="mt-4" no-gutters>
+            <v-col cols="12" sm="6" class="pr-sm-2 mb-2 mb-sm-0">
+                <v-btn
+                    class="text-none"
+                    prepend-icon="mdi-send-outline"
+                    color="button"
+                    rounded="pill"
+                    variant="flat"
+                    @click="navigateToTransferir"
+                    block
+                >
+                Transferir
+                </v-btn>
+            </v-col>
+            <v-col cols="12" sm="6" class="pl-sm-2">
+                <v-btn
+                    class="text-none"
+                    prepend-icon="mdi-cash-multiple"
+                    color="button"
+                    rounded="pill"
+                    variant="flat"
+                    block
+                >
+                Ingresar
+                </v-btn>
+            </v-col>
         </v-row>
     </v-card>
 </template>
@@ -62,5 +77,8 @@
     .balance::-webkit-scrollbar{
         width: 0px;
         background: transparent;
+    }
+    .balance-card {
+        max-width: 800px;
     }
 </style>

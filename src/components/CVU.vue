@@ -1,9 +1,9 @@
 <template>
     <container class="container">
         <v-row no-gutters justify="space-between" class="d-flex">
-            <div>
+            <div class="text-container">
                 <h3>Alias</h3>
-                <v-text>{{ alias }}</v-text>
+                <v-text class="text-content">{{ alias }}</v-text>
             </div>
             <v-tooltip open-on-click :open-on-hover="false" v-model="AliasCopied" text="Copiado!">
                 <template v-slot:activator="{ on, props }">
@@ -13,9 +13,9 @@
         </v-row>
         <v-divider class="mt-4 mb-4" thickness="1" color="white"></v-divider>
         <v-row no-gutters justify="space-between" class="d-flex">
-            <div>
+            <div class="text-container">
                 <h3>CVU</h3>
-                <v-text class="number">{{ cvu }}</v-text>
+                <v-text class="number text-content">{{ cvu }}</v-text>
             </div>
             <v-tooltip open-on-click :open-on-hover="false" v-model="CVUCopied" text="Copiado!">
                 <template v-slot:activator="{ on, props }">
@@ -63,11 +63,20 @@
     .container{
         display: flex;
         min-width: 300px;
+        max-width: 450px;
         height: 100%;
         justify-content: space-between;
         flex-direction: column;
     }
     .number{
         font-family: "Fira Mono", monospace;
+    }
+    .text-container {
+        flex-grow: 1;
+        overflow: hidden;
+    }
+    .text-content {
+        word-break: break-all;
+        overflow-wrap: break-word;
     }
 </style>

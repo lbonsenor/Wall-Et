@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <div class="header" @click="returnLanding">
-    <img class="logo" src="./../assets/wallet-white.png" alt="Wall-ET logo" />
-    <h2> Wall · Et</h2>
-  </div>
+    <div class="header ga-2" @click="returnLanding">
+      <img class="logo my-auto" src="./../assets/wallet-white.png" alt="Wall-ET logo" />
+      <h2>Wall · Et</h2>
+    </div>
       
   <h1 class="welcome-header">Bienvenidx!</h1>
     <div class="button-toggle-container">
@@ -134,11 +134,10 @@
   
   <style scoped>
   .container {
-    display: flex;
-    flex-direction: column;
     justify-content: center; 
     align-items: center; 
-    height: 100vh; 
+    height: 100vh;
+    margin: auto;
   }
   
   .button-toggle-container {
