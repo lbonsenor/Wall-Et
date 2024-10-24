@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <div class="header" @click="returnLanding">
-      <img class="logo" src="./../assets/wallet-white.png" alt="Wall-ET logo" />
-      <h2> Wall · Et</h2>
+    <div class="header ga-2" @click="returnLanding">
+      <img class="logo my-auto" src="./../assets/wallet-white.png" alt="Wall-ET logo" />
+      <h2>Wall · Et</h2>
     </div>
       
   <h1 class="welcome-header">Bienvenidx!</h1>
