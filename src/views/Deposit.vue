@@ -24,9 +24,10 @@
     <div v-if="selectedOption === 'tarjeta'" class="mb-2">
       <v-select
         v-model="selectedCard"
-        :items="cardStore.cards"
-        :item-text="card => `${card.card_type} ···· ${card.card_number.slice(-4)}`"
+        :items=formattedCards
+        item-text="text"
         item-value="id"
+        item-title=card_number
         label="Seleccione una tarjeta"
         outlined
         rounded
@@ -53,6 +54,14 @@ export default {
       amount: '',
       cardStore: useCardStore(),
       selectedCard: null,
+    }
+  },
+  computed: {
+    formattedCards() {
+      return this.cardStore.cards.map(card => ({
+        id: card.id,
+        text: `Tarjeta de ${card.card_type} terminada en ${card.card_number.slice(-4)}`
+      }));
     }
   },
   methods: {
