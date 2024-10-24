@@ -151,7 +151,7 @@
   
   .v-btn-toggle {
     border-radius: 30px;
-    background-color: white /* todo CHANGE THIS COLORS (no sabia como poner los de la paleta) */
+    background-color: rgb(var(--v-theme-surface));
   }
   
   .pill-button {
