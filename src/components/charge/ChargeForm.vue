@@ -1,12 +1,12 @@
 <template>
     <v-card rounded="xl" style="min-width: fit-content;" class="pa-6">
-        <div class="mb-2">
+        <!-- <div class="mb-2">
             <v-text style="color: rgb(var(--v-theme-title));">Cliente</v-text>
             <v-text-field variant="underlined" persistent-hint hint="Ingresá CVU, alias o email"></v-text-field>
-        </div>
+        </div> -->
         <div class="mb-2">
-            <v-text style="color: rgb(var(--v-theme-title));">Motivo</v-text>
-            <v-text-field variant="underlined" persistent-hint hint="Ingresá el motivo del pago"></v-text-field>
+            <v-text style="color: rgb(var(--v-theme-title));">Producto o Servicio</v-text>
+            <v-text-field variant="underlined" persistent-hint hint="Ingresá el nombre del producto o sevicio"></v-text-field>
         </div>
         <div>
             <v-text style="color: rgb(var(--v-theme-title));">Monto</v-text>
