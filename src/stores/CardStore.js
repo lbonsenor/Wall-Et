@@ -3,7 +3,33 @@ import { defineStore } from 'pinia'
 import walletApi from '@/api/wallet'
 
 export const useCardStore = defineStore('card', () => {
-    const cards = ref([])
+    const previousCards = [
+        {
+            card_brand:'hi',
+            card_type:'Debito',
+            card_number:'1234 4567 7890 0000',
+            card_owner:'Camila Lee',
+            card_expiry_date:'04/30',
+            card_cvv:'123'
+        },
+        {
+            card_brand:'hi',
+            card_type:'Debito',
+            card_number:'1234 4567 7890 0000',
+            card_owner:'Camila Lee',
+            card_expiry_date:'04/30',
+            card_cvv:'123'
+        },
+        {
+            card_brand:'hi',
+            card_type:'Debito',
+            card_number:'1234 4567 7890 0000',
+            card_owner:'Camila Lee',
+            card_expiry_date:'04/30',
+            card_cvv:'123'
+        }
+    ]
+    const cards = ref([...previousCards])
 
     function fetchCards() {
         cards.value = walletApi.getCards()

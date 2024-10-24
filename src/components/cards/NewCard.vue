@@ -9,7 +9,6 @@
           <p class="text-center add">Agregar tarjeta</p>
         </template>
         <v-card prepend-icon="mdi-credit-card" title="Agregar Tarjeta">
-          <v-form @submit.prevent="addNewCard" v-model="isFormValid">
           <v-card-text>
             <v-text-field label="Número de tarjeta"  required v-model="cardInfo.cardNumber" :rules="[rules.cardNumber]"></v-text-field>
             <v-text-field label="Titular de tarjeta" required v-model="cardInfo.cardHolder"></v-text-field>
@@ -32,7 +31,6 @@
 
             <v-btn color="primary" text="Agregar" variant="flat" :disabled="!isCardValid" @click="dialog = false"></v-btn>
           </v-card-actions>
-          </v-form>
         </v-card>
       </v-dialog>
 
