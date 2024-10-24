@@ -46,12 +46,15 @@ export const useCardStore = defineStore('card', () => {
         cards.value = cards.value.filter(card => card.id !== cardId)
     }
 
-    function modifyCard(cardId) {
-        const card = cards.value.find(card => card.id === cardId)
-        if (card) {
-            // Modificar la tarjeta
+    function modifyCard(cardId, updatedCard) {
+        const index = cards.value.findIndex(card => card.id === cardId)
+        if (index !== -1) {
+            cards.value[index] = {
+                ...cards.value[index],
+                ...updatedCard
+            }
         }
     }
 
-    return { cards, fetchCards, addCard, removeCard }
+    return { cards, fetchCards, addCard, removeCard, modifyCard }
 })
