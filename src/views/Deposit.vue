@@ -25,9 +25,8 @@
       <v-select
         v-model="selectedCard"
         :items=formattedCards
-        item-text="text"
+        item-title="text"
         item-value="id"
-        item-title=card_number
         label="Seleccione una tarjeta"
         outlined
         rounded
@@ -64,6 +63,13 @@ export default {
       }));
     }
   },
+  watch: {
+    selectedOption(newVal, oldVal) {
+      if (!['tarjeta', 'cbu'].includes(newVal)) {
+        this.selectedOption = oldVal;
+      }
+    }
+  },
   methods: {
     selectCard(card) {
       this.selectedCard = card;
@@ -74,6 +80,7 @@ export default {
 
 <style scoped>
 .amount input,
+
 .amount {
   font-size: xxx-large !important;
   text-align: end;

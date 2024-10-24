@@ -7,7 +7,7 @@ export const useCardStore = defineStore('card', () => {
         {
             id: 0,
             card_brand:'hi',
-            card_type:'Debito',
+            card_type:'Débito',
             card_number:'1234 4567 7890 1111',
             card_owner:'Camila Lee',
             card_expiry_date:'04/30',
@@ -16,7 +16,7 @@ export const useCardStore = defineStore('card', () => {
         {
             id: 1,
             card_brand:'hi',
-            card_type:'Debito',
+            card_type:'Débito',
             card_number:'1234 4567 7890 2222',
             card_owner:'Camila Lee',
             card_expiry_date:'04/30',
@@ -25,7 +25,7 @@ export const useCardStore = defineStore('card', () => {
         {
             id: 2,
             card_brand:'hi',
-            card_type:'Debito',
+            card_type:'Débito',
             card_number:'1234 4567 7890 3333',
             card_owner:'Camila Lee',
             card_expiry_date:'04/30',
