@@ -53,8 +53,8 @@ export default {
 .display {
     display: flex;
     flex-direction: column;
-    lg-width: 30%;
-    sm-width: 100%
+    /* lg-width: 30%;
+    sm-width: 100% */
 }
 
 @media (min-width: 940px) {

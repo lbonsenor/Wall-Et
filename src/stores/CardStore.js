@@ -5,25 +5,28 @@ import walletApi from '@/api/wallet'
 export const useCardStore = defineStore('card', () => {
     const previousCards = [
         {
+            id: 0,
             card_brand:'hi',
             card_type:'Debito',
-            card_number:'1234 4567 7890 0000',
+            card_number:'1234 4567 7890 1111',
             card_owner:'Camila Lee',
             card_expiry_date:'04/30',
             card_cvv:'123'
         },
         {
+            id: 1,
             card_brand:'hi',
             card_type:'Debito',
-            card_number:'1234 4567 7890 0000',
+            card_number:'1234 4567 7890 2222',
             card_owner:'Camila Lee',
             card_expiry_date:'04/30',
             card_cvv:'123'
         },
         {
+            id: 2,
             card_brand:'hi',
             card_type:'Debito',
-            card_number:'1234 4567 7890 0000',
+            card_number:'1234 4567 7890 3333',
             card_owner:'Camila Lee',
             card_expiry_date:'04/30',
             card_cvv:'123'
