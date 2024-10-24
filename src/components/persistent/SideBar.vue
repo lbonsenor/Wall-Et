@@ -42,8 +42,8 @@ export default {
       items: [
         { title: 'Inicio', value: "home", icon: "mdi-home-outline", route: '/inicio' },
         { title: 'Transferir Dinero', value: "transfer", icon: "mdi-send-outline", route: '/transferir' },
-        { title: 'Actividades', value: "activities", icon: "mdi-receipt-text-clock-outline", route: '/actividades' },
         { title: 'Ingresar Dinero', value: "deposit", icon: "mdi-cash-fast", route: '/ingresar'},
+        { title: 'Actividades', value: "activities", icon: "mdi-receipt-text-clock-outline", route: '/actividades' },
         { title: 'Tarjetas', value: "cards", icon: "mdi-credit-card-outline", route: '/tarjetas' },
         { title: 'Cobrar', value: "charge", icon: "mdi-cash-multiple", route: '/cobrar' },
       ],

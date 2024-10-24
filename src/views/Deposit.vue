@@ -1,6 +1,5 @@
 <template>
   <v-card class="mx-auto px-6 py-8" max-width="700" rounded="xl">
-    
     <div class="text-center mb-4">
       <v-text style="color: rgb(var(--v-theme-title));">Seleccione medio de ingreso:</v-text>
     </div>
@@ -22,8 +21,16 @@
       hide-spin-buttons 
       color="secondary" 
     ></v-text-field>
-    <div v-if="selectedOption === 'tarjeta'" class="mb-4">
-      <CardList :cards="cardStore.cards" :display-count="3" @card-selected="selectCard" />
+    <div v-if="selectedOption === 'tarjeta'" class="mb-2">
+      <v-select
+        v-model="selectedCard"
+        :items="cardStore.cards"
+        :item-text="card => `${card.card_type} ···· ${card.card_number.slice(-4)}`"
+        item-value="id"
+        label="Seleccione una tarjeta"
+        outlined
+        rounded
+      ></v-select>
     </div>
     <div>
       <v-text style="color: rgb(var(--v-theme-title));">Monto</v-text>
@@ -38,12 +45,8 @@
 
 <script>
 import { useCardStore } from '@/stores/CardStore';
-import CardList from '@/components/cards/MiniCardsList.vue';
 
 export default {
-  components: {
-      CardList,
-  },
   data() {
     return {
       selectedOption: 'tarjeta',
