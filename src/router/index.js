@@ -12,6 +12,7 @@ import { components } from 'vuetify/dist/vuetify-labs.js'
 import ResetPassword from '@/views/ResetPassword.vue'
 import Charge from '@/views/Charge.vue'
 import { useUserStore } from '@/stores/UserStore'
+import ErrorPage from '@/views/ErrorPage.vue'
 
 
 const routes = [
@@ -68,7 +69,13 @@ const routes = [
         name: 'charge',
         component: Charge,
         meta: { requiresAuth: true}
-    }
+    },
+    {
+        path: '/:catchAll(.*)', 
+        name: 'NotFound',
+        component: ErrorPage,
+        meta: { requiresAuth : false}
+      },
 ]
 
 const router = createRouter({
