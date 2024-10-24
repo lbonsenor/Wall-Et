@@ -1,11 +1,29 @@
 <template>
-  <v-card class = "mx-auto px-6 py-8" max-width="700" rounded="xl">
+  <v-card class="mx-auto px-6 py-8" max-width="700" rounded="xl">
     
-    <v-text style="color: rgb(var(--v-theme-title));">Seleccione medio de ingreso</v-text>
-    <v-btn-toggle>
-      <v-btn text="Tarjeta"></v-btn>
-      <v-btn text="CBU"></v-btn>
-    </v-btn-toggle>
+    <div class="text-center mb-4">
+      <v-text style="color: rgb(var(--v-theme-title));">Seleccione medio de ingreso:</v-text>
+    </div>
+    <div class="d-flex justify-center mb-4">
+      <v-btn-toggle v-model="selectedOption">
+        <v-btn value="tarjeta" text="Tarjeta"></v-btn>
+        <v-btn value="cbu" text="CBU"></v-btn>
+      </v-btn-toggle>
+    </div>
+
+    <v-text-field 
+      v-if="selectedOption === 'cbu'"
+      class="mb-2"
+      variant="outlined" 
+      rounded="lg" 
+      placeholder="Ingrese su CBU" 
+      persistent-placeholder 
+      hide-details 
+      hide-spin-buttons 
+      color="secondary" 
+    ></v-text-field>
+
+    <!-- Rest of your form fields -->
     <v-text-field 
       class="mb-2"
       variant="outlined" 
@@ -15,7 +33,6 @@
       hide-details 
       hide-spin-buttons 
       color="secondary" 
-      width="300px"
     ></v-text-field>
     <v-text-field 
       class="mb-2"
@@ -26,7 +43,6 @@
       hide-details 
       hide-spin-buttons 
       color="secondary" 
-      width="300px"
     ></v-text-field>
     <v-text-field 
       class="mb-2"
@@ -37,7 +53,6 @@
       hide-details 
       hide-spin-buttons 
       color="secondary" 
-      width="300px"
     ></v-text-field>
     <div>
       <v-text style="color: rgb(var(--v-theme-title));">Monto</v-text>
@@ -51,9 +66,12 @@
 </template>
 
 <script>
-
+export default {
+  data() {
+    return {
+      selectedOption: 'tarjeta',
+      amount: '',
+    }
+  },
+}
 </script>
-
-<style>
-
-</style>
