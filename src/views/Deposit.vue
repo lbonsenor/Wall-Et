@@ -39,7 +39,7 @@
         prepend-icon="mdi-currency-usd"></v-text-field>
     </div>
     <div class="d-flex justify-center mt-4">
-      <v-btn value="register-button d-flex mx-auto" color="primary" width="40%" height=50 style="min-width: fit-content;" text="Confirmar" variant="outlined" rounded="xl"></v-btn>
+      <v-btn value="d-flex mx-auto" color="primary" width="40%" height=50 style="min-width: fit-content;" text="Confirmar" variant="outlined" rounded="xl"></v-btn>
     </div>
   </v-card>  
 </template>
