@@ -13,7 +13,7 @@
 
     <v-text-field 
       v-if="selectedOption === 'cbu'"
-      class="mb-2"
+      class="mb-5"
       variant="outlined" 
       rounded="lg" 
       placeholder="Ingrese su CBU" 
@@ -22,7 +22,7 @@
       hide-spin-buttons 
       color="secondary" 
     ></v-text-field>
-    <div v-if="selectedOption === 'tarjeta'" class="mb-2">
+    <div v-if="selectedOption === 'tarjeta'">
       <v-select
         v-model="selectedCard"
         :items=formattedCards
