@@ -2,7 +2,7 @@
     <div class="container">
       <div class="header" @click="returnLanding">
       <img class="logo" src="./../assets/wallet-white.png" alt="Wall-ET logo" />
-      <h2> Wall · Et</h2>
+      <h2>   Wall · Et</h2>
     </div>
         
     <h1 class="welcome-header">¡Oops!</h1>
@@ -26,7 +26,8 @@ export default {
   flex-direction: column;
   justify-content: center; 
   align-items: center; 
-  height: 100vh; 
+  margin: auto;
+  height: 80vh; 
 }
 .logo {
 max-width: 100%; 
@@ -38,6 +39,7 @@ margin-bottom: 1px;
 display: flex;
 align-items: center; 
 margin-bottom: 16px; 
+gap: 10px;
 }
 .welcome-header {
 margin-top: 1px;

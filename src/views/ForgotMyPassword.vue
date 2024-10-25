@@ -6,7 +6,7 @@
             <h2>Wall · Et</h2>
             </div>
             
-            <h1 class="reset-header">Recupera tu contraseña</h1>
+            <h1 class="reset-header">Recuperá tu contraseña</h1>
             <v-card class="mx-auto px-6 py-8" max-width="350" rounded="xl">
             <div v-if="step === 1">
                 <v-text-field 

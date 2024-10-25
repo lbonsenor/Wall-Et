@@ -6,7 +6,7 @@
                 <v-icon icon="mdi-swap-horizontal mr-4" />
                 <p>Modificar</p>
             </div>
-            <div class="d-flex">
+            <div class="d-flex" @click="pauseCard">
                 <v-icon icon="mdi-pause mr-4" />
                 <p>Pausar</p>
             </div>
@@ -18,7 +18,7 @@
     </div>
 
     <v-dialog v-model="showDeleteConfirmation" max-width="400">
-        <v-card rounded="lg">
+        <v-card rounded="lg" class="pa-4">
             <v-card-title class="headline">Confirmar eliminación de tarjeta</v-card-title>
             <v-card-text class="pt-2">
                 ¿Estás seguro de que quieres eliminar esta tarjeta? Esta acción no se puede deshacer.
@@ -173,6 +173,10 @@ function handleModify() {
     cardStore.modifyCard(props.cardId, updatedCard);
     showModifyDialog.value = false;
 }
+
+const pauseCard = () => {
+    alert("Pausar tarjeta");
+}
 </script>
 
 <style scoped>
@@ -191,5 +195,15 @@ function handleModify() {
     transition: background-color 0.3s ease;
     border-radius: 0 20px 20px 0;
     width: 35vh;
+}
+
+
+.card_options div:hover {
+    background-color: rgb(var(--v-theme-button_hover));
+    /* border-radius: 20%; */
+}
+
+.card_options div.erase:hover {
+    background-color: rgb(var(--v-theme-error));
 }
 </style>
