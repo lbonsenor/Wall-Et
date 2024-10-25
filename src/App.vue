@@ -1,5 +1,5 @@
 <template>
-  <TopBar v-if="userStore.isSignedIn"/>
+  <TopBar :isSignedIn="userStore.isSignedIn"/>
   <v-app class="bg-transparent">
     <SideBar v-if="userStore.isSignedIn" />
     <v-main  class="mx-5">

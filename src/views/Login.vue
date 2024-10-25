@@ -140,7 +140,7 @@
   .container {
     justify-content: center; 
     align-items: center; 
-    height: 100vh;
+    height: 80vh;
     margin: auto;
   }
   

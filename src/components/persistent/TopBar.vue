@@ -4,10 +4,10 @@
         <v-btn icon @click="toggleTheme">
             <v-icon color="white">{{ themeIcon }}</v-icon>
         </v-btn>
-        <v-btn color="white" icon class="mr-3">
+        <v-btn v-if="isSignedIn" color="white" icon class="mr-3" @click="notifications">
             <v-icon>mdi-bell</v-icon>
         </v-btn>
-        <v-btn icon @click="navigateToAccount">
+        <v-btn v-if="isSignedIn" icon @click="navigateToAccount">
             <v-avatar color="info">
                 <v-img v-if="userStore.getUserAvatar !== 'mdi-account'" :src="userStore.getUserAvatar" />
                 <v-icon v-else>mdi-account</v-icon>
@@ -31,12 +31,19 @@ const isDarkTheme = computed(() => theme.global.current.value.dark)
 const themeIcon = computed(() => 
     isDarkTheme.value ? 'mdi-white-balance-sunny' : 'mdi-moon-waning-crescent')
 
+const props = defineProps({
+    isSignedIn: Boolean
+})
 function toggleTheme () {
     theme.global.name.value = isDarkTheme.value ? 'lightTheme' : 'darkTheme'
 }
 
 function navigateToAccount() {
     router.push('/account')
+}
+
+const notifications = () => {
+    alert("Notifications")
 }
 </script>
 
