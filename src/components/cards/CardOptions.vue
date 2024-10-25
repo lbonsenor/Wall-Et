@@ -17,7 +17,6 @@
         </div>
     </div>
 
-    <!-- Delete confirmation dialog -->
     <v-dialog v-model="showDeleteConfirmation" max-width="400">
         <v-card rounded="lg">
             <v-card-title class="headline">Confirmar eliminación de tarjeta</v-card-title>
@@ -31,7 +30,6 @@
         </v-card>
     </v-dialog>
 
-    <!-- Modify card dialog -->
     <v-dialog v-model="showModifyDialog" max-width="600">
         <v-card prepend-icon="mdi-credit-card" title="Modificar Tarjeta">
             <v-card-text>
