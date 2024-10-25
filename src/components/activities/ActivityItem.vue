@@ -63,7 +63,6 @@ const props = defineProps({
   }
 })
 
-// If you need to set a name for the component (optional in most cases with Vue 3)
 defineOptions({
   name: 'ActivityItem'
 })

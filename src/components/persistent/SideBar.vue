@@ -58,7 +58,7 @@ export default {
     signOut() {
       console.log("Cerrando sesión");
       this.userStore.signOut();
-      this.$router.push('/'); //todo -> either go to landing or to login (landing seems better)
+      this.$router.push('/');
     }
   }
 }

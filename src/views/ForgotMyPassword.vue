@@ -136,14 +136,10 @@
     },
     methods: {
       sendVerificationCode() {
-        // Here you would typically call an API to send the verification code
-        // For now, we'll just move to the next step
         this.step = 2;
         this.showDialog('Se ha enviado un código de verificación a tu correo electrónico.');
       },
       verifyCode() {
-        // Here you would typically verify the code with an API
-        // For now, we'll just move to the next step
         this.step = 3;
         this.showDialog('Código verificado correctamente.');
       },
@@ -152,9 +148,7 @@
           this.showDialog('Las contraseñas no coinciden. Por favor, inténtalo de nuevo.');
           return;
         }
-        // Here you would typically call an API to reset the password
         this.showDialog('Tu contraseña ha sido cambiada exitosamente.');
-        // Optionally, navigate to login page after closing the dialog
       },
       showDialog(message) {
         this.dialogMessage = message;

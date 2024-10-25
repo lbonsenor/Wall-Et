@@ -29,16 +29,17 @@ export default {
 
 <style scoped>
 .activity {
-display: flex; 
-flex-direction: row; 
-justify-content: space-between;
+  display: flex; 
+  flex-direction: row; 
+  justify-content: space-between;
 }
 
 .activity-list {
-width: 70%;
-margin-right: 20px;
+  width: 70%;
+  margin-right: 20px;
 }
+
 .activity-filter { 
-width: 30%;
+  width: 30%;
 }
 </style>

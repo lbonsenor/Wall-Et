@@ -55,13 +55,7 @@
                     <v-icon v-else size="40">mdi-account</v-icon>
                   </v-avatar>
 
-                  <v-btn
-                    icon
-                    size="30"
-                    color="primary"
-                    class="change-avatar-btn"
-                    @click="triggerFileInput"
-                  >
+                  <v-btn icon size="30" color="primary" class="change-avatar-btn" @click="triggerFileInput">
                     <v-icon size="small">mdi-camera</v-icon>
                   </v-btn>
 
@@ -81,23 +75,11 @@
               </div>
 
               <div>
-                <v-btn
-                  variant="text"
-                  prepend-icon="mdi-lock-outline"
-                  class="justify-start"
-                  block
-                  @click="resetPassword"
-                >
+                <v-btn variant="text" prepend-icon="mdi-lock-outline" class="justify-start" block @click="resetPassword">
                   <span class="text-decoration-underline">Cambiar contraseña</span>
                 </v-btn>
 
-                <v-btn
-                  variant="text"
-                  prepend-icon="mdi-delete-outline"
-                  class="justify-start delete-account"
-                  block
-                  @click="showDeleteConfirmation = true"
-                >
+                <v-btn variant="text" prepend-icon="mdi-delete-outline" class="justify-start delete-account" block @click="showDeleteConfirmation = true">
                   <span class="text-decoration-underline delete-account">Eliminar cuenta</span>
                 </v-btn>
               </div>
@@ -135,18 +117,22 @@ export default {
       showDeleteConfirmation: false,
     };
   },
+  
   methods: {
     updateProfile() {
       this.userStore.updateProfile(this.userData);
       console.log("Profile updated");
     },
+
     deleteAccount() {
       console.log("Account deleted");
       this.showDeleteConfirmation = false;
     },
+
     triggerFileInput() {
       this.$refs.fileInput.click();
     },
+
     onFileSelected(event) {
       const file = event.target.files[0];
       if (file) {
@@ -158,10 +144,12 @@ export default {
         reader.readAsDataURL(file);
       }
     },
+
     resetPassword() {
       this.$router.push("/resetar-contraseña");
     },
   },
+
   watch: {
     'userStore.getUserProfile': {
       handler(newValue) {

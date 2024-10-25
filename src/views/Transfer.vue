@@ -33,6 +33,7 @@ export default {
     width: 30%;
     min-width: 250px;
 }
+
 .transfer-form {
     flex-grow: 1; 
     width:70%;
