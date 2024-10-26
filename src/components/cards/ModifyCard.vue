@@ -1,35 +1,38 @@
 <template>
-    <div class="d-flex mt-2" style="min-height:150px;">
-        <v-divider vertical class="border-opacity-100" />
-        <div class="card_options">
-            <div class="d-flex" @click="modifyCardRef.showModifyDialog = true">
-                <v-icon icon="mdi-swap-horizontal mr-4" />
-                <p>Modificar</p>
-            </div>
-            <div class="d-flex" @click="pauseCard">
-                <v-icon icon="mdi-pause mr-4" />
-                <p>Pausar</p>
-            </div>
-            <div class="d-flex erase" @click="removeCardRef.showDeleteConfirmation = true">
-                <v-icon icon="mdi-trash-can-outline mr-4" />
-                <p>Eliminar</p>
-            </div>
-        </div>
-    </div>
+    <v-dialog v-model="showModifyDialog" max-width="600">
+        <v-card prepend-icon="mdi-credit-card" title="Modificar Tarjeta">
+            <v-card-text>
+                <v-text-field label="Número de tarjeta" required v-model="cardData.card_number"
+                    :rules="[rules.card_number]" maxlength="19"></v-text-field>
+                <v-text-field label="Titular de tarjeta" required v-model="cardData.card_owner"></v-text-field>
+                <v-row dense>
+                    <v-col cols="7" md="7" sm="7">
+                        <v-text-field label="Fecha de vencimiento" hint="MM/YY" required
+                            v-model="cardData.card_expiry_date" :rules="[rules.card_expiry_date]"
+                            maxlength="5"></v-text-field>
+                    </v-col>
+                    <v-col cols="5" md="5" sm="5">
+                        <v-text-field label="CVV" required v-model="cardData.card_cvv" :rules="[rules.card_cvv]"
+                            maxlength="3"></v-text-field>
+                    </v-col>
+                </v-row>
+            </v-card-text>
 
-    <RemoveCard ref="removeCardRef" :cardId="props.cardId" />
+            <v-divider></v-divider>
 
-    <ModifyCard ref="modifyCardRef" :cardId="props.cardId" />
+            <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="primary" text="Cancelar" variant="outlined" @click="showModifyDialog = false"></v-btn>
+                <v-btn color="primary" text="Guardar" variant="flat" :disabled="!isCardValid"
+                    @click="handleModify"></v-btn>
+            </v-card-actions>
+        </v-card>
+    </v-dialog>
 </template>
 
 <script setup>
 import { ref, computed, watch } from 'vue';
 import { useCardStore } from '@/stores/CardStore';
-import RemoveCard from './RemoveCard.vue';
-import ModifyCard from './ModifyCard.vue';
-
-const removeCardRef = ref(null);
-const modifyCardRef = ref(null);
 
 const props = defineProps({
     cardId: {
@@ -39,7 +42,6 @@ const props = defineProps({
 });
 
 const cardStore = useCardStore();
-const showDeleteConfirmation = ref(false);
 const showModifyDialog = ref(false);
 
 const cardData = ref({
@@ -102,11 +104,6 @@ const isCardValid = computed(() => {
     );
 });
 
-function removeCard() {
-    cardStore.removeCard(props.cardId);
-    showDeleteConfirmation.value = false;
-}
-
 function handleModify() {
     const updatedCard = {
         ...cardData.value,
@@ -116,34 +113,7 @@ function handleModify() {
     showModifyDialog.value = false;
 }
 
-const pauseCard = () => {
-    alert("Pausar tarjeta");
-}
+defineExpose({
+    showModifyDialog
+});
 </script>
-
-<style scoped>
-.card_options {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-width: fit-content;
-    margin: 3%;
-    align-items: flex-start;
-}
-
-.card_options div {
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-radius: 0 20px 20px 0;
-    width: 35vh;
-}
-
-.card_options div:hover {
-    background-color: rgb(var(--v-theme-button_hover));
-}
-
-.card_options div.erase:hover {
-    background-color: rgb(var(--v-theme-error));
-}
-</style>
