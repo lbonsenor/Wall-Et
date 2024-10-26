@@ -10,10 +10,6 @@
 </template>
 
 <script >
-import CardItem from './CardItem.vue';
-import NewCard from './NewCard.vue';
-import { useCardStore } from '@/stores/CardStore';
-
 export default{
     props: {
         cards: {
@@ -23,7 +19,6 @@ export default{
     }
 }
 </script>
-
 
 <style scoped>
 .card-list {
@@ -56,7 +51,6 @@ export default{
 
 }
 
-/* Firefox & Chrome */
 .card-list {
     scrollbar-width: thin;
     scrollbar-color: rgb(var(--v-theme-primary)) rgb(var(--v-theme-surface));

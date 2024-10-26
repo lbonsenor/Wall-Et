@@ -1,6 +1,6 @@
 <template>
   <div class="activity-container pa-4">
-    <div class="d-flex justify-space-between">
+    <div class="d-flex justify-space-between align-center">
       <h1 v-if="isHomePage" class="title">Actividades Recientes</h1>
       <v-btn 
         v-if="isHomePage" 
@@ -182,7 +182,6 @@ export default {
   font-size: x-small;
 }
 
-/* Dialog Styles */
 :deep(.v-card-title) {
   font-size: 1.25rem;
   font-weight: 500;

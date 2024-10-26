@@ -17,6 +17,7 @@ export default {
     components: {
         MiniCard
     },
+
     props: {
         cards: {
             type: Array,
@@ -27,11 +28,13 @@ export default {
             default: 5
         }
     },
+
     computed: {
         displayedCards() {
             return this.cards.slice(0, this.displayCount)
         }
     },
+
     methods: {
         navigateToCards() {
             return this.$router.push('/tarjetas')
@@ -47,8 +50,6 @@ export default {
     background-color: rgb(var(--v-theme-surface));
     border-radius: 20px 20px 120px 0;
     overflow: hidden;
-    /* height: calc(fit-content + 50vh); */
-    /* min-height: calc(fit-content + 10px); */
     height: fit-content+10vh;
     max-height: 80vh;
     min-width: fit-content;
