@@ -15,10 +15,10 @@
 
     <template v-else v-for="(activity, index) in displayedActivities" :key="index">
       <div v-if="isNewDate(index)" class="date-header">
-        <v-divider class="my-4" />
+        <v-divider v-if="index !== 0" class="my-2" />
         {{ formatDate(activity.date) }}
       </div>
-      <ActivityItem v-bind="activity" class="py-2 px-4" @click="showActivityDetails(activity)" />
+      <ActivityItem v-bind="activity" class="py-1 px-4" @click="showActivityDetails(activity)" />
     </template>
 
     <v-dialog v-model="showDialog" max-width="500">
