@@ -1,19 +1,9 @@
 <template>
   <h1>Ingresar</h1>
   <v-card class="px-6 py-8" max-width="700" rounded="xl">
-    <div class="text-center mb-4">
-      <v-text style="color: rgb(var(--v-theme-title));">Seleccione medio de ingreso:</v-text>
-    </div>
-
-    <div class="d-flex justify-center mb-4">
-      <v-btn-toggle v-model="selectedOption">
-        <v-btn value="tarjeta" text="Tarjeta"></v-btn>
-        <v-btn value="cbu" text="CBU"></v-btn>
-      </v-btn-toggle>
-    </div>
-
-    <v-text-field v-if="selectedOption === 'cbu'" class="mb-2" variant="outlined" rounded="lg"
-      placeholder="Ingrese su CBU" persistent-placeholder hide-details color="secondary"></v-text-field>
+    <div class="mb-4">
+      <v-text style="color: rgb(var(--v-theme-title));">Medio de ingreso</v-text>
+    </div>  
 
     <div v-if="selectedOption === 'tarjeta'" class="mb-2">
       <v-select v-model="selectedCard" :items=formattedCards item-title="text" item-value="id"
@@ -47,10 +37,12 @@ export default {
 
   computed: {
     formattedCards() {
-      return this.cardStore.cards.map(card => ({
-        id: card.id,
-        text: `Tarjeta de ${card.card_type} terminada en ${card.card_number.slice(-4)}`
-      }));
+      return this.cardStore.cards
+        .filter(card => card.card_type === 'Débito')
+        .map(card => ({
+          id: card.id,
+          text: `Tarjeta de ${card.card_type} terminada en ${card.card_number.slice(-4)}`
+        }));
     }
   },
 

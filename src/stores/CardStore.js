@@ -30,6 +30,15 @@ export const useCardStore = defineStore('card', () => {
             card_owner: 'Emma Watson',
             card_expiry_date: '09/27',
             card_cvv: '789'
+        },
+        {
+            id: 4,
+            card_brand: 'American Express',
+            card_type: 'Débito',
+            card_number: '2139 3718 4719 1574',
+            card_owner: 'Noah Cefalta',
+            card_expiry_date: '11/25',
+            card_cvv: '153'
         }
     ]
     const cards = ref([...previousCards])
