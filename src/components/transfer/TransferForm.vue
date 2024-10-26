@@ -4,39 +4,66 @@
             <v-text style="color: rgb(var(--v-theme-title));">Destinatario</v-text>
             <v-text-field variant="underlined" persistent-hint hint="Ingresá CVU o alias"></v-text-field>
         </div>
+        
         <div class="mb-2">
             <v-text style="color: rgb(var(--v-theme-title));">Mensaje</v-text>
             <v-text-field variant="underlined" persistent-hint hint="Ingresá un mensaje al destinatario"></v-text-field>
         </div>
+
         <div class="display mb-4">
             <v-text class="mb-2" style="color: rgb(var(--v-theme-title));">Medio de Pago</v-text>
-            <v-btn prepend-icon="mdi-credit-card-outline" style="min-width: fit-content;" text="Elegir medio"
-                variant="outlined" rounded="xl"></v-btn>
+            <v-select v-model="selectedPaymentMethod" :items="availablePaymentMethods" item-title="text"
+                item-value="value" variant="outlined" rounded="lg" hide-details></v-select>
         </div>
+
         <div>
             <v-text style="color: rgb(var(--v-theme-title));">Monto</v-text>
             <v-text-field v-model="amount" @blur="handleAmountInput" class="amount" variant="underlined"
                 prepend-icon="mdi-currency-usd"></v-text-field>
         </div>
+
         <v-btn class="d-flex mx-auto" style="min-width: fit-content;" width="50%" height=50 color="primary" rounded="xl"
             prepend-icon="mdi-send-outline" text="Continuar"></v-btn>
     </v-card>
 </template>
 
 <script>
+import { useCardStore } from '@/stores/CardStore';
+
 export default {
-    data: () => ({
-        amount: '',
-    }),
+    data() {
+        return {
+            amount: '',
+            selectedPaymentMethod: 'default',
+            cardStore: useCardStore()
+        }
+    },
+    computed: {
+        availablePaymentMethods() {
+            const methods = [
+                {
+                    value: 'default',
+                    text: 'Dinero disponible'
+                }
+            ]
+
+            this.cardStore.cards.forEach(card => {
+                methods.push({
+                    value: card.id.toString(),
+                    text: `Tarjeta de ${card.card_type} ${card.card_brand} terminada en ${card.card_number.slice(-4)}`
+                })
+            })
+
+            return methods
+        }
+    },
     methods: {
         handleAmountInput() {
             const num = parseFloat(this.amount.split('').filter(s => (s >= '0' && s <= '9') || s == ',').join('').replace(',', '.'))
-            console.log(num)
             if (!isNaN(num)) {
                 const formatter = new Intl.NumberFormat('es-AR', { style: 'decimal', minimumFractionDigits: 2 })
                 this.amount = formatter.format(num)
             }
-            // input = formatter.format(Number(input))
         }
     }
 }
