@@ -1,8 +1,8 @@
 <template>
     <h1>Transferir</h1>
     <div class="d-flex">
-        <div class="left-column mr-8">
-            <BalanceCard class="mb-8" :balance="balanceStore.balance" />
+        <div class="left-column mr-5">
+            <BalanceCard class="mb-5" :balance="balanceStore.balance" />
             <ContactList></ContactList>
         </div>
         <TransferForm class="transfer-form"></TransferForm>
@@ -30,12 +30,11 @@ export default {
 
 <style scoped>
 .left-column {
-    width: 30%;
+    width: 25%;
     min-width: 250px;
 }
 
 .transfer-form {
-    flex-grow: 1;
-    width: 70%;
+    width: 50%;
 }
 </style>

@@ -28,10 +28,15 @@ export default {
   height: 100vh;
 }
 
-.left-column,
-.right-column {
-  flex: 1;
+.left-column {
   padding: 20px;
   box-sizing: border-box;
+  width: 25%;
+}
+
+.right-column {
+  padding: 20px;
+  box-sizing: border-box;
+  width: 40%;
 }
 </style>
