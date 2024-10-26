@@ -5,8 +5,9 @@
     <CVU :alias="userStore.user.alias" :cvu="userStore.user.cvu" />
   </div>
   <div class="d-flex">
-    <ActivityList :activities="transactionStore.transactions" :displayCount="5" :isHomePage="true" />
-    <CardList class="ml-5" :cards="cardStore.cards" :display-count="5" />
+    <ActivityList class="activity-list-home" :activities="transactionStore.transactions" :displayCount="5"
+      :isHomePage="true" />
+    <CardList class="card-list-home ml-5" :cards="cardStore.cards" :display-count="5" />
   </div>
 </template>
 
@@ -49,3 +50,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.activity-list-home {
+  width: 45%;
+}
+
+.card-list-home {
+  width: 20%;
+}
+</style>
