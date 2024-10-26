@@ -50,6 +50,7 @@ const pauseCard = () => {
     min-width: fit-content;
     margin: 3%;
     align-items: flex-start;
+    animation: slideIn 0.2s ease-out;
 }
 
 .card_options div {
@@ -57,7 +58,7 @@ const pauseCard = () => {
     cursor: pointer;
     transition: background-color 0.3s ease;
     border-radius: 0 20px 20px 0;
-    width: 35vh;
+    width: 25vh;
 }
 
 .card_options div:hover {
@@ -66,5 +67,16 @@ const pauseCard = () => {
 
 .card_options div.erase:hover {
     background-color: rgb(var(--v-theme-error));
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 </style>

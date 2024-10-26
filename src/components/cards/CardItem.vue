@@ -1,5 +1,5 @@
 <template>
-    <div class="card-item d-flex ga-5 align-center mr-3">
+    <div class="d-flex ga-5 align-center mr-3" @mouseenter="isHovered = true" @mouseleave="isHovered = false">
         <v-card class="mt-2 gradient-card" :class="randomGradientClass" min-height="150px" min-width="200px"
             rounded="lg" elevation="3">
             <div class="parent_container">
@@ -22,13 +22,17 @@
                 </div>
             </div>
         </v-card>
-        <CardOptions :cardId="id" />
+        <div v-show="isHovered">
+            <CardOptions :cardId="id" />
+        </div>
     </div>
 </template>
 
 <script setup>
 import CardOptions from './CardOptions.vue';
 import { ref, computed } from 'vue';
+
+const isHovered = ref(false);
 
 const props = defineProps({
     id: {
