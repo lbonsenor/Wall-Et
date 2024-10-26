@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar density="compact" class="fixed-bar pt-4 pr-4" color="transparent">
+    <v-toolbar density="compact" class="fixed-bar pt-4 pr-4 mb-2" color="transparent">
         <h1 class="h1">{{ currentTitle }}</h1>
         <v-spacer></v-spacer>
         <v-btn icon @click="toggleTheme">
@@ -71,6 +71,5 @@ const notifications = () => {
 .h1 {
     color: white;
     margin-left: 70px;
-    margin-bottom: 2px;
 }
 </style>

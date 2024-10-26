@@ -1,66 +1,56 @@
 <template>
   <v-container fluid>
-    <v-row justify="left">
-      <div class="d-flex fill-width align-center justify-space-around" style="width: 100%">
-        <v-form @submit.prevent="updateProfile" style="width: 100%" class="mb-4"> 
-          <v-text-field v-model="userData.name" label="Nombre" prepend-inner-icon="mdi-account-outline"
-            variant="outlined" />
+    <div class="d-flex">
+      <v-form @submit.prevent="updateProfile" class="form-container"> 
+        <v-text-field v-model="userData.name" label="Nombre" prepend-inner-icon="mdi-account-outline"
+          variant="outlined" />
 
-          <v-text-field v-model="userData.username" label="Usuario" prepend-inner-icon="mdi-at" variant="outlined" />
+        <v-text-field v-model="userData.username" label="Usuario" prepend-inner-icon="mdi-at" variant="outlined" />
 
-          <v-text-field v-model="userData.email" label="Email" prepend-inner-icon="mdi-email-outline"
-            variant="outlined" />
+        <v-text-field v-model="userData.email" label="Email" prepend-inner-icon="mdi-email-outline"
+          variant="outlined" />
 
-          <v-text-field v-model="userData.phone" label="Teléfono" prepend-inner-icon="mdi-phone-outline"
-            variant="outlined" />
+        <v-text-field v-model="userData.phone" label="Teléfono" prepend-inner-icon="mdi-phone-outline"
+          variant="outlined" />
 
-          <v-text-field v-model="userData.dni" label="DNI" prepend-inner-icon="mdi-card-account-details-outline"
-            variant="outlined" />
+        <v-text-field v-model="userData.dni" label="DNI" prepend-inner-icon="mdi-card-account-details-outline"
+          variant="outlined" />
 
-          <v-btn color="secondary" block rounded="pill" type="submit">
-            Actualizar
-          </v-btn>
-        </v-form>
+        <v-btn color="secondary" block rounded="pill" type="submit">
+          Actualizar
+        </v-btn>
+      </v-form>
 
-        <v-col cols="12" md="4">
-          <v-card class="pa-6" rounded="xl">
-            <div>
-              <div class="d-flex align-center mb-6">
-                <div class="avatar-container mr-4">
-                  <v-avatar size="80">
-                    <v-img v-if="userData.avatar" :src="userData.avatar" alt="Profile picture" />
-                    <v-icon v-else size="40">mdi-account</v-icon>
-                  </v-avatar>
-
-                  <v-btn icon size="30" color="primary" class="change-avatar-btn" @click="triggerFileInput">
-                    <v-icon size="small">mdi-camera</v-icon>
-                  </v-btn>
-
-                  <input type="file" ref="fileInput" accept="image/*" style="display: none" @change="onFileSelected" />
-                </div>
-
-                <div>
-                  <h2>{{ userData.name }}</h2>
-                  <p>{{ userData.username }}</p>
-                </div>
-              </div>
-
-              <div>
-                <v-btn variant="text" prepend-icon="mdi-lock-outline" class="justify-start" block
-                  @click="resetPassword">
-                  <span class="text-decoration-underline">Cambiar contraseña</span>
-                </v-btn>
-
-                <v-btn variant="text" prepend-icon="mdi-delete-outline" class="justify-start delete-account" block
-                  @click="showDeleteConfirmation = true">
-                  <span class="text-decoration-underline delete-account">Eliminar cuenta</span>
-                </v-btn>
-              </div>
+      <v-card class="profile-card ml-5" rounded="xl">
+        <div class="pa-6">
+          <div class="d-flex align-center mb-6">
+            <div class="avatar-container">
+              <v-avatar size="80">
+                <v-img v-if="userData.avatar" :src="userData.avatar" alt="Profile picture" />
+                <v-icon v-else size="40">mdi-account</v-icon>
+              </v-avatar>
+              <v-btn icon size="30" color="primary" class="change-avatar-btn" @click="triggerFileInput">
+                <v-icon size="small">mdi-camera</v-icon>
+              </v-btn>
+              <input type="file" ref="fileInput" accept="image/*" style="display: none" @change="onFileSelected" />
             </div>
-          </v-card>
-        </v-col>
-      </div>
-    </v-row>
+            <div>
+              <h2>{{ userData.name }}</h2>
+              <p>{{ userData.username }}</p>
+            </div>
+          </div>
+          <div>
+            <v-btn variant="text" prepend-icon="mdi-lock-outline" class="justify-start" block @click="resetPassword">
+              <span class="text-decoration-underline">Cambiar contraseña</span>
+            </v-btn>
+            <v-btn variant="text" prepend-icon="mdi-delete-outline" class="justify-start delete-account" block
+              @click="showDeleteConfirmation = true">
+              <span class="text-decoration-underline delete-account">Eliminar cuenta</span>
+            </v-btn>
+          </div>
+        </div>
+      </v-card>
+    </div>
 
     <v-dialog v-model="showDeleteConfirmation" max-width="400">
       <v-card rounded="lg">
@@ -159,5 +149,14 @@ export default {
 
 .delete-account {
   color: red;
+}
+
+.form-container {
+  width: 600px;
+}
+
+.profile-card {
+  width: 400px;
+  height: fit-content;
 }
 </style>
