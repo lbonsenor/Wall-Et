@@ -68,7 +68,6 @@ const randomGradientClass = computed(() => {
     const randomIndex = Math.floor(Math.random() * gradientClasses.length);
     return gradientClasses[randomIndex];
 });
-
 </script>
 
 <style scoped>
@@ -79,7 +78,6 @@ const randomGradientClass = computed(() => {
 .gradient-card:hover {
     transform: scale(1.02);
 }
-
 
 .card_details {
     padding: 5px;
