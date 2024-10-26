@@ -1,5 +1,5 @@
 <template>
-  <v-list density="comfortable" class="scrollable-list">
+  <v-list density="comfortable" class="contact-list">
     <v-list-item rounded="pill" ripple v-for="contact in contacts" :key="contact.id" :value="contact" :active="false">
       <template v-slot:prepend>
         <v-avatar color="info">
@@ -36,16 +36,17 @@ export default {
 </script>
 
 <style scoped>
+.contact-list {
+  overflow-y: auto;
+  border-radius: 12px;
+  height: 100%;
+}
+
 .delete-icon {
   transition: color 0.3s ease;
 }
 
 .delete-icon:hover {
   color: rgb(var(--v-theme-error)) !important;
-}
-
-.scrollable-list {
-  max-height: 40vh;
-  overflow-y: auto;
 }
 </style>

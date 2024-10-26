@@ -43,7 +43,7 @@ export default {
     }),
     computed: {
         recentContacts() {
-            return this.contacts;
+            return this.contacts.slice(0, 8);
         },
         favoriteContacts() {
             return this.contacts.filter(contact => contact.isFavorite);
@@ -65,3 +65,11 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.contact-list-wrapper {
+    min-width: 250px;
+    max-width: 400px;
+    height: fit-content;
+}
+</style>

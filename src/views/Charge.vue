@@ -1,7 +1,7 @@
 <template>
   <h1>Cobrar</h1>
-  <div class="flex-container">
-    <div class="left-column">
+  <div class="d-flex">
+    <div class="left-column mr-5">
       <ContactList />
     </div>
     <div class="right-column">
@@ -23,20 +23,11 @@ export default {
 </script>
 
 <style scoped>
-.flex-container {
-  display: flex;
-  height: 100vh;
-}
-
 .left-column {
-  padding: 20px;
-  box-sizing: border-box;
   width: 25%;
 }
 
 .right-column {
-  padding: 20px;
-  box-sizing: border-box;
   width: 40%;
 }
 </style>
