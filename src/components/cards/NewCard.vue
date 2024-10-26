@@ -46,6 +46,7 @@ import { useCardStore } from '@/stores/CardStore';
 
 export default {
   name: 'NewCard',
+
   data: () => ({
     dialog: false,
     cardStore: useCardStore(),
@@ -55,6 +56,7 @@ export default {
       card_expiry_date: '',
       card_cvv: '',
     },
+
     rules: {
       card_expiry_date: function (value) {
         const pattern = /^(0?[0-9]|1[0-2])\/[0-9]{2}$/;
@@ -71,6 +73,7 @@ export default {
       },
     },
   }),
+
   computed: {
     isCardValid() {
       const { card_number, card_expiry_date, card_cvv } = this.cardInfo;

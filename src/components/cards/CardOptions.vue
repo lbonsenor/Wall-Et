@@ -58,7 +58,7 @@ const pauseCard = () => {
     cursor: pointer;
     transition: background-color 0.3s ease;
     border-radius: 0 20px 20px 0;
-    width: 25vh;
+    width: 15vh;
 }
 
 .card_options div:hover {
@@ -74,6 +74,7 @@ const pauseCard = () => {
         transform: translateX(-20px);
         opacity: 0;
     }
+
     to {
         transform: translateX(0);
         opacity: 1;

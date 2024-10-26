@@ -1,8 +1,9 @@
 <template>
-    <div class="d-flex">
+    <div class="d-flex" @click="handleOutsideClick">
         <div class="card-list">
             <template v-for="(cardItem, index) in cards" :key="index">
-                <CardItem v-bind="cardItem" />
+                <CardItem v-bind="cardItem" :isActive="activeCardId === cardItem.id"
+                    @activate="setActiveCard(cardItem.id)" />
             </template>
         </div>
         <NewCard class="ml-2" />
@@ -15,6 +16,21 @@ export default {
         cards: {
             type: Array,
             required: true
+        }
+    },
+    data() {
+        return {
+            activeCardId: null
+        }
+    },
+    methods: {
+        setActiveCard(cardId) {
+            this.activeCardId = this.activeCardId === cardId ? null : cardId;
+        },
+        handleOutsideClick(event) {
+            if (event.target === event.currentTarget) {
+                this.activeCardId = null;
+            }
         }
     }
 }
