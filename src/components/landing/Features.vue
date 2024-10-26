@@ -52,23 +52,13 @@ import featureImage3 from '@/assets/goal.png'
     align-self: flex-start;
     display: flex;
     flex-direction: column;
-    /* justify-content: center;
-    
-    align-content: center;
-    align-items: center;
-    display: flex; 
-    flex-direction: column; */
-    /* height: 100vh; */
 }
 
 .inner-container {
     display: flex;
     flex-direction: row;
-    /* height: 100vh; */
     justify-content: space-around;
     gap: 20px;
-    /* margin: 20px;  */
-    /* padding: 20px; */
 }
 
 @media (min-width: 800px) {

@@ -80,7 +80,6 @@ export default {
         font-size: x-large; 
         font-weight: 600;
         overflow: scroll;
-        /* font-family: "Fira Mono", monospace; */
     }
     .balance::-webkit-scrollbar{
         width: 0px;

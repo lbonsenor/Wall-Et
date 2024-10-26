@@ -25,12 +25,12 @@
   <style scoped>
   .flex-container {
     display: flex;
-    height: 100vh; /* Full height of the viewport */
+    height: 100vh;
   }
   
   .left-column,
   .right-column {
-    flex: 1; /* equal width for both columns*/
+    flex: 1;
     padding: 20px; 
     box-sizing: border-box; 
   }

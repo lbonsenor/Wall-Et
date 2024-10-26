@@ -8,8 +8,6 @@
         </template>
     </v-card>
 </template>
-<!-- @click="navigateToCards" -->
-
 
 <script>
 export default {
@@ -49,7 +47,6 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: normal;
-    /* color: rgb(var(--v-theme-title)); */
     font-family: 'Fira Mono', monospace;
     font-size: small;
     white-space: nowrap;

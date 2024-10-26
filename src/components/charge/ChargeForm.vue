@@ -59,8 +59,8 @@ export default {
 }
 .button-container {
     display: flex;
-    justify-content: space-between; /* Adjusts space between buttons */
-    margin-top: 16px; /* Optional: adds space above the button container */
+    justify-content: space-between;
+    margin-top: 16px;
 }
 
 @media (min-width: 940px) {

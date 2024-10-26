@@ -45,7 +45,6 @@ export default {
 
 <style scoped>
 .card-list { 
-    /* max-width: auto; */
     padding: 20px 20px 20px 20px;
     background-color: rgb(var(--v-theme-surface));
     border-radius: 20px 20px 120px 0;

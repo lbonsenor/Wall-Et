@@ -76,7 +76,6 @@ defineOptions({
 .scrollable {
   overflow: scroll;
   overflow-y: hidden;
-  
 }
 
 .scrollable::-webkit-scrollbar {
@@ -87,10 +86,4 @@ defineOptions({
 .activity-item {
   background-color: transparent !important;
 }
-
-/* .balance{
-        font-size: x-large; 
-        font-weight: 600;
-        font-family: "Fira Mono", monospace;
-    } */
 </style>
