@@ -5,10 +5,9 @@
     <CVU :alias="alias" :cvu="cvu"/>
   </div>
   <div class="d-flex">
-    <ActivityList :activities="activities" :displayCount="5" :isHomePage="true" />    
+    <ActivityList :activities="transactionStore.transactions" :displayCount="5" :isHomePage="true" />    
     <CardList class="ml-5" :cards="cardStore.cards" :display-count="5"/>
   </div>
-    
 </template>
 
 <script>
@@ -18,96 +17,32 @@ import ActivityList from '@/components/activities/ActivityList.vue';
 import CardList from '@/components/cards/MiniCardsList.vue';
 
 import { useCardStore } from '@/stores/CardStore';
+import { useTransactionStore } from '@/stores/TransactionStore';
 
 export default {
   name: 'Home',
-  mounted() {
-    console.log('Home component has been mounted.');
-  },
   components: {
     CVU,
     ActivityList,
     BalanceBox,
     CardList
   },
+  
+  setup() {
+    const cardStore = useCardStore();
+    const transactionStore = useTransactionStore();
+    transactionStore.fetchTransactions();
+    return {
+      cardStore,
+      transactionStore
+    }
+  },
+
   data() {
     return {
-      cardStore: useCardStore(),
-      activities: [
-        {
-          date: '2024-09-10',
-          title: 'Pedidos Ya Hola Hola Hoal HOla ',
-          transaction_type: 'Pago online',
-          payment_type: 'Dinero disponible',
-          amount: '$17.500.000,00',
-          time: '17:15',
-          out: true
-        },
-        {
-          date: '2024-03-01',
-          title: 'Camila Lee',
-          transaction_type: 'Transferencia recibida',
-          payment_type: 'Dinero disponible',
-          amount: '$20.500,00',
-          time: '09:00',
-          out: false
-        },
-        {
-          date: '2024-02-28',
-          title: 'Farmacity',
-          transaction_type: 'Pago online',
-          payment_type: 'Mastercard prepago',
-          amount: '$25.176,70',
-          time: '11:45',
-          out: true
-        },
-        {
-          date: '2024-02-28',
-          title: 'Farmacity',
-          transaction_type: 'Pago online',
-          payment_type: 'Mastercard prepago',
-          amount: '$25.176,70',
-          time: '11:45',
-          out: true
-        }, {
-          date: '2024-02-28',
-          title: 'Farmacity',
-          transaction_type: 'Pago online',
-          payment_type: 'Mastercard prepago',
-          amount: '$25.176,70',
-          time: '11:45',
-          out: true
-        }, {
-          date: '2024-02-28',
-          title: 'Farmacity',
-          transaction_type: 'Pago online',
-          payment_type: 'Mastercard prepago',
-          amount: '$25.176,70',
-          time: '11:45',
-          out: true
-        }, {
-          date: '2024-02-28',
-          title: 'Farmacity',
-          transaction_type: 'Pago online',
-          payment_type: 'Mastercard prepago',
-          amount: '$25.176,70',
-          time: '11:45',
-          out: true
-        }, {
-          date: '2024-02-28',
-          title: 'Farmacity',
-          transaction_type: 'Pago online',
-          payment_type: 'Mastercard prepago',
-          amount: '$25.176,70',
-          time: '11:45',
-          out: true
-        },
-        
-      ],
       alias: "lau.bonsenor",
       cvu: "00000000123145687945123",
       balance: 123.12
-      
     }
   }
 }
