@@ -58,7 +58,7 @@ const pauseCard = () => {
     cursor: pointer;
     transition: background-color 0.3s ease;
     border-radius: 0 20px 20px 0;
-    width: 15vh;
+    width: 25vh;
 }
 
 .card_options div:hover {
