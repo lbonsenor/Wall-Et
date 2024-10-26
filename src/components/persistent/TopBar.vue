@@ -1,5 +1,6 @@
 <template>
     <v-toolbar density="compact" class="fixed-bar pt-4 pr-4" color="transparent">
+        <h1 class="h1">{{ currentTitle }}</h1>
         <v-spacer></v-spacer>
         <v-btn icon @click="toggleTheme">
             <v-icon color="white">{{ themeIcon }}</v-icon>
@@ -19,11 +20,12 @@
 <script setup>
 import { useTheme } from 'vuetify';
 import { computed } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 import { useUserStore } from '@/stores/UserStore';
 
 const theme = useTheme()
 const router = useRouter()
+const route = useRoute()
 const userStore = useUserStore()
 
 const isDarkTheme = computed(() => theme.global.current.value.dark)
@@ -31,9 +33,23 @@ const isDarkTheme = computed(() => theme.global.current.value.dark)
 const themeIcon = computed(() =>
     isDarkTheme.value ? 'mdi-white-balance-sunny' : 'mdi-moon-waning-crescent')
 
+const currentTitle = computed(() => {
+    const routeTitles = {
+        '/inicio': 'Inicio',
+        '/transferir': 'Transferir',
+        '/ingresar': 'Ingresar',
+        '/actividades': 'Actividades',
+        '/tarjetas': 'Tarjetas',
+        '/cobrar': 'Cobrar',
+        '/account': 'Cuenta'
+    }
+    return routeTitles[route.path] || ''
+})
+
 const props = defineProps({
     isSignedIn: Boolean
 })
+
 function toggleTheme() {
     theme.global.name.value = isDarkTheme.value ? 'lightTheme' : 'darkTheme'
 }
@@ -49,8 +65,12 @@ const notifications = () => {
 
 <style scoped>
 .fixed-bar {
-    top: 0;
     z-index: 10;
-    margin-bottom: 12px;
+}
+
+.h1 {
+    color: white;
+    margin-left: 70px;
+    margin-bottom: 2px;
 }
 </style>

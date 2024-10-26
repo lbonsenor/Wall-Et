@@ -1,5 +1,4 @@
 <template>
-  <h1>Ingresar</h1>
   <v-card class="px-6 py-8" max-width="700" rounded="xl">
     <div class="mb-4">
       <v-text style="color: rgb(var(--v-theme-title));">Medio de ingreso</v-text>

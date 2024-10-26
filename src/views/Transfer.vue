@@ -1,5 +1,4 @@
 <template>
-    <h1>Transferir</h1>
     <div class="d-flex">
         <div class="left-column mr-5">
             <BalanceCard class="mb-5" :balance="balanceStore.balance" />

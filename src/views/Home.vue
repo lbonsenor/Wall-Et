@@ -1,5 +1,4 @@
 <template>
-  <h1>Inicio</h1>
   <div class="d-flex ga-5 align-center mb-5">
     <BalanceBox :balance="balanceStore.balance" />
     <CVU :alias="userStore.user.alias" :cvu="userStore.user.cvu" />

@@ -2,9 +2,7 @@
   <v-container fluid>
     <v-row justify="left">
       <div class="d-flex fill-width align-center justify-space-around" style="width: 100%">
-        <v-form @submit.prevent="updateProfile" style="width: 100%" class="mb-4">
-          <h1>Cuenta</h1>
-
+        <v-form @submit.prevent="updateProfile" style="width: 100%" class="mb-4"> 
           <v-text-field v-model="userData.name" label="Nombre" prepend-inner-icon="mdi-account-outline"
             variant="outlined" />
 

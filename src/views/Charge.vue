@@ -1,5 +1,4 @@
 <template>
-  <h1>Cobrar</h1>
   <div class="d-flex">
     <div class="left-column mr-5">
       <ContactList />
