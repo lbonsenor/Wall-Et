@@ -1,8 +1,8 @@
 <template>
   <h1>Inicio</h1>
   <div class="d-flex ga-5 align-center mb-5">
-    <BalanceBox :balance="balance"/>
-    <CVU :alias="alias" :cvu="cvu"/>
+    <BalanceBox :balance="balanceStore.balance"/>
+    <CVU :alias="userStore.user.alias" :cvu="userStore.user.cvu"/>
   </div>
   <div class="d-flex">
     <ActivityList :activities="transactionStore.transactions" :displayCount="5" :isHomePage="true" />    
@@ -18,6 +18,8 @@ import CardList from '@/components/cards/MiniCardsList.vue';
 
 import { useCardStore } from '@/stores/CardStore';
 import { useTransactionStore } from '@/stores/TransactionStore';
+import { useUserStore } from '@/stores/UserStore';
+import { useBalanceStore } from '@/stores/BalanceStore';
 
 export default {
   name: 'Home',
@@ -27,22 +29,20 @@ export default {
     BalanceBox,
     CardList
   },
-  
   setup() {
     const cardStore = useCardStore();
     const transactionStore = useTransactionStore();
+    const userStore = useUserStore();
+    const balanceStore = useBalanceStore();
+    
     transactionStore.fetchTransactions();
+    balanceStore.fetchBalance();
+    
     return {
       cardStore,
-      transactionStore
-    }
-  },
-
-  data() {
-    return {
-      alias: "lau.bonsenor",
-      cvu: "00000000123145687945123",
-      balance: 123.12
+      transactionStore,
+      userStore,
+      balanceStore
     }
   }
 }
