@@ -14,6 +14,7 @@ import ForgotMyPassword from '@/views/ForgotMyPassword.vue'
 import Charge from '@/views/Charge.vue'
 import { useUserStore } from '@/stores/UserStore'
 import ErrorPage from '@/views/ErrorPage.vue'
+import Deposit from '@/views/Deposit.vue'
 
 
 const routes = [
@@ -82,7 +83,13 @@ const routes = [
         name: 'NotFound',
         component: ErrorPage,
         meta: { requiresAuth : false}
-    },
+      },
+    {
+        path: '/ingresar',
+        name: 'Ingresar',
+        component: Deposit,
+        meta: {requiresAuth : true}
+    }
 ]
 
 const router = createRouter({

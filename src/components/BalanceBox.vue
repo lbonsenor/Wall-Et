@@ -31,8 +31,8 @@
                     color="button"
                     rounded="pill"
                     variant="flat"
-                    block
                     @click="navigateToIngresar"
+                    block
                 >
                 Ingresar
                 </v-btn>
@@ -65,7 +65,7 @@ export default {
             this.$router.push({ path: '/transferir' });
         },
         navigateToIngresar() {
-            alert("Ingresar dinero...")
+            this.$router.push({ path: '/ingresar' });
         }
     }
 };
