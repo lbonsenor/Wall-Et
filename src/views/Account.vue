@@ -64,6 +64,19 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+
+    <v-dialog v-model="showUpdateConfirmation" max-width="400">
+      <v-card rounded="lg">
+        <v-card-title class="headline">Información actualizada</v-card-title>
+        <v-card-text class="pt-2">
+          Los datos de tu cuenta han sido actualizados correctamente.
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" @click="showUpdateConfirmation = false">Aceptar</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -78,17 +91,17 @@ export default {
       userStore,
       userData: { ...userStore.getUserProfile },
       showDeleteConfirmation: false,
+      showUpdateConfirmation: false,
     };
   },
 
   methods: {
     updateProfile() {
       this.userStore.updateProfile(this.userData);
-      console.log("Profile updated");
+      this.showUpdateConfirmation = true;
     },
 
     deleteAccount() {
-      console.log("Account deleted");
       this.showDeleteConfirmation = false;
     },
 
