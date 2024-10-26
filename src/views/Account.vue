@@ -7,9 +7,6 @@
 
         <v-text-field v-model="userData.username" label="Usuario" prepend-inner-icon="mdi-at" variant="outlined" />
 
-        <v-text-field v-model="userData.email" label="Email" prepend-inner-icon="mdi-email-outline"
-          variant="outlined" />
-
         <v-text-field v-model="userData.phone" label="Teléfono" prepend-inner-icon="mdi-phone-outline"
           variant="outlined" />
 
@@ -36,7 +33,7 @@
             </div>
             <div>
               <h2>{{ userData.name }}</h2>
-              <p>{{ userData.username }}</p>
+              <p>{{ userData.email }}</p>
             </div>
           </div>
           <div>
