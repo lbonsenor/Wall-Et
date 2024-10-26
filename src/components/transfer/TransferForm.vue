@@ -10,7 +10,7 @@
             <v-text-field variant="underlined" persistent-hint hint="Ingresá un mensaje al destinatario"></v-text-field>
         </div>
 
-        <div class="display mb-4">
+        <div class="mb-2">
             <v-text class="mb-2" style="color: rgb(var(--v-theme-title));">Medio de Pago</v-text>
             <v-select v-model="selectedPaymentMethod" :items="availablePaymentMethods" item-title="text"
                 item-value="value" variant="outlined" rounded="lg" hide-details></v-select>
