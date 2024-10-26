@@ -1,3 +1,5 @@
+import pedidosYaIcon from '@/assets/pedidos_ya.png'
+
 const cards = [
     {
         id: 1,
@@ -40,12 +42,13 @@ const cards = [
 const transactions = [
     {
         date: '2024-09-10',
-        user: 'Pedidos Ya Hola Hola Hoal HOla ',
+        user: 'Pedidos Ya',
         transaction_type: 'Pago online',
         payment_type: 'Dinero disponible',
         amount: '$17.500.000,00',
         time: '17:15',
-        out: true
+        out: true,
+        icon: pedidosYaIcon
     },
     {
         date: '2024-03-01',
@@ -54,7 +57,8 @@ const transactions = [
         payment_type: 'Dinero disponible',
         amount: '$20.500,00',
         time: '09:00',
-        out: false
+        out: false,
+        icon: null
     },
     {
         date: '2024-02-28',
@@ -63,7 +67,8 @@ const transactions = [
         payment_type: 'Mastercard prepago',
         amount: '$25.176,70',
         time: '11:45',
-        out: true
+        out: true,
+        icon: null
     },
     {
         date: '2024-02-28',
@@ -72,7 +77,8 @@ const transactions = [
         payment_type: 'Mastercard prepago',
         amount: '$25.176,70',
         time: '11:45',
-        out: true
+        out: true,
+        icon: null
     },
     {
         date: '2024-02-28',
@@ -81,7 +87,8 @@ const transactions = [
         payment_type: 'Mastercard prepago',
         amount: '$25.176,70',
         time: '11:45',
-        out: true
+        out: true,
+        icon: null
     },
     {
         date: '2024-02-28',
@@ -90,7 +97,8 @@ const transactions = [
         payment_type: 'Mastercard prepago',
         amount: '$25.176,70',
         time: '11:45',
-        out: true
+        out: true,
+        icon: null
     },
     {
         date: '2024-02-28',
@@ -99,7 +107,8 @@ const transactions = [
         payment_type: 'Mastercard prepago',
         amount: '$25.176,70',
         time: '11:45',
-        out: true
+        out: true,
+        icon: null
     },
     {
         date: '2024-02-28',
@@ -108,7 +117,8 @@ const transactions = [
         payment_type: 'Mastercard prepago',
         amount: '$25.176,70',
         time: '11:45',
-        out: true
+        out: true,
+        icon: null
     },
 ]
 

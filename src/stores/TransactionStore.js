@@ -2,6 +2,7 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useCardStore } from '@/stores/CardStore'
 import walletApi from '@/api/wallet'
+import pedidosYaIcon from '@/assets/pedidos_ya.png'
 
 export const useTransactionStore = defineStore('transaction', () => {
     const cardStore = useCardStore()
@@ -9,12 +10,13 @@ export const useTransactionStore = defineStore('transaction', () => {
     const previousTransactions = [
         {
             date: '2024-09-10',
-            user: 'Pedidos Ya Hola Hola Hoal HOla ',
+            user: 'Pedidos Ya',
             transaction_type: 'Pago online',
             payment_type: 'Dinero disponible',
             amount: '$17.500.000,00',
             time: '17:15',
-            out: true
+            out: true,
+            icon: pedidosYaIcon
         },
         {
             date: '2024-03-01',
@@ -23,7 +25,8 @@ export const useTransactionStore = defineStore('transaction', () => {
             payment_type: 'Dinero disponible',
             amount: '$20.500,00',
             time: '09:00',
-            out: false
+            out: false,
+            icon: null
         },
         {
             date: '2024-02-28',
@@ -32,7 +35,8 @@ export const useTransactionStore = defineStore('transaction', () => {
             payment_type: 'Mastercard prepago',
             amount: '$25.176,70',
             time: '11:45',
-            out: true
+            out: true,
+            icon: null
         },
         {
             date: '2024-02-28',
@@ -41,7 +45,8 @@ export const useTransactionStore = defineStore('transaction', () => {
             payment_type: 'Mastercard prepago',
             amount: '$25.176,70',
             time: '11:45',
-            out: true
+            out: true,
+            icon: null
         },
         {
             date: '2024-02-28',
@@ -50,7 +55,8 @@ export const useTransactionStore = defineStore('transaction', () => {
             payment_type: 'Mastercard prepago',
             amount: '$25.176,70',
             time: '11:45',
-            out: true
+            out: true,
+            icon: null
         },
         {
             date: '2024-02-28',
@@ -59,7 +65,8 @@ export const useTransactionStore = defineStore('transaction', () => {
             payment_type: 'Mastercard prepago',
             amount: '$25.176,70',
             time: '11:45',
-            out: true
+            out: true,
+            icon: null
         },
         {
             date: '2024-02-28',
@@ -68,7 +75,8 @@ export const useTransactionStore = defineStore('transaction', () => {
             payment_type: 'Mastercard prepago',
             amount: '$25.176,70',
             time: '11:45',
-            out: true
+            out: true,
+            icon: null
         },
         {
             date: '2024-02-28',
@@ -77,7 +85,8 @@ export const useTransactionStore = defineStore('transaction', () => {
             payment_type: 'Mastercard prepago',
             amount: '$25.176,70',
             time: '11:45',
-            out: true
+            out: true,
+            icon: null
         },
     ]
 
@@ -92,7 +101,8 @@ export const useTransactionStore = defineStore('transaction', () => {
         const newTransaction = {
             ...transaction,
             date: new Date().toISOString().split('T')[0],
-            time: new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })
+            time: new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' }),
+            icon: transaction.icon || null
         }
         transactions.value.unshift(newTransaction)
     }
