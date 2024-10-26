@@ -1,8 +1,10 @@
 <template>
   <nav class="topnav">
     <a href="#" class="nav-link" :class="{ active: activeLink === 'home' }" @click="setActive('home')">Inicio</a>
-    <a href="#features" class="nav-link" :class="{ active: activeLink === 'features' }" @click="setActive('features')">Ventajas</a>
-    <a href="#testimonials" class="nav-link" :class="{ active: activeLink === 'testimonials' }" @click="setActive('testimonials')">Testimonios</a>
+    <a href="#features" class="nav-link" :class="{ active: activeLink === 'features' }"
+      @click="setActive('features')">Ventajas</a>
+    <a href="#testimonials" class="nav-link" :class="{ active: activeLink === 'testimonials' }"
+      @click="setActive('testimonials')">Testimonios</a>
     <a href="#faq" class="nav-link" :class="{ active: activeLink === 'faq' }" @click="setActive('faq')">FAQs</a>
   </nav>
 </template>
@@ -27,7 +29,7 @@ html {
   backdrop-filter: blur(10px);
   position: sticky;
   top: 20px;
-  display: flex; 
+  display: flex;
   width: 80%;
   text-align: center;
   border-radius: 25px;
@@ -57,8 +59,8 @@ html {
 
 .nav-link.active {
   font-weight: bold;
-  background-color: rgba(var(--v-theme-secondary), 1)!important;
-  color: rgb(var(--v-theme-nav_title))!important;
+  background-color: rgba(var(--v-theme-secondary), 1) !important;
+  color: rgb(var(--v-theme-nav_title)) !important;
 }
 
 @media (max-width: 768px) {
@@ -75,7 +77,7 @@ html {
 
 @media (max-width: 820px) {
   .topnav {
-      display: none;
+    display: none;
   }
 }
 </style>

@@ -40,7 +40,7 @@ export const useCardStore = defineStore('card', () => {
 
     function addCard(card) {
         const newId = cards.value.length > 0 ? Math.max(...cards.value.map(c => c.id)) + 1 : 1
-        const newCard = {...card, id: newId}
+        const newCard = { ...card, id: newId }
         cards.value.push(newCard)
         return newId;
     }

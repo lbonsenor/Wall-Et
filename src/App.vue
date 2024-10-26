@@ -1,9 +1,9 @@
 <template>
-  <TopBar :isSignedIn="userStore.isSignedIn"/>
+  <TopBar :isSignedIn="userStore.isSignedIn" />
   <v-app class="bg-transparent">
     <SideBar v-if="userStore.isSignedIn" />
-    <v-main  class="mx-5">
-      <RouterView/>
+    <v-main class="mx-5">
+      <RouterView />
     </v-main>
     <!-- <AppFooter /> -->
   </v-app>
@@ -14,17 +14,17 @@ import SideBar from '@/components/persistent/SideBar.vue';
 import TopBar from '@/components/persistent/TopBar.vue';
 import { useUserStore } from './stores/UserStore';
 
-export default { 
-  setup(){
-    const userStore = useUserStore(); // Access the store here
+export default {
+  setup() {
+    const userStore = useUserStore();
 
-  return {
-  userStore
-  };
+    return {
+      userStore
+    };
   },
 
   components: {
-    TopBar, 
+    TopBar,
     SideBar
   }
 }
@@ -42,7 +42,7 @@ h1 {
 body {
   font-family: "Inter", sans-serif;
   color: white;
-  background: linear-gradient(339deg,rgb(var(--v-theme-grad1)),rgb(var(--v-theme-grad2)),rgb(var(--v-theme-grad3)),rgb(var(--v-theme-grad4)));
+  background: linear-gradient(339deg, rgb(var(--v-theme-grad1)), rgb(var(--v-theme-grad2)), rgb(var(--v-theme-grad3)), rgb(var(--v-theme-grad4)));
   background-size: 240% 240%;
   animation: gradient-animation 16s ease infinite;
 }
@@ -51,34 +51,35 @@ body {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
 }
 
-.title { 
-    color: rgb(var(--v-theme-title));
-    font-size: medium;
-    font-weight: 500;
+.title {
+  color: rgb(var(--v-theme-title));
+  font-size: medium;
+  font-weight: 500;
 }
 
-
-
 .gradient-card {
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .gradient-card:hover {
-    transform: scale(1.02);
+  transform: scale(1.02);
 }
 
 /* Scheme 1: Deep Purple to Indigo */
 .card-gradient-1 {
   background: linear-gradient(135deg, #4A0E4E 0%, #3F51B5 100%);
 }
+
 .card-gradient-1:hover {
   background: linear-gradient(30deg, #5C1160 0%, #5C6BC0 100%);
 }
@@ -87,6 +88,7 @@ body {
 .card-gradient-2 {
   background: linear-gradient(135deg, #1A237E 0%, #0288D1 100%);
 }
+
 .card-gradient-2:hover {
   background: linear-gradient(80deg, #2C3590 0%, #039BE5 100%);
 }
@@ -95,6 +97,7 @@ body {
 .card-gradient-3 {
   background: linear-gradient(135deg, #00695C 0%, #00BCD4 100%);
 }
+
 .card-gradient-3:hover {
   background: linear-gradient(80deg, #00796B 0%, #26C6DA 100%);
 }
@@ -103,6 +106,7 @@ body {
 .card-gradient-4 {
   background: linear-gradient(135deg, #880E4F 0%, #9C27B0 100%);
 }
+
 .card-gradient-4:hover {
   background: linear-gradient(80deg, #9A1663 0%, #AB47BC 100%);
 }
@@ -111,6 +115,7 @@ body {
 .card-gradient-5 {
   background: linear-gradient(135deg, #0D47A1 0%, #03A9F4 100%);
 }
+
 .card-gradient-5:hover {
   background: linear-gradient(80deg, #1565C0 0%, #29B6F6 100%);
 }

@@ -13,10 +13,12 @@ import { useTransactionStore } from '@/stores/TransactionStore';
 
 export default {
   name: 'Activities',
+
   components: {
     ActivityList,
     ActivityFilter
   },
+  
   setup() {
     const transactionStore = useTransactionStore();
     

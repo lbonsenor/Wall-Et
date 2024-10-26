@@ -1,19 +1,19 @@
 <template>
-    <div class="container">
-      <div class="header" @click="returnLanding">
+  <div class="container">
+    <div class="header" @click="returnLanding">
       <img class="logo" src="./../assets/wallet-white.png" alt="Wall-ET logo" />
-      <h2>   Wall · Et</h2>
+      <h2> Wall · Et</h2>
     </div>
-        
+
     <h1 class="welcome-header">¡Oops!</h1>
     <h1 class="welcome-header">Esta página no existe :c</h1>
-</div>
+  </div>
 </template>
 
 <script>
 export default {
   methods: {
-    returnLanding(){
+    returnLanding() {
       this.$router.push('/');
     }
   }
@@ -24,24 +24,27 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   margin: auto;
-  height: 80vh; 
+  height: 80vh;
 }
+
 .logo {
-max-width: 100%; 
-height: 50px;   
-margin-bottom: 16px; 
+  max-width: 100%;
+  height: 50px;
+  margin-bottom: 16px;
 }
+
 .header {
-margin-bottom: 1px;
-display: flex;
-align-items: center; 
-margin-bottom: 16px; 
-gap: 10px;
+  margin-bottom: 1px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 10px;
 }
+
 .welcome-header {
-margin-top: 1px;
-};
+  margin-top: 1px;
+}
 </style>

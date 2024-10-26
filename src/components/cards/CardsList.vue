@@ -5,12 +5,12 @@
                 <CardItem v-bind="cardItem" />
             </template>
         </div>
-        <NewCard class="ml-2"/>
+        <NewCard class="ml-2" />
     </div>
 </template>
 
-<script >
-export default{
+<script>
+export default {
     props: {
         cards: {
             type: Array,

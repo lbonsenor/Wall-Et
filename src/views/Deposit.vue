@@ -4,6 +4,7 @@
     <div class="text-center mb-4">
       <v-text style="color: rgb(var(--v-theme-title));">Seleccione medio de ingreso:</v-text>
     </div>
+
     <div class="d-flex justify-center mb-4">
       <v-btn-toggle v-model="selectedOption">
         <v-btn value="tarjeta" text="Tarjeta"></v-btn>
@@ -11,37 +12,24 @@
       </v-btn-toggle>
     </div>
 
-    <v-text-field 
-      v-if="selectedOption === 'cbu'"
-      class="mb-2"
-      variant="outlined" 
-      rounded="lg" 
-      placeholder="Ingrese su CBU" 
-      persistent-placeholder 
-      hide-details 
-      color="secondary" 
-    ></v-text-field>
+    <v-text-field v-if="selectedOption === 'cbu'" class="mb-2" variant="outlined" rounded="lg"
+      placeholder="Ingrese su CBU" persistent-placeholder hide-details color="secondary"></v-text-field>
+
     <div v-if="selectedOption === 'tarjeta'" class="mb-2">
-      <v-select
-        v-model="selectedCard"
-        :items=formattedCards
-        item-title="text"
-        item-value="id"
-        label="Seleccione una tarjeta"
-        variant="outlined"
-        rounded="lg"
-        hide-details
-      ></v-select>
+      <v-select v-model="selectedCard" :items=formattedCards item-title="text" item-value="id"
+        label="Seleccione una tarjeta" variant="outlined" rounded="lg" hide-details></v-select>
     </div>
+
     <div>
       <v-text style="color: rgb(var(--v-theme-title));">Monto</v-text>
-      <v-text-field v-model="amount" class="amount" variant="underlined"
-        prepend-icon="mdi-currency-usd"></v-text-field>
+      <v-text-field v-model="amount" class="amount" variant="underlined" prepend-icon="mdi-currency-usd"></v-text-field>
     </div>
+
     <div class="d-flex justify-center mt-4">
-      <v-btn value="d-flex mx-auto" color="primary" width="40%" height=50 style="min-width: fit-content;" text="Confirmar" variant="outlined" rounded="xl"></v-btn>
+      <v-btn value="d-flex mx-auto" color="primary" width="40%" height=50 style="min-width: fit-content;"
+        text="Confirmar" variant="outlined" rounded="xl"></v-btn>
     </div>
-  </v-card>  
+  </v-card>
 </template>
 
 <script>
@@ -56,6 +44,7 @@ export default {
       selectedCard: null,
     }
   },
+
   computed: {
     formattedCards() {
       return this.cardStore.cards.map(card => ({
@@ -64,6 +53,7 @@ export default {
       }));
     }
   },
+
   watch: {
     selectedOption(newVal, oldVal) {
       if (!['tarjeta', 'cbu'].includes(newVal)) {
@@ -71,6 +61,7 @@ export default {
       }
     }
   },
+  
   methods: {
     selectCard(card) {
       this.selectedCard = card;

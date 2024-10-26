@@ -21,7 +21,7 @@ export const useBalanceStore = defineStore('balance', () => {
                 .replace(/\./g, '')
                 .replace(',', '.')
             const amount = parseFloat(cleanAmount)
-            
+
             if (!isNaN(amount)) {
                 total += transaction.out ? -amount : amount
             }
@@ -29,7 +29,7 @@ export const useBalanceStore = defineStore('balance', () => {
         balance.value = total
     }
 
-    return { 
+    return {
         balance,
         updateBalance,
         fetchBalance,

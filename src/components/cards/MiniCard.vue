@@ -1,10 +1,11 @@
 <template>
-    <v-card :class="randomGradientClass" class="gradient-card mx-auto my-auto align-center mt-4 pa-2" rounded="xl" elevation="1"
-    @click="navigateToCards">
+    <v-card :class="randomGradientClass" class="gradient-card mx-auto my-auto align-center mt-4 pa-2" rounded="xl"
+        elevation="1" @click="navigateToCards">
         <template v-slot:prepend>
             <v-icon icon="mdi-credit-card" class="mr-2"></v-icon>
             <v-card-title class="custom-subtitle mr-2"> {{ " " + card_type + " " }} </v-card-title>
-            <v-card-title class="custom-subtitle"> {{ " ···· ···· ···· " + card_number.substring(card_number.length-4) }}</v-card-title>
+            <v-card-title class="custom-subtitle"> {{ " ···· ···· ···· " + card_number.substring(card_number.length - 4)
+                }}</v-card-title>
         </template>
     </v-card>
 </template>

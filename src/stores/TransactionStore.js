@@ -42,7 +42,7 @@ export const useTransactionStore = defineStore('transaction', () => {
             amount: '$25.176,70',
             time: '11:45',
             out: true
-        }, 
+        },
         {
             date: '2024-02-28',
             user: 'Farmacity',
@@ -51,7 +51,7 @@ export const useTransactionStore = defineStore('transaction', () => {
             amount: '$25.176,70',
             time: '11:45',
             out: true
-        }, 
+        },
         {
             date: '2024-02-28',
             user: 'Farmacity',
@@ -60,7 +60,7 @@ export const useTransactionStore = defineStore('transaction', () => {
             amount: '$25.176,70',
             time: '11:45',
             out: true
-        }, 
+        },
         {
             date: '2024-02-28',
             user: 'Farmacity',
@@ -69,7 +69,7 @@ export const useTransactionStore = defineStore('transaction', () => {
             amount: '$25.176,70',
             time: '11:45',
             out: true
-        }, 
+        },
         {
             date: '2024-02-28',
             user: 'Farmacity',
@@ -100,7 +100,7 @@ export const useTransactionStore = defineStore('transaction', () => {
     function applyFilters({ search, transactionTypes, period, range, paymentTypes, startDate, endDate }) {
         filteredTransactions.value = transactions.value.filter(transaction => {
             let matches = true
-            
+
             if (search) {
                 matches = matches && transaction.user.toLowerCase().includes(search.toLowerCase())
             }
@@ -130,7 +130,7 @@ export const useTransactionStore = defineStore('transaction', () => {
                     .replace(/\./g, '')
                     .replace(',', '.')
                 const amount = parseFloat(cleanAmount)
-                
+
                 if (!isNaN(amount) && !isNaN(range[0]) && !isNaN(range[1])) {
                     matches = matches && amount >= range[0] && amount <= range[1]
                 }
@@ -140,7 +140,7 @@ export const useTransactionStore = defineStore('transaction', () => {
                 const transDate = new Date(transaction.date)
                 const today = new Date()
 
-                switch(period) {
+                switch (period) {
                     case 'today':
                         matches = matches && isSameDay(transDate, today)
                         break
@@ -155,8 +155,8 @@ export const useTransactionStore = defineStore('transaction', () => {
                         break
                     case 'custom':
                         if (startDate && endDate) {
-                            matches = matches && 
-                                transDate >= new Date(startDate) && 
+                            matches = matches &&
+                                transDate >= new Date(startDate) &&
                                 transDate <= new Date(endDate)
                         }
                         break
@@ -207,10 +207,10 @@ export const useTransactionStore = defineStore('transaction', () => {
         return date.getFullYear() === today.getFullYear()
     }
 
-    return { 
-        transactions, 
+    return {
+        transactions,
         filteredTransactions,
-        fetchTransactions, 
+        fetchTransactions,
         applyFilters,
         clearFilters,
         getMaxAmount

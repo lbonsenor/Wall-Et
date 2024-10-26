@@ -10,14 +10,16 @@
         </div>
         <div class="display mb-4">
             <v-text class="mb-2" style="color: rgb(var(--v-theme-title));">Medio de Pago</v-text>
-            <v-btn prepend-icon="mdi-credit-card-outline" style="min-width: fit-content;" text="Elegir medio" variant="outlined" rounded="xl"></v-btn>
+            <v-btn prepend-icon="mdi-credit-card-outline" style="min-width: fit-content;" text="Elegir medio"
+                variant="outlined" rounded="xl"></v-btn>
         </div>
         <div>
             <v-text style="color: rgb(var(--v-theme-title));">Monto</v-text>
             <v-text-field v-model="amount" @blur="handleAmountInput" class="amount" variant="underlined"
                 prepend-icon="mdi-currency-usd"></v-text-field>
         </div>
-        <v-btn class="d-flex mx-auto" style="min-width: fit-content;" width="50%" height=50 color="primary" rounded="xl" prepend-icon="mdi-send-outline" text="Continuar"></v-btn>
+        <v-btn class="d-flex mx-auto" style="min-width: fit-content;" width="50%" height=50 color="primary" rounded="xl"
+            prepend-icon="mdi-send-outline" text="Continuar"></v-btn>
     </v-card>
 </template>
 
@@ -28,7 +30,7 @@ export default {
     }),
     methods: {
         handleAmountInput() {
-            const num = parseFloat(this.amount.split('').filter(s=> (s>= '0' && s<= '9') || s == ',').join('').replace(',', '.'))
+            const num = parseFloat(this.amount.split('').filter(s => (s >= '0' && s <= '9') || s == ',').join('').replace(',', '.'))
             console.log(num)
             if (!isNaN(num)) {
                 const formatter = new Intl.NumberFormat('es-AR', { style: 'decimal', minimumFractionDigits: 2 })

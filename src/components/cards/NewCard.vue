@@ -10,11 +10,13 @@
         </template>
         <v-card prepend-icon="mdi-credit-card" title="Agregar Tarjeta">
           <v-card-text>
-            <v-text-field label="Número de tarjeta"  required v-model="cardInfo.card_number" :rules="[rules.card_number]"></v-text-field>
+            <v-text-field label="Número de tarjeta" required v-model="cardInfo.card_number"
+              :rules="[rules.card_number]"></v-text-field>
             <v-text-field label="Titular de tarjeta" required v-model="cardInfo.card_owner"></v-text-field>
             <v-row dense>
               <v-col cols="7" md="7" sm="7">
-                <v-text-field label="Fecha de vencimiento" hint="MM/YY" required v-model="cardInfo.card_expiry_date" :rules="[rules.card_expiry_date]"></v-text-field>
+                <v-text-field label="Fecha de vencimiento" hint="MM/YY" required v-model="cardInfo.card_expiry_date"
+                  :rules="[rules.card_expiry_date]"></v-text-field>
               </v-col>
               <v-col cols="5" md="5" sm="5">
                 <v-text-field label="CVV" required v-model="cardInfo.card_cvv" :rules="[rules.card_cvv]"></v-text-field>
@@ -29,7 +31,8 @@
 
             <v-btn color="primary" text="Cerrar" variant="outlined" @click="dialog = false"></v-btn>
 
-            <v-btn color="primary" text="Agregar" variant="flat" :disabled="!isCardValid" @click="dialog = false; cardStore.addCard(cardInfo)"></v-btn>
+            <v-btn color="primary" text="Agregar" variant="flat" :disabled="!isCardValid"
+              @click="dialog = false; cardStore.addCard(cardInfo)"></v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -56,16 +59,16 @@ export default {
       card_expiry_date: function (value) {
         const pattern = /^(0?[0-9]|1[0-2])\/[0-9]{2}$/;
         return pattern.test(value) || 'Mes/Año Inválido'
-        
+
       },
       card_number: value => {
         const pattern = /^[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}$/;
         return pattern.test(value) || 'Tarjeta Inválida'
-      }, 
+      },
       card_cvv: value => {
         const pattern = /^[0-9]{3}$/;
         return pattern.test(value) || 'CVV Inválido'
-      }, 
+      },
     },
   }),
   computed: {

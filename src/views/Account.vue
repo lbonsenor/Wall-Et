@@ -5,40 +5,19 @@
         <v-form @submit.prevent="updateProfile" style="width: 100%" class="mb-4">
           <h1>Cuenta</h1>
 
-          <v-text-field
-            v-model="userData.name"
-            label="Nombre"
-            prepend-inner-icon="mdi-account-outline"
-            variant="outlined"
-          />
+          <v-text-field v-model="userData.name" label="Nombre" prepend-inner-icon="mdi-account-outline"
+            variant="outlined" />
 
-          <v-text-field
-            v-model="userData.username"
-            label="Usuario"
-            prepend-inner-icon="mdi-at"
-            variant="outlined"
-          />
+          <v-text-field v-model="userData.username" label="Usuario" prepend-inner-icon="mdi-at" variant="outlined" />
 
-          <v-text-field
-            v-model="userData.email"
-            label="Email"
-            prepend-inner-icon="mdi-email-outline"
-            variant="outlined"
-          />
+          <v-text-field v-model="userData.email" label="Email" prepend-inner-icon="mdi-email-outline"
+            variant="outlined" />
 
-          <v-text-field
-            v-model="userData.phone"
-            label="Teléfono"
-            prepend-inner-icon="mdi-phone-outline"
-            variant="outlined"
-          />
+          <v-text-field v-model="userData.phone" label="Teléfono" prepend-inner-icon="mdi-phone-outline"
+            variant="outlined" />
 
-          <v-text-field
-            v-model="userData.dni"
-            label="DNI"
-            prepend-inner-icon="mdi-card-account-details-outline"
-            variant="outlined"
-          />
+          <v-text-field v-model="userData.dni" label="DNI" prepend-inner-icon="mdi-card-account-details-outline"
+            variant="outlined" />
 
           <v-btn color="secondary" block rounded="pill" type="submit">
             Actualizar
@@ -59,13 +38,7 @@
                     <v-icon size="small">mdi-camera</v-icon>
                   </v-btn>
 
-                  <input
-                    type="file"
-                    ref="fileInput"
-                    accept="image/*"
-                    style="display: none"
-                    @change="onFileSelected"
-                  />
+                  <input type="file" ref="fileInput" accept="image/*" style="display: none" @change="onFileSelected" />
                 </div>
 
                 <div>
@@ -75,11 +48,13 @@
               </div>
 
               <div>
-                <v-btn variant="text" prepend-icon="mdi-lock-outline" class="justify-start" block @click="resetPassword">
+                <v-btn variant="text" prepend-icon="mdi-lock-outline" class="justify-start" block
+                  @click="resetPassword">
                   <span class="text-decoration-underline">Cambiar contraseña</span>
                 </v-btn>
 
-                <v-btn variant="text" prepend-icon="mdi-delete-outline" class="justify-start delete-account" block @click="showDeleteConfirmation = true">
+                <v-btn variant="text" prepend-icon="mdi-delete-outline" class="justify-start delete-account" block
+                  @click="showDeleteConfirmation = true">
                   <span class="text-decoration-underline delete-account">Eliminar cuenta</span>
                 </v-btn>
               </div>
@@ -117,7 +92,7 @@ export default {
       showDeleteConfirmation: false,
     };
   },
-  
+
   methods: {
     updateProfile() {
       this.userStore.updateProfile(this.userData);

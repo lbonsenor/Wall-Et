@@ -33,37 +33,18 @@
     <v-dialog v-model="showModifyDialog" max-width="600">
         <v-card prepend-icon="mdi-credit-card" title="Modificar Tarjeta">
             <v-card-text>
-                <v-text-field 
-                    label="Número de tarjeta" 
-                    required 
-                    v-model="cardData.card_number" 
-                    :rules="[rules.card_number]"
-                    maxlength="19"
-                ></v-text-field>
-                <v-text-field 
-                    label="Titular de tarjeta" 
-                    required 
-                    v-model="cardData.card_owner"
-                ></v-text-field>
+                <v-text-field label="Número de tarjeta" required v-model="cardData.card_number"
+                    :rules="[rules.card_number]" maxlength="19"></v-text-field>
+                <v-text-field label="Titular de tarjeta" required v-model="cardData.card_owner"></v-text-field>
                 <v-row dense>
                     <v-col cols="7" md="7" sm="7">
-                        <v-text-field 
-                            label="Fecha de vencimiento" 
-                            hint="MM/YY" 
-                            required 
-                            v-model="cardData.card_expiry_date" 
-                            :rules="[rules.card_expiry_date]"
-                            maxlength="5"
-                        ></v-text-field>
+                        <v-text-field label="Fecha de vencimiento" hint="MM/YY" required
+                            v-model="cardData.card_expiry_date" :rules="[rules.card_expiry_date]"
+                            maxlength="5"></v-text-field>
                     </v-col>
                     <v-col cols="5" md="5" sm="5">
-                        <v-text-field 
-                            label="CVV" 
-                            required 
-                            v-model="cardData.card_cvv" 
-                            :rules="[rules.card_cvv]"
-                            maxlength="3"
-                        ></v-text-field>
+                        <v-text-field label="CVV" required v-model="cardData.card_cvv" :rules="[rules.card_cvv]"
+                            maxlength="3"></v-text-field>
                     </v-col>
                 </v-row>
             </v-card-text>
@@ -73,13 +54,8 @@
             <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="primary" text="Cancelar" variant="outlined" @click="showModifyDialog = false"></v-btn>
-                <v-btn 
-                    color="primary" 
-                    text="Guardar" 
-                    variant="flat" 
-                    :disabled="!isCardValid" 
-                    @click="handleModify"
-                ></v-btn>
+                <v-btn color="primary" text="Guardar" variant="flat" :disabled="!isCardValid"
+                    @click="handleModify"></v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>
@@ -112,7 +88,7 @@ watch(() => showModifyDialog.value, (newValue) => {
     if (newValue) {
         const card = cardStore.cards.find(c => c.id === props.cardId);
         if (card) {
-            cardData.value = { 
+            cardData.value = {
                 ...card,
                 card_cvv: String(card.card_cvv)
             };
@@ -148,7 +124,7 @@ watch(() => cardData.value.card_number, (newValue) => {
 
 const isCardValid = computed(() => {
     if (!cardData.value) return false;
-    
+
     const { card_number, card_expiry_date, card_cvv, card_owner } = cardData.value;
     if (!card_number || !card_expiry_date || !card_cvv || !card_owner) return false;
 
@@ -197,10 +173,8 @@ const pauseCard = () => {
     width: 35vh;
 }
 
-
 .card_options div:hover {
     background-color: rgb(var(--v-theme-button_hover));
-    /* border-radius: 20%; */
 }
 
 .card_options div.erase:hover {

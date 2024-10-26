@@ -28,13 +28,13 @@ const userStore = useUserStore()
 
 const isDarkTheme = computed(() => theme.global.current.value.dark)
 
-const themeIcon = computed(() => 
+const themeIcon = computed(() =>
     isDarkTheme.value ? 'mdi-white-balance-sunny' : 'mdi-moon-waning-crescent')
 
 const props = defineProps({
     isSignedIn: Boolean
 })
-function toggleTheme () {
+function toggleTheme() {
     theme.global.name.value = isDarkTheme.value ? 'lightTheme' : 'darkTheme'
 }
 

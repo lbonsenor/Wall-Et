@@ -5,10 +5,12 @@
 </template>
 
 <script>
-export default{
-    methods:{ navigateToRegisterPage() {
-        console.log(this.$router.push('/login'))
-    }}
+export default {
+    methods: {
+        navigateToRegisterPage() {
+            console.log(this.$router.push('/login'))
+        }
+    }
 }
 </script>
 

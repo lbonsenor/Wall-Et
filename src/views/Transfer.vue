@@ -2,10 +2,10 @@
     <h1>Transferir</h1>
     <div class="d-flex">
         <div class="left-column mr-8">
-            <BalanceCard class="mb-8" :balance="balanceStore.balance"/>
+            <BalanceCard class="mb-8" :balance="balanceStore.balance" />
             <ContactList></ContactList>
         </div>
-        <TransferForm class="transfer-form"></TransferForm> 
+        <TransferForm class="transfer-form"></TransferForm>
     </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
     setup() {
         const balanceStore = useBalanceStore();
         balanceStore.fetchBalance();
-        
+
         return {
             balanceStore
         };
@@ -35,7 +35,7 @@ export default {
 }
 
 .transfer-form {
-    flex-grow: 1; 
-    width:70%;
+    flex-grow: 1;
+    width: 70%;
 }
 </style>

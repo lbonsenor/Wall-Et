@@ -1,4 +1,3 @@
-<!-- Landing page -->
 <template>
     <Navigation />
     <Hero />
@@ -7,7 +6,6 @@
     <FAQ />
     <JoinUs />
     <Footer />
-
 </template>
 
 <script setup>
@@ -18,7 +16,6 @@ import Navigation from '@/components/landing/Navigation.vue';
 import Footer from '@/components/landing/Footer.vue';
 import FAQ from '@/components/landing/FAQ.vue';
 import JoinUs from '@/components/landing/JoinUs.vue';
-
 </script>
 
 <style scoped></style>

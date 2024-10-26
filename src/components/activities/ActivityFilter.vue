@@ -2,17 +2,18 @@
     <v-card class="mx-auto" min-width="200px" height="fit-content" color="surface" rounded="xl">
         <v-card-text>
             <v-text-field v-model="search" class="search-field mb-2" :loading="loading" prepend-inner-icon="mdi-magnify"
-                density="compact" label="Buscar" variant="outlined" hide-details flat rounded="xl"
-                @input="onSearch" clearable />
+                density="compact" label="Buscar" variant="outlined" hide-details flat rounded="xl" @input="onSearch"
+                clearable />
 
             <p class="title">Tipo de transferencia</p>
             <v-chip-group column selected-class="bg-primary" multiple v-model="selectedTransactionTypes">
-                <v-chip variant="outlined" v-for="type in transaction_type" :key="type" :value="type" :text="type"/>
+                <v-chip variant="outlined" v-for="type in transaction_type" :key="type" :value="type" :text="type" />
             </v-chip-group>
 
             <p class="title">Período</p>
             <v-chip-group v-model="selectedPeriod" column selected-class="bg-primary">
-                <v-chip variant="outlined" v-for="period in period_type" :key="period.type" :value="period.type" :text="period.text"/>
+                <v-chip variant="outlined" v-for="period in period_type" :key="period.type" :value="period.type"
+                    :text="period.text" />
                 <DateDialog ref="dateDialogRef"></DateDialog>
             </v-chip-group>
 
@@ -23,26 +24,27 @@
 
             <v-row class="pl-2">
                 <v-col>
-                    <v-text-field prefix="$"
-                        class="currency-input" color="primary"
-                        v-model="range[0]" density="compact" variant="underlined" hide-details=""/>
+                    <v-text-field prefix="$" class="currency-input" color="primary" v-model="range[0]" density="compact"
+                        variant="underlined" hide-details="" />
                 </v-col>
                 <v-col>
-                    <v-text-field suffix="$"
-                        class="currency-input-right" color="primary"
-                        v-model="range[1]" density="compact" variant="underlined"/>
+                    <v-text-field suffix="$" class="currency-input-right" color="primary" v-model="range[1]"
+                        density="compact" variant="underlined" />
                 </v-col>
             </v-row>
 
             <p class="title">Medio de pago</p>
             <template v-for="(payment_method, index) in availablePaymentMethods" :key="index">
-                <v-checkbox hide-details v-model="selectedPaymentTypes"
-                    :value="payment_method.value" :label="payment_method.label" class="custom-checkbox" />
+                <v-checkbox hide-details v-model="selectedPaymentTypes" :value="payment_method.value"
+                    :label="payment_method.label" class="custom-checkbox" />
             </template>
 
-            <div class="flex-row justify-center d-md-flex d-lg-flex justify-md-space-between justify-lg-space-between align-center mt-4">
-                <v-btn class="mb-2 mr-2 flex-grow-1 flex-grow" flat variant="tonal" rounded="xl" @click="apply">Aplicar</v-btn>
-                <v-btn class="mb-2 mr-2 flex-grow-1 flex-grow" flat variant="tonal" rounded="xl" @click="cleanup">Limpiar</v-btn>
+            <div
+                class="flex-row justify-center d-md-flex d-lg-flex justify-md-space-between justify-lg-space-between align-center mt-4">
+                <v-btn class="mb-2 mr-2 flex-grow-1 flex-grow" flat variant="tonal" rounded="xl"
+                    @click="apply">Aplicar</v-btn>
+                <v-btn class="mb-2 mr-2 flex-grow-1 flex-grow" flat variant="tonal" rounded="xl"
+                    @click="cleanup">Limpiar</v-btn>
             </div>
         </v-card-text>
     </v-card>
@@ -87,14 +89,14 @@ const availablePaymentMethods = computed(() => {
             label: 'Dinero disponible'
         }
     ]
-    
+
     cardStore.cards.forEach(card => {
         methods.push({
             value: card.id.toString(),
             label: `${card.card_type} ${card.card_brand} ${card.card_number.slice(-4)}`
         })
     })
-    
+
     return methods
 })
 
@@ -133,7 +135,7 @@ const cleanup = () => {
     selectedPeriod.value = 'all_time'
     selectedPaymentTypes.value = []
     range.value = [0, maxAmount.value]
-    
+
     transactionStore.clearFilters()
     window.scrollTo({ top: 50, behavior: 'smooth' })
 }
@@ -166,7 +168,7 @@ onMounted(() => {
     padding-top: 0;
 }
 
-.currency-input :deep(input){
+.currency-input :deep(input) {
     padding-top: 0px !important;
 }
 
@@ -175,13 +177,13 @@ onMounted(() => {
     font-size: 14px;
 }
 
-.currency-input-right :deep(input){
+.currency-input-right :deep(input) {
     text-align: end;
     padding-top: 0px !important;
     margin-right: 5px;
 }
 
-.currency-input-right :deep(.v-text-field__suffix){
+.currency-input-right :deep(.v-text-field__suffix) {
     padding-top: 0;
     padding-inline-end: 0;
 }

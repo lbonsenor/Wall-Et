@@ -12,8 +12,7 @@
             <v-expansion-panel title="3. ¿Dónde estará disponible la app?"
                 text="Wall-Et estará disponible en Google Play y App Store.">
             </v-expansion-panel>
-            <v-expansion-panel title="4. ¿Cuándo será el lanzamiento de la app?"
-                text="Próximamente.">
+            <v-expansion-panel title="4. ¿Cuándo será el lanzamiento de la app?" text="Próximamente.">
             </v-expansion-panel>
         </v-expansion-panels>
     </div>

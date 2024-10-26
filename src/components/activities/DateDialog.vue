@@ -1,21 +1,13 @@
 <template>
   <v-dialog v-model="dialog" width="auto">
     <template v-slot:activator="{ props }">
-      <v-chip
-        variant="outlined"
-        :text="displayText"
-        v-bind="props"
-        input-value="chipSelected"
-        @click="handleChipClick"
-      />
+      <v-chip variant="outlined" :text="displayText" v-bind="props" input-value="chipSelected"
+        @click="handleChipClick" />
     </template>
 
     <v-card prepend-icon="mdi-calendar" :title="isRange ? 'Seleccionar período' : 'Seleccionar fecha'">
       <v-card-text>
-        <v-date-picker class="calendar"
-          v-model="currentSelection"
-          :multiple="isRange ? 'range' : false"
-        />
+        <v-date-picker class="calendar" v-model="currentSelection" :multiple="isRange ? 'range' : false" />
       </v-card-text>
       <v-card-actions class="mb-2">
         <v-btn color="details" @click="toggleMode">
@@ -51,7 +43,7 @@ const formatDate = (date) => {
 }
 
 const isValidSelection = computed(() => {
-    console.log("invalid" + currentSelection.value);
+  console.log("invalid" + currentSelection.value);
   if (isRange.value) {
     return Array.isArray(currentSelection.value) && currentSelection.value.length >= 2
   }
@@ -61,7 +53,7 @@ const isValidSelection = computed(() => {
 const displayText = computed(() => {
   if (!confirmedSelection.value) return 'Otro período...'
   if (Array.isArray(confirmedSelection.value)) {
-    return `${formatDate(confirmedSelection.value[0])} - ${formatDate(confirmedSelection.value[confirmedSelection.value.length-1])}`
+    return `${formatDate(confirmedSelection.value[0])} - ${formatDate(confirmedSelection.value[confirmedSelection.value.length - 1])}`
   }
   return formatDate(confirmedSelection.value)
 })
@@ -82,25 +74,24 @@ const handleChipClick = () => {
     dialog.value = true
   } else {
     chipSelected.value = false
-    dialog.value=false
-    // Do not open dialog when unselecting
+    dialog.value = false
   }
 }
 </script>
 
 <style scoped>
-
-.calendar :deep(.v-date-picker-header__content){
-    font-size: large;
-    font-weight: bold;
-    line-height: 16px;
+.calendar :deep(.v-date-picker-header__content) {
+  font-size: large;
+  font-weight: bold;
+  line-height: 16px;
 }
 
-.calendar :deep(.v-date-picker-header){
-    height: 16px;
-    padding-bottom: 12px;
+.calendar :deep(.v-date-picker-header) {
+  height: 16px;
+  padding-bottom: 12px;
 }
+
 .calendar :deep(.v-picker-title) {
-    display: none;
+  display: none;
 }
 </style>

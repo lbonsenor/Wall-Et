@@ -2,14 +2,8 @@
   <div class="activity-container pa-4">
     <div class="d-flex justify-space-between align-center">
       <h1 v-if="isHomePage" class="title">Actividades Recientes</h1>
-      <v-btn 
-        v-if="isHomePage" 
-        class="link" 
-        @click="navigateToActivities" 
-        elevation="0" 
-        variant="text" 
-        density="compact"
-      >
+      <v-btn v-if="isHomePage" class="link" @click="navigateToActivities" elevation="0" variant="text"
+        density="compact">
         Ver más >
       </v-btn>
     </div>
@@ -24,11 +18,7 @@
         <v-divider class="my-4" />
         {{ formatDate(activity.date) }}
       </div>
-      <ActivityItem 
-        v-bind="activity" 
-        class="py-2 px-4" 
-        @click="showActivityDetails(activity)"
-      />
+      <ActivityItem v-bind="activity" class="py-2 px-4" @click="showActivityDetails(activity)" />
     </template>
 
     <v-dialog v-model="showDialog" max-width="500">
@@ -37,28 +27,28 @@
           <span>Detalles de la Actividad</span>
           <v-btn icon="mdi-close" variant="text" @click="showDialog = false" />
         </v-card-title>
-        
+
         <v-card-text>
           <div class="my-2">
             <div class="text-caption">Fecha y Hora</div>
             <div>{{ formatDateTime(selectedActivity.date, selectedActivity.time) }}</div>
           </div>
-          
+
           <div class="my-2">
             <div class="text-caption">Usuario</div>
             <div>{{ selectedActivity.user }}</div>
           </div>
-          
+
           <div class="my-2">
             <div class="text-caption">Tipo de Transacción</div>
             <div>{{ selectedActivity.transaction_type }}</div>
           </div>
-          
+
           <div class="my-2">
             <div class="text-caption">Medio de Pago</div>
             <div>{{ selectedActivity.payment_type }}</div>
           </div>
-          
+
           <div class="my-2">
             <div class="text-caption">Monto</div>
             <div :class="{ 'text-success': !selectedActivity.out }">
@@ -69,11 +59,7 @@
 
         <v-card-actions>
           <v-spacer />
-          <v-btn 
-            color="primary" 
-            variant="text" 
-            @click="showDialog = false"
-          >
+          <v-btn color="primary" variant="text" @click="showDialog = false">
             Cerrar
           </v-btn>
         </v-card-actions>
@@ -88,11 +74,11 @@ import ActivityItem from './ActivityItem.vue'
 
 export default {
   name: 'ActivityList',
-  
+
   components: {
     ActivityItem
   },
-  
+
   props: {
     activities: {
       type: Array,
@@ -117,13 +103,13 @@ export default {
       selectedActivity
     }
   },
-  
+
   computed: {
     displayedActivities() {
       return this.activities.slice(0, this.displayCount)
     }
   },
-  
+
   methods: {
     formatDate(dateString) {
       const date = new Date(dateString)

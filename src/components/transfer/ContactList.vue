@@ -8,14 +8,12 @@
         <v-card-text class="pa-0">
             <v-window v-model="tab">
                 <v-window-item value="recents">
-                    <SingleContactList :contacts="recentContacts"
-                    @toggle-favorite="toggleFavorite"
-                    @delete-contact="deleteContact"/>
+                    <SingleContactList :contacts="recentContacts" @toggle-favorite="toggleFavorite"
+                        @delete-contact="deleteContact" />
                 </v-window-item>
                 <v-window-item value="favorites">
-                    <SingleContactList :contacts="favoriteContacts"
-                    @toggle-favorite="toggleFavorite"
-                    @delete-contact="deleteContact"/>
+                    <SingleContactList :contacts="favoriteContacts" @toggle-favorite="toggleFavorite"
+                        @delete-contact="deleteContact" />
                 </v-window-item>
             </v-window>
         </v-card-text>
@@ -45,7 +43,7 @@ export default {
     }),
     computed: {
         recentContacts() {
-            return this.contacts; 
+            return this.contacts;
         },
         favoriteContacts() {
             return this.contacts.filter(contact => contact.isFavorite);
@@ -59,11 +57,9 @@ export default {
             }
         },
         deleteContact(id) {
-            // siento que esto deberia estar en otro lugar...
-            // borrar de bd de favoritos  
             const index = this.contacts.findIndex(c => c.id === id);
             if (index !== -1) {
-                this.contacts.splice(index,1);
+                this.contacts.splice(index, 1);
             }
         }
     }

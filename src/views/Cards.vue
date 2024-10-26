@@ -4,20 +4,13 @@
 </template>
 
 <script>
-import CardsList from '@/components/cards/CardsList.vue';
-
-import { onMounted } from 'vue';
 import { useCardStore } from '@/stores/CardStore';
 
-export default{
+export default {
     data() {
-        return{
+        return {
             cardStore: useCardStore()
         }
     }
 }
-// onMounted(() => {
-//     cardStore.fetchCards();
-// });
 </script>
-

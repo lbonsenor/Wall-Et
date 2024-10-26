@@ -2,10 +2,11 @@
     <div class="card-list">
         <div class="d-flex justify-space-between align-center mb-4">
             <h1 class="title">Tarjetas</h1>
-            <v-btn class="link" @click="navigateToCards" elevation="0" variant="text" density="compact">Ver más ></v-btn>
+            <v-btn class="link" @click="navigateToCards" elevation="0" variant="text" density="compact">Ver más
+                ></v-btn>
         </div>
         <template v-for="(card, index) in displayedCards" :key="index">
-            <MiniCard v-bind="card"/>
+            <MiniCard v-bind="card" />
         </template>
     </div>
 </template>
@@ -13,7 +14,7 @@
 <script>
 import MiniCard from './MiniCard.vue';
 export default {
-    name: 'CardList', 
+    name: 'CardList',
     components: {
         MiniCard
     },
@@ -22,9 +23,9 @@ export default {
         cards: {
             type: Array,
             required: true
-        }, 
+        },
         displayCount: {
-            type: Number, 
+            type: Number,
             default: 5
         }
     },
@@ -44,7 +45,7 @@ export default {
 </script>
 
 <style scoped>
-.card-list { 
+.card-list {
     padding: 20px 20px 20px 20px;
     background-color: rgb(var(--v-theme-surface));
     border-radius: 20px 20px 120px 0;
@@ -56,7 +57,7 @@ export default {
 
 .link {
     color: rgb(var(--v-theme-details));
-    font-size:x-small;
+    font-size: x-small;
     padding: 0 12px 0 12px;
     align-self: center;
 }
