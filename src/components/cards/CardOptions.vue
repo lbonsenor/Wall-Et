@@ -23,8 +23,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue';
-import { useCardStore } from '@/stores/CardStore';
+import { ref } from 'vue';
 import RemoveCard from './RemoveCard.vue';
 import ModifyCard from './ModifyCard.vue';
 
@@ -37,84 +36,6 @@ const props = defineProps({
         required: true
     }
 });
-
-const cardStore = useCardStore();
-const showDeleteConfirmation = ref(false);
-const showModifyDialog = ref(false);
-
-const cardData = ref({
-    card_number: '',
-    card_owner: '',
-    card_expiry_date: '',
-    card_cvv: '',
-    card_type: ''
-});
-
-watch(() => showModifyDialog.value, (newValue) => {
-    if (newValue) {
-        const card = cardStore.cards.find(c => c.id === props.cardId);
-        if (card) {
-            cardData.value = {
-                ...card,
-                card_cvv: String(card.card_cvv)
-            };
-        }
-    }
-}, { immediate: true });
-
-const rules = {
-    card_expiry_date: value => {
-        if (!value) return 'Campo requerido';
-        const pattern = /^(0?[0-9]|1[0-2])\/[0-9]{2}$/;
-        return pattern.test(value) || 'Mes/Año Inválido';
-    },
-    card_number: value => {
-        if (!value) return 'Campo requerido';
-        const pattern = /^[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}$/;
-        return pattern.test(value.replace(/\s/g, '')) || 'Tarjeta Inválida';
-    },
-    card_cvv: value => {
-        if (!value) return 'Campo requerido';
-        const pattern = /^[0-9]{3}$/;
-        return pattern.test(value) || 'CVV Inválido';
-    }
-};
-
-watch(() => cardData.value.card_number, (newValue) => {
-    if (newValue) {
-        const cleaned = newValue.replace(/\s/g, '');
-        const formatted = cleaned.replace(/(\d{4})/g, '$1 ').trim();
-        cardData.value.card_number = formatted;
-    }
-});
-
-const isCardValid = computed(() => {
-    if (!cardData.value) return false;
-
-    const { card_number, card_expiry_date, card_cvv, card_owner } = cardData.value;
-    if (!card_number || !card_expiry_date || !card_cvv || !card_owner) return false;
-
-    return (
-        rules.card_number(card_number) === true &&
-        rules.card_expiry_date(card_expiry_date) === true &&
-        rules.card_cvv(card_cvv) === true &&
-        card_owner.trim() !== ''
-    );
-});
-
-function removeCard() {
-    cardStore.removeCard(props.cardId);
-    showDeleteConfirmation.value = false;
-}
-
-function handleModify() {
-    const updatedCard = {
-        ...cardData.value,
-        card_cvv: Number(cardData.value.card_cvv)
-    };
-    cardStore.modifyCard(props.cardId, updatedCard);
-    showModifyDialog.value = false;
-}
 
 const pauseCard = () => {
     alert("Pausar tarjeta");
