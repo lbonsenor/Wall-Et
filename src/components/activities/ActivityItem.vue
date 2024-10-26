@@ -3,9 +3,9 @@
     <v-row align="center" justify-lg="left" style="color:rgb(var(--v-theme-title));" no-gutters>
       <v-col cols="2" sm="1" md="auto" class="d-flex" :class="{
         'mr-0': smAndDown,
-        'mr-5': mdAndUp
+        'mr-2': mdAndUp
       }">
-        <v-avatar :size="smAndDown ? 40 : 40">
+        <v-avatar :size="smAndDown ? 40 : 40" class="mb-4">
           <v-img v-if="icon" :src="icon"></v-img>
           <v-icon v-else size="xxx-large">mdi-account-circle</v-icon>
         </v-avatar>
