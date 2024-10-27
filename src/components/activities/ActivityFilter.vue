@@ -4,6 +4,13 @@
             <v-text-field v-model="search" class="search-field mb-2" :loading="loading" prepend-inner-icon="mdi-magnify"
                 density="compact" label="Buscar" variant="outlined" hide-details flat rounded="xl" @input="onSearch"
                 clearable />
+                <div
+                class="flex-row justify-center d-md-flex d-lg-flex justify-md-space-between justify-lg-space-between align-center mt-4">
+                <v-btn class="mb-2 mr-2 flex-grow-1 flex-grow" flat variant="tonal" rounded="xl"
+                    @click="apply">Aplicar</v-btn>
+                <v-btn class="mb-2 mr-2 flex-grow-1 flex-grow" flat variant="tonal" rounded="xl"
+                    @click="cleanup">Limpiar</v-btn>
+            </div>
 
             <p class="title">Tipo de transferencia</p>
             <v-chip-group column selected-class="bg-primary" multiple v-model="selectedTransactionTypes">
@@ -39,13 +46,6 @@
                     :label="payment_method.label" class="custom-checkbox" />
             </template>
 
-            <div
-                class="flex-row justify-center d-md-flex d-lg-flex justify-md-space-between justify-lg-space-between align-center mt-4">
-                <v-btn class="mb-2 mr-2 flex-grow-1 flex-grow" flat variant="tonal" rounded="xl"
-                    @click="apply">Aplicar</v-btn>
-                <v-btn class="mb-2 mr-2 flex-grow-1 flex-grow" flat variant="tonal" rounded="xl"
-                    @click="cleanup">Limpiar</v-btn>
-            </div>
         </v-card-text>
     </v-card>
 </template>

@@ -23,9 +23,14 @@ export const useUserStore = defineStore('user', {
   },
 
   actions: {
-    signIn() {
-      this.isSignedIn = true;
-      this.user = walletApi.getUser();
+    signIn(username, password) {
+      if(username === 'lau.bonsenor' && password != undefined){
+        this.isSignedIn = true;
+        this.user = walletApi.getUser();
+        return true;
+      }
+      return false;
+
     },
 
     signOut() {
@@ -50,9 +55,12 @@ export const useUserStore = defineStore('user', {
       }
     },
 
-    register(userData) {
-      // TODO: Implement API call for registration
-      this.signOut();
+    register(email,username,password, passwordrepeat) {
+      if(email !== undefined && username!==undefined && password !== undefined && passwordrepeat !== undefined  
+          && password === passwordrepeat)
+      this.isSignedIn = true;
+        this.user = walletApi.getUser();
+        return true;
     }
   }
 })

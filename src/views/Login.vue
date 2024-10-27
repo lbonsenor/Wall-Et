@@ -20,9 +20,9 @@
     </div>
 
     <v-card class="mx-auto px-6 py-8" max-width="350" rounded="xl" v-if="selected === 'sesion'">
-      <v-text-field class="mb-2" variant="outlined" rounded="lg" placeholder="Nombre de usuario o email"
+      <v-text-field v-model="username" class="mb-2" variant="outlined" rounded="lg" placeholder="Nombre de usuario o email"
         persistent-placeholder hide-details hide-spin-buttons color="secondary" width="300px"></v-text-field>
-      <v-text-field class="mb-2" variant="outlined" rounded="lg" placeholder="Contraseña" persistent-placeholder
+      <v-text-field v-model="password" class="mb-2" variant="outlined" rounded="lg" placeholder="Contraseña" persistent-placeholder
         hide-details hide-spin-buttons color="secondary" width="300px"></v-text-field>
       <div class="d-flex justify-center mt-4">
         <v-btn value="register-button d-flex mx-auto" color="primary" width="40%" height=50
@@ -31,17 +31,17 @@
     </v-card>
 
     <v-card class="mx-auto px-6 py-8" max-width="350" rounded="xl" v-if="selected === 'registro'">
-      <v-text-field class="mb-2" variant="outlined" rounded="lg" placeholder="Email" persistent-placeholder hide-details
+      <v-text-field v-model="email" class="mb-2" variant="outlined" rounded="lg" placeholder="Email" persistent-placeholder hide-details
         hide-spin-buttons color="secondary" width="300px"></v-text-field>
-      <v-text-field class="mb-2" variant="outlined" rounded="lg" placeholder="Nombre de usuario" persistent-placeholder
+      <v-text-field v-model="username" class="mb-2" variant="outlined" rounded="lg" placeholder="Nombre de usuario" persistent-placeholder
         hide-details hide-spin-buttons color="secondary" width="300px"></v-text-field>
-      <v-text-field class="mb-2" variant="outlined" rounded="lg" placeholder="Contraseña" persistent-placeholder
+      <v-text-field v-model="password" class="mb-2" variant="outlined" rounded="lg" placeholder="Contraseña" persistent-placeholder
         hide-details hide-spin-buttons color="secondary" width="300px"></v-text-field>
-      <v-text-field class="mb-2" variant="outlined" rounded="lg" placeholder="Repita contraseña" persistent-placeholder
+      <v-text-field v-model="passwordrepeat" class="mb-2" variant="outlined" rounded="lg" placeholder="Repita contraseña" persistent-placeholder
         hide-details hide-spin-buttons color="secondary" width="300px"></v-text-field>
       <div class="d-flex justify-center mt-4">
         <v-btn value="register-button d-flex mx-auto" color="primary" width="40%" height=50
-          style="min-width: fit-content;" text="Registrarme" variant="outlined" rounded="xl" @click="signin"></v-btn>
+          style="min-width: fit-content;" text="Registrarme" variant="outlined" rounded="xl" @click="register" ></v-btn>
       </div>
     </v-card>
 
@@ -53,18 +53,34 @@
 
 <script>
 import { useUserStore } from '@/stores/UserStore';
+import { ref } from 'vue';
+
 export default {
   data() {
     return {
+      username: '',
+      password: '',
+      email: '',
+      passwordrepeat: '',
       selected: 'sesion', // Set default selected button -> later change to an input from parent component
       userStore: useUserStore(),
     };
   },
   methods: {
     signin() {
-      this.userStore.signIn();
+      console.log(this.username);
+      console.log(this.password);
+      if(!this.userStore.signIn(this.username,this.password)){
+
+      }
       const redirect = this.$router.currentRoute.value.query.redirect || '/inicio';
       this.$router.push(redirect);
+    },
+    register(){
+      if(this.userStore.register(this.email, this.username, this.password, this.passwordrepeat)) {
+      const redirect = this.$router.currentRoute.value.query.redirect || '/inicio';
+      this.$router.push(redirect);
+      }
     },
     returnLanding() {
       this.$router.push('/');
