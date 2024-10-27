@@ -8,7 +8,7 @@
 ## Instructivo de instalación
 1. Descargar el archivo y descomprimirlo.
 2. Descargar las dependencias vía *npm install*
-3. Instalar serve vía el *npm install -g serve*
+3. Instalar serve vía *npm install -g serve*
 4. Construir la página vía *npm run build*
 5. Correr la página localmente vía *server -s dist*
 
