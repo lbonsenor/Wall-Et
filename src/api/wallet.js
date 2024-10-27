@@ -133,7 +133,7 @@ const user = {
     dni: '44358712',
     avatar: null,
     cvu: '0000079800000000000000',
-    alias: 'lau.bonsenor.wallet'
+    alias: 'my.wallet'
 }
 
 function getCards() {
@@ -151,5 +151,11 @@ function getBalance() {
 function getUser() {
     return user;
 }
+function setNewUser(name, email,username){
+    user.name = name;
+    user.username = username;
+    user.email = email;
+    user.phone = undefined;
+}
 
-export default { getCards, getTransactions, getBalance, getUser }
+export default { getCards, getTransactions, getBalance, getUser ,setNewUser }

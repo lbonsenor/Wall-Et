@@ -30,7 +30,9 @@
       </div>
     </v-card>
 
-    <v-card class="mx-auto px-6 py-8" max-width="350" rounded="xl" v-if="selected === 'registro'">
+    <v-card class="mx-auto px-6 py-8" max-width="350" rounded="xl" v-if="selected === 'registro'" style="min-height: 450px;">
+      <v-text-field v-model="name" class="mb-2" variant="outlined" rounded="lg" placeholder="Nombre" persistent-placeholder hide-details
+        hide-spin-buttons color="secondary" width="300px"></v-text-field>
       <v-text-field v-model="email" class="mb-2" variant="outlined" rounded="lg" placeholder="Email" persistent-placeholder hide-details
         hide-spin-buttons color="secondary" width="300px"></v-text-field>
       <v-text-field v-model="username" class="mb-2" variant="outlined" rounded="lg" placeholder="Nombre de usuario" persistent-placeholder
@@ -48,6 +50,17 @@
     <div class="forgot-password-link" v-if="selected === 'sesion'">
       <a href="#" @click.prevent="forgotPassword">Olvidé mi contraseña</a>
     </div>
+
+    <v-dialog v-model="dialogVisible" max-width="400px">
+      <v-card>
+        <v-card-title class="headline">Error</v-card-title>
+        <v-card-text>{{ warningMessage }}</v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" @click="closeDialog">Aceptar</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -59,27 +72,35 @@ export default {
   data() {
     return {
       username: '',
+      name: '',
       password: '',
       email: '',
       passwordrepeat: '',
       selected: 'sesion', // Set default selected button -> later change to an input from parent component
       userStore: useUserStore(),
+      dialogVisible: false,
+      warningMessage: '',
     };
   },
   methods: {
     signin() {
-      console.log(this.username);
-      console.log(this.password);
       if(!this.userStore.signIn(this.username,this.password)){
-
+        this.warningMessage = "Los detalles de ingreso son incorrectos.";
+        this.dialogVisible = true;
+        this.clearFields();
       }
       const redirect = this.$router.currentRoute.value.query.redirect || '/inicio';
       this.$router.push(redirect);
     },
     register(){
-      if(this.userStore.register(this.email, this.username, this.password, this.passwordrepeat)) {
+      if(this.userStore.register(this.name, this.email, this.username, this.password, this.passwordrepeat)) {
       const redirect = this.$router.currentRoute.value.query.redirect || '/inicio';
       this.$router.push(redirect);
+      }
+      else{
+        this.warningMessage = "Los detalles de registro son incorrectos.";
+        this.dialogVisible = true;
+        this.clearFields();
       }
     },
     returnLanding() {
@@ -87,7 +108,18 @@ export default {
     },
     forgotPassword() {
       this.$router.push("/olvide-mi-contraseña");
-    }
+    },
+    closeDialog() {
+      this.dialogVisible = false;
+    },
+    clearFields() {
+      this.username = '';
+      this.name = '';
+      this.password = '';
+      this.email = '';
+      this.passwordrepeat = '';
+    },
+    
   }
 };
 </script>

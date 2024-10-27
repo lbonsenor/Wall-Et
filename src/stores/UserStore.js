@@ -55,12 +55,18 @@ export const useUserStore = defineStore('user', {
       }
     },
 
-    register(email,username,password, passwordrepeat) {
-      if(email !== undefined && username!==undefined && password !== undefined && passwordrepeat !== undefined  
-          && password === passwordrepeat)
-      this.isSignedIn = true;
+    register(name, email,username,password, passwordrepeat) {
+      if(name!== '' && email !== '' && username!=='' && password !== '' && passwordrepeat !== ''  
+        && password === passwordrepeat){
+        console.log("Hello");
+        this.isSignedIn = true;
+        walletApi.setNewUser(name, email,username);
         this.user = walletApi.getUser();
         return true;
+      }
+      else{
+      return false;
+      }
     }
   }
 })
