@@ -127,7 +127,7 @@ const balance = 175000.50;
 const user = {
     id: 1,
     name: 'Lautaro Bonseñor',
-    username: 'lau_bonsenor',
+    username: 'lau.bonsenor',
     email: 'lbonsenor@itba.edu.ar',
     phone: '+54 911 6447 3647',
     dni: '44358712',
