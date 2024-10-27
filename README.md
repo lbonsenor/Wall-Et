@@ -1,3 +1,10 @@
+# Grupo 21 - Wall-Et
+Integrantes:
+62872, Matías Leporini
+62842, Lautaro Bonseñor
+63382, Camila Lee
+63074, Ana Negre
+
 ## Instructivo de instalación
 1. Descargar el archivo y descomprimirlo.
 2. Descargar las dependencias vía npm install
