@@ -5,10 +5,11 @@
         <v-btn icon @click="toggleTheme">
             <v-icon color="white">{{ themeIcon }}</v-icon>
         </v-btn>
+        <v-btn class="login" v-if="!isSignedIn && route.path!='/login'" @click="goToLogin"> Ingresar </v-btn>
         <v-btn v-if="isSignedIn" color="white" icon class="mr-3" @click="notifications">
             <v-icon>mdi-bell</v-icon>
         </v-btn>
-        <v-btn v-if="isSignedIn" icon @click="navigateToAccount">
+        <v-btn v-if="isSignedIn && (route.path !== '/login')"  icon @click="navigateToAccount">
             <v-avatar color="info">
                 <v-img v-if="userStore.getUserAvatar !== 'mdi-account'" :src="userStore.getUserAvatar" />
                 <v-icon v-else>mdi-account</v-icon>
@@ -57,9 +58,11 @@ function toggleTheme() {
 function navigateToAccount() {
     router.push('/account')
 }
-
 const notifications = () => {
     alert("Notifications")
+}
+function goToLogin(){
+    router.push('/login');
 }
 </script>
 
@@ -71,5 +74,9 @@ const notifications = () => {
 .h1 {
     color: white;
     margin-left: 70px;
+}
+.login {
+    background-color: rgb(var(--v-theme-surface));
+    color: rgb(var(--v-theme-primary))
 }
 </style>
