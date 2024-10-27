@@ -20,30 +20,55 @@
     </div>
 
     <v-card class="mx-auto px-6 py-8" max-width="350" rounded="xl" v-if="selected === 'sesion'">
-      <v-text-field v-model="username" class="mb-2" variant="outlined" rounded="lg" placeholder="Nombre de usuario o email"
-        persistent-placeholder hide-details hide-spin-buttons color="secondary" width="300px"></v-text-field>
-      <v-text-field v-model="password" class="mb-2" variant="outlined" rounded="lg" placeholder="Contraseña" persistent-placeholder
-        hide-details hide-spin-buttons color="secondary" width="300px"></v-text-field>
+      <v-text-field v-model="username" class="mb-2" variant="outlined" rounded="lg"
+        placeholder="Nombre de usuario o email" persistent-placeholder :rules="[rules.required]" color="secondary"
+        width="300px">
+      </v-text-field>
+
+      <v-text-field v-model="password" class="mb-2" variant="outlined" rounded="lg" placeholder="Contraseña"
+        persistent-placeholder :rules="[rules.required]" color="secondary" :type="showPassword ? 'text' : 'password'"
+        :append-inner-icon="showPassword ? 'mdi-eye-off' : 'mdi-eye'" @click:append-inner="showPassword = !showPassword"
+        width="300px">
+      </v-text-field>
+
       <div class="d-flex justify-center mt-4">
         <v-btn value="register-button d-flex mx-auto" color="primary" width="40%" height=50
-          style="min-width: fit-content;" text="Ingresar" variant="outlined" rounded="xl" @click="signin"></v-btn>
+          style="min-width: fit-content;" text="Ingresar" variant="outlined" rounded="xl" @click="signin">
+        </v-btn>
       </div>
     </v-card>
 
-    <v-card class="mx-auto px-6 py-8" max-width="350" rounded="xl" v-if="selected === 'registro'" style="min-height: 450px;">
-      <v-text-field v-model="name" class="mb-2" variant="outlined" rounded="lg" placeholder="Nombre" persistent-placeholder hide-details
-        hide-spin-buttons color="secondary" width="300px"></v-text-field>
-      <v-text-field v-model="email" class="mb-2" variant="outlined" rounded="lg" placeholder="Email" persistent-placeholder hide-details
-        hide-spin-buttons color="secondary" width="300px"></v-text-field>
-      <v-text-field v-model="username" class="mb-2" variant="outlined" rounded="lg" placeholder="Nombre de usuario" persistent-placeholder
-        hide-details hide-spin-buttons color="secondary" width="300px"></v-text-field>
-      <v-text-field v-model="password" class="mb-2" variant="outlined" rounded="lg" placeholder="Contraseña" persistent-placeholder
-        hide-details hide-spin-buttons color="secondary" width="300px"></v-text-field>
-      <v-text-field v-model="passwordrepeat" class="mb-2" variant="outlined" rounded="lg" placeholder="Repita contraseña" persistent-placeholder
-        hide-details hide-spin-buttons color="secondary" width="300px"></v-text-field>
+    <v-card class="mx-auto px-6 py-8" max-width="350" rounded="xl" v-if="selected === 'registro'"
+      style="min-height: 450px;">
+      <v-text-field v-model="name" class="mb-2" variant="outlined" rounded="lg" placeholder="Nombre"
+        persistent-placeholder :rules="[rules.required]" color="secondary" width="300px">
+      </v-text-field>
+
+      <v-text-field v-model="email" class="mb-2" variant="outlined" rounded="lg" placeholder="Email"
+        persistent-placeholder :rules="[rules.required, rules.email]" color="secondary" width="300px">
+      </v-text-field>
+
+      <v-text-field v-model="username" class="mb-2" variant="outlined" rounded="lg" placeholder="Nombre de usuario"
+        persistent-placeholder :rules="[rules.required]" color="secondary" width="300px">
+      </v-text-field>
+
+      <v-text-field v-model="password" class="mb-2" variant="outlined" rounded="lg" placeholder="Contraseña"
+        persistent-placeholder :rules="[rules.required, rules.password]" color="secondary"
+        :type="showPassword ? 'text' : 'password'" :append-inner-icon="showPassword ? 'mdi-eye-off' : 'mdi-eye'"
+        @click:append-inner="showPassword = !showPassword" width="300px">
+      </v-text-field>
+
+      <v-text-field v-model="passwordrepeat" class="mb-2" variant="outlined" rounded="lg"
+        placeholder="Repita contraseña" persistent-placeholder :rules="[rules.required, rules.passwordMatch]"
+        color="secondary" :type="showPasswordRepeat ? 'text' : 'password'"
+        :append-inner-icon="showPasswordRepeat ? 'mdi-eye-off' : 'mdi-eye'"
+        @click:append-inner="showPasswordRepeat = !showPasswordRepeat" width="300px">
+      </v-text-field>
+
       <div class="d-flex justify-center mt-4">
         <v-btn value="register-button d-flex mx-auto" color="primary" width="40%" height=50
-          style="min-width: fit-content;" text="Registrarme" variant="outlined" rounded="xl" @click="register" ></v-btn>
+          style="min-width: fit-content;" text="Registrarme" variant="outlined" rounded="xl" @click="register">
+        </v-btn>
       </div>
     </v-card>
 
@@ -66,7 +91,6 @@
 
 <script>
 import { useUserStore } from '@/stores/UserStore';
-import { ref } from 'vue';
 
 export default {
   data() {
@@ -76,15 +100,40 @@ export default {
       password: '',
       email: '',
       passwordrepeat: '',
-      selected: 'sesion', // Set default selected button -> later change to an input from parent component
+      selected: 'sesion',
       userStore: useUserStore(),
       dialogVisible: false,
       warningMessage: '',
+      showPassword: false,
+      showPasswordRepeat: false,
+      rules: {
+        required: value => !!value || 'Campo requerido',
+        email: value => {
+          const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          return pattern.test(value) || 'Email inválido';
+        },
+        password: value => {
+          const hasMinLength = value.length >= 8;
+          const hasUpperCase = /[A-Z]/.test(value);
+          const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(value);
+
+          if (!hasMinLength) return 'La contraseña debe tener al menos 8 caracteres';
+          if (!hasUpperCase) return 'La contraseña debe tener al menos una mayúscula';
+          if (!hasSymbol) return 'La contraseña debe tener al menos un símbolo';
+          return true;
+        },
+        passwordMatch: value => value === this.password || 'Las contraseñas no coinciden'
+      }
     };
   },
   methods: {
     signin() {
-      if(!this.userStore.signIn(this.username,this.password)){
+      if (!this.username || !this.password) {
+        this.warningMessage = "Por favor, complete todos los campos.";
+        this.dialogVisible = true;
+        return;
+      }
+      if (!this.userStore.signIn(this.username, this.password)) {
         this.warningMessage = "Los detalles de ingreso son incorrectos.";
         this.dialogVisible = true;
         this.clearFields();
@@ -92,12 +141,27 @@ export default {
       const redirect = this.$router.currentRoute.value.query.redirect || '/inicio';
       this.$router.push(redirect);
     },
-    register(){
-      if(this.userStore.register(this.name, this.email, this.username, this.password, this.passwordrepeat)) {
-      const redirect = this.$router.currentRoute.value.query.redirect || '/inicio';
-      this.$router.push(redirect);
+    register() {
+      if (!this.name || !this.email || !this.username || !this.password || !this.passwordrepeat) {
+        this.warningMessage = "Por favor, complete todos los campos.";
+        this.dialogVisible = true;
+        return;
       }
-      else{
+      if (this.password !== this.passwordrepeat) {
+        this.warningMessage = "Las contraseñas no coinciden.";
+        this.dialogVisible = true;
+        return;
+      }
+      if (!this.rules.email(this.email) === true) {
+        this.warningMessage = "Email inválido.";
+        this.dialogVisible = true;
+        return;
+      }
+      if (this.userStore.register(this.name, this.email, this.username, this.password, this.passwordrepeat)) {
+        const redirect = this.$router.currentRoute.value.query.redirect || '/inicio';
+        this.$router.push(redirect);
+      }
+      else {
         this.warningMessage = "Los detalles de registro son incorrectos.";
         this.dialogVisible = true;
         this.clearFields();
@@ -119,7 +183,6 @@ export default {
       this.email = '';
       this.passwordrepeat = '';
     },
-    
   }
 };
 </script>
