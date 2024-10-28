@@ -10,7 +10,7 @@
 2. Descargar las dependencias vía ```npm install```
 3. Instalar serve vía ```npm install -g serve```
 4. Construir la página vía ```npm run build```
-5. Correr la página localmente vía ```server -s dist```
+5. Correr la página localmente vía ```serve -s dist```
 
 Por el otro lado, en caso de querer correr el proyecto locamente en modo developer con hot-reload, luego de hacer ```npm install```, correr ```npm run dev```.
 
